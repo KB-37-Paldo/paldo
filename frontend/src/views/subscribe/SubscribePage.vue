@@ -1,6 +1,7 @@
 <template>
   <div>
     <SubscribeItem/>
+    구독페이지
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <div>
     <BudgetItem/>
+    지출관리페이지
   </div>
 </template>
 

@@ -13,12 +13,21 @@ const router =  new Router({
     }
   },
   routes: [
-    // 예시
-    // {
-    //   path: '/',
-    //   name: 'AboutPage',
-    //   component: () => import('@/components/common/AboutPage.vue'),
-    // },
+    {
+      path: '/',
+      name: 'PortfolioPage',
+      component: () => import('@/views/portfolio/PortfolioPage.vue'),
+    },
+    {
+      path: '/budget',
+      name: 'BudgetPage',
+      component: () => import('@/views/budget/BudgetPage.vue'),
+    },
+    {
+      path: '/subscribe',
+      name: 'SubscribePage',
+      component: () => import('@/views/subscribe/SubscribePage.vue'),
+    },
   ],
 });
 
