@@ -4,13 +4,12 @@ import router from '@/routes/index';
 import store from '@/stores/index';
 import VueSweetalert2 from "vue-sweetalert2";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap-vue/dist/bootstrap-vue.css';
 import '@/css/index.css'
 import 'sweetalert2/dist/sweetalert2.min.css';
 
-import ChartPlugin from '@/plugins/ChartPlugin';
-Vue.use(ChartPlugin);
+
 
 Vue.config.productionTip = false
 
