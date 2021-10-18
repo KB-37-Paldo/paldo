@@ -1,10 +1,10 @@
-package com.kbbank.paldo;
+package com.paldo.servicediscorvery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PaldoApplicationTests {
+class ServiceDiscorveryApplicationTests {
 
     @Test
     void contextLoads() {
