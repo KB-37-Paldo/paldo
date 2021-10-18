@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <PortfolioPage/>
+    한나
     <BudgetPage/>
     <SubscribePage/>
   </div>

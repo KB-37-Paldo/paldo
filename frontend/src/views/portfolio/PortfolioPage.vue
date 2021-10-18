@@ -1,6 +1,7 @@
 <template>
   <div>
     <PortfolioItem/>
+    포트폴리오페이지
   </div>
 </template>
 
