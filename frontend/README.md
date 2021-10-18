@@ -10,14 +10,9 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
 ### sass연동
 - VSCode `Sass`와 `live Sass` extension을 설치합니다.
-- .vscode폴더에서 `settings.json`파일에서 아래의 코드를 복붙합니다.
+- `.vscode`폴더에서 `settings.json`파일에서 아래의 코드를 복붙합니다.
 ```json
 {
   "liveSassCompile.settings.formats": [
@@ -52,7 +47,13 @@ npm run build
 
 
 
+### Compiles and minifies for production
 
+```
+npm run build
+```
+
+### 
 
 ### Lints and fixes files
 

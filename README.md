@@ -1,6 +1,10 @@
 # README
 
-## 전국구팀 "머니마니" 서비스
+> [1. 전국구팀 머니마니 서비스](#1.-전국구팀-"머니마니"-서비스)
+>
+> [2. Git](#2.-Git)
+
+## 1. 전국구팀 "머니마니" 서비스
 
 1. 서비스 목표
    - 자산관리를 하고 싶은 고객을 위해, 고객에게 맞는 솔루션을 제공해주어, 자산축적에 효율성을 향상시킴
@@ -33,3 +37,44 @@
 
 
 
+## 2. Git
+
+1. `git clone`
+
+```sh
+$ git clone https://github.com/KB-37-Paldo/paldo.git
+```
+
+2. 현재 `develop` 브랜치가 `default` 브랜치입니다.
+3. 각 기능을 개발할 때는 `feature` 브랜치를 생성해 바로 이동 됩니다.
+
+```sh
+$ git checkout -b fe(or be)/feature/(기능이름)
+```
+
+4. 해당 브랜치에서 개발을 완료한 후 push합니다.
+
+```sh
+$ git add .
+$ git commit -m'커밋메세지(해당 개발 코드가 어떤 코드인지 영어로 적기)'
+$ git push origin 브랜치이름적기
+```
+
+5. github에 가서 `Pull  requests`에 들어가 초록색 버튼 `merge conflict`를 누르고 develop에 머지를 합니다.
+   - `Compare & pull request` -> `Create pull request` -> `Merge pull request` -> `Confirm merge`
+
+![image-20211018151706188](README.assets/image-20211018151706188.png)
+
+![image-20211018151719069](README.assets/image-20211018151719069.png)
+
+![image-20211018151735083](README.assets/image-20211018151735083.png)
+
+![image-20211018151744668](README.assets/image-20211018151744668.png)
+
+6. develop branch로 넘어가 pull 받고 개발을 완료한 브랜치를 지웁니다.
+
+```sh
+$ git checkout develop
+$ git pull origin develop # 변경사항 동기화
+$ git branch -d 개발완료한 브랜치 이름
+```
