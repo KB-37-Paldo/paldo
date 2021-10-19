@@ -14,15 +14,20 @@
           생성하시겠습니까?
         </span>
       </div>
-      <div>
-        <span>
+      <div class="mt__ten mb__five">
+        <span class=" mb__five title__font">
           네, 만들래요!
         </span>
-        <span>
-          <i class="fas fa-arrow-circle-right"></i>
+        <span class="color__yellow button__right">
+          <i class="fas fa-arrow-alt-circle-right"></i>
         </span>
-        <span>
+      </div>
+      <div>
+        <span class="title__font">
           다음에 하겠습니다.
+        </span>
+        <span class="color__gray button__right">
+          <i class="fas fa-times-circle"></i>
         </span>
       </div>
     </template>
