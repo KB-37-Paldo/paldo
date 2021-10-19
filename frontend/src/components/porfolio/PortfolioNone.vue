@@ -12,7 +12,7 @@
         <span class=" mb__five title__font">
           네, 만들래요!
         </span>
-        <span class="color__yellow button__right pointer"
+        <span class="color__yellow right pointer"
         @click="createPort"
         >
           <i class="fas fa-arrow-alt-circle-right"></i>
@@ -22,7 +22,7 @@
         <span class="title__font">
           다음에 하겠습니다.
         </span>
-        <span class="color__gray button__right pointer">
+        <span class="color__gray right pointer">
           <i class="fas fa-times-circle"></i>
         </span>
       </div>
