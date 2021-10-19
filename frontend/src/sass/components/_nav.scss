@@ -114,6 +114,18 @@
     list-style: none;
     width: 100%;
     text-align: center;
+
+    & .active {
+      color: $main-color-darkgray;
+      background: $color-white;
+      border-left-color: $main-color-darkyellow;
+      i,svg {
+        color: $main-color-darkgray;
+      }
+      & a {
+        color: $main-color-darkgray;
+      }
+    }
   }
 
   &-item {
