@@ -6,11 +6,22 @@ import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 import VueSweetalert2 from "vue-sweetalert2";
+import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+//fontAwsom
+// far
+// import { faArrowLeft } from "@fortawesome/free-regular-svg-icons";
+// fas
+import { faArrowLeft, faWallet, faDollarSign, faCalendarAlt, faCompass, faArrowAltCircleRight, faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap-vue/dist/bootstrap-vue.css';
 import "@/css/index.css";
 import "sweetalert2/dist/sweetalert2.min.css";
+
+import ChartPlugin from '@/plugins/ChartPlugin';
+Vue.use(ChartPlugin);
+
 
 Vue.config.productionTip = false;
 
@@ -23,6 +34,9 @@ const options = {
 Vue.use(VueSweetalert2, options);
 Vue.use(Vuetify);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
+
+library.add(faArrowLeft, faWallet, faDollarSign, faCalendarAlt, faCompass, faArrowAltCircleRight, faTimesCircle) //fas lib
+// library.add() //far lib
 
 // Vue.use(BootstrapVue);
 
