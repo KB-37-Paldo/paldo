@@ -2,14 +2,16 @@
     <div>
         <div>
             <div>
-                <span>지출 </span>
-                <span>600,000원</span>
+                <span style="font-size: 25px">지출 </span>
+                <span style="font-size: 30px">600,000원</span>
             </div>
             <div>
-                <span>수입 </span>
-                <span>100,000원</span>
+                <span style="font-size: 25px">수입 </span>
+                <span style="font-size: 30px">100,000원</span>
             </div>
-            <v-btn elevation="2">분석</v-btn>
+            <div class="anaysis-button-section">
+                <v-btn style="background-color: rgb(253,185,19); color: white;" elevation="2">분석</v-btn>
+            </div>
         </div>
         <br>
     </div>

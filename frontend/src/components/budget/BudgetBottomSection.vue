@@ -1,21 +1,24 @@
 <template>
     <div>
-        <span>한 달 예산</span>
         <div>
-            390,000원 남음
+            <span style="font-size: 25px">한 달 예산</span>
         </div>
-        <v-btn elevation="2">예산 설정</v-btn>
-        <vue-gauge :refid="'type-unique-id'" :option="{'needleValue': 30, 'arcDelimiters': 99}"></vue-gauge>
+        <div>
+            <span style="font-size: 30px">390,000원 남음</span>
+        </div>
+        <div class="budget-setting-button-section">
+            <v-btn style="background-color: rgb(253,185,19); color: white;" elevation="2">예산 설정</v-btn>
+        </div>
     </div>
 </template>
 
 <script>
-import VueGauge from 'vue-gauge';
-  export default {
-      components: {VueGauge}
-  }
 </script>
 
 <style>
-
+.budget-setting-button-section {
+  position: relative;
+  left: 252px;
+  bottom: 60px;
+}
 </style>
