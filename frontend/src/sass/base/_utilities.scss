@@ -35,6 +35,11 @@
     padding-bottom: 500px;
   }
 }
+.p {
+  &__zero {
+    padding: 0;
+  }
+}
 
 .color {
   &__yellow {
@@ -44,4 +49,8 @@
   &__gray {
     color: $main-color-darkgray;
   }
+}
+
+.pointer {
+  cursor: pointer;
 }

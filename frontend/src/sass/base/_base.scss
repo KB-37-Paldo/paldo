@@ -2,7 +2,7 @@ html {
   font-family: hanna;
   max-width: 375px;
   height: 812px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 #app {
@@ -10,6 +10,7 @@ html {
   word-break: break-all;
   max-width: 375px;
   margin: 0 auto;
+  padding: 0;
   height: 812px;
   overflow-y: scroll;
   background-color: beige;
