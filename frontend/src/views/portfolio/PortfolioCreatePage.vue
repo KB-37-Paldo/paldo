@@ -23,6 +23,17 @@
       <span class="title__font">월소득</span>
       <span class="title__font right">{{userInfo.userIncome}}원</span>
     </div>
+    <div class="mt__ten">
+      <span class="title__font">다음으로 넘어가기</span>
+      <span class="color__yellow right pointer"
+        @click="createPort"
+        >
+          <i class="fas fa-arrow-alt-circle-right"></i>
+        </span>
+    </div>
+    <div class="color__yellow">
+      <meter class="meter color__yellow w-100" min="0" max="4" value="1"></meter>
+    </div>
   </div>
 </template>
 

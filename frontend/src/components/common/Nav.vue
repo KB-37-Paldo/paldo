@@ -19,7 +19,7 @@
         :class="[toActive === 'BudgetPage'? 'active' : '']"
         >
           <a @click="goPage('BudgetPage')" class="nav-link">
-            <span><i class="fas fa-car"></i></span>지출관리
+            <span><i class="fas fa-dollar-sign"></i></span>지출관리
           </a>
         </li>
         <li class="nav-item"
@@ -27,14 +27,14 @@
         >
           <a class="nav-link"
           @click="goPage('SubscribePage')">
-            <span><i class="fas fa-car"></i></span>구독
+            <span><i class="fas fa-calendar-alt"></i></span>구독
           </a>
         </li>
         <li class="nav-item"
         :class="[toActive === 'RecommendPage'? 'active' : '']"
         >
           <a class="nav-link">
-            <span><i class="fas fa-car"></i></span>금융상품추천
+            <span><i class="fas fa-compass"></i></span>금융상품추천
           </a>
         </li>
       </ul>
