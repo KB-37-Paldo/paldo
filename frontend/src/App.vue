@@ -3,9 +3,6 @@
     <div class='nav-section'>
     <Nav v-if="isShow" />
     </div>
-    <router-link :to="{name:'PortfolioPage'}">포트폴리오</router-link>
-    <router-link :to="{name:'BudgetPage'}">지출관리</router-link>
-    <router-link :to="{name:'SubscribePage'}">구독</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -26,11 +23,11 @@ export default {
   },
   watch: {
     $route() {
-      if (this.$route.name !== "AboutPage") {
-        this.isShow = true;
-      } else {
-        this.isShow = false;
-      }
+      // if (this.$route.name !== "AboutPage") {
+      //   this.isShow = true;
+      // } else {
+      //   this.isShow = false;
+      // }
     }
   },
   methods: {

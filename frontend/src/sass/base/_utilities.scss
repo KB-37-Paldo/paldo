@@ -1,0 +1,37 @@
+.right-sort {
+  text-align: right;
+}
+
+.block {
+  display: block !important;
+}
+
+.mt {
+  &__ten {
+    margin-top: 10vh;
+  }
+}
+
+.ml {
+  margin-left: 10%;
+
+  &__five{
+    margin-left: 5%;
+  }
+}
+
+.mr {
+  margin-right: 5px;
+}
+
+.mb {
+  &__five {
+    margin-bottom: 5%;
+  }
+}
+
+.pb {
+  &__five {
+    padding-bottom: 500px;
+  }
+}

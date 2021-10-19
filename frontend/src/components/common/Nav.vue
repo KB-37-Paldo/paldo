@@ -7,23 +7,33 @@
     <div class="nav-bg">&nbsp;</div>
     <div class="nav-body">
       <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link">
+        <li class="nav-item"
+        :class="[toActive === 'PortfolioPage'? 'active' : '']"
+        >
+          <a class="nav-link"
+          @click="goPage('PortfolioPage')">
             <span><i class="fas fa-search"></i></span>포트폴리오
           </a>
         </li>
-        <li class="nav-item">
-          <a href="" class="nav-link">
+        <li class="nav-item"
+        :class="[toActive === 'BudgetPage'? 'active' : '']"
+        >
+          <a @click="goPage('BudgetPage')" class="nav-link">
             <span><i class="fas fa-car"></i></span>지출관리
           </a>
         </li>
-        <li class="nav-item">
-          <a href="" class="nav-link">
-            <span><i class="fas fa-car"></i></span>구독관리
+        <li class="nav-item"
+        :class="[toActive === 'SubscribePage'? 'active' : '']"
+        >
+          <a class="nav-link"
+          @click="goPage('SubscribePage')">
+            <span><i class="fas fa-car"></i></span>구독
           </a>
         </li>
-        <li class="nav-item">
-          <a href="" class="nav-link">
+        <li class="nav-item"
+        :class="[toActive === 'RecommendPage'? 'active' : '']"
+        >
+          <a class="nav-link">
             <span><i class="fas fa-car"></i></span>금융상품추천
           </a>
         </li>
@@ -34,15 +44,29 @@
 
 <script>
 export default {
-  computed: {
-    isShow() {
-      if (this.$route.name !== "Main") {
-        return false;
-      }
-      return true;
+  data() {
+    return {
+			fromActive:"",
+			toActive:""
     }
   },
+  watch: {
+    $route(to,from) {
+			this.fromActive = from.name;
+			this.toActive = to.name;
+      console.log(this.fromActive, this.toActive)
+		}
+  },
+  computed: {
+  },
   methods: {
+    goPage(idName) {
+        this.$router.push({
+          name: idName,
+        });
+      const bg = document.querySelector(".nav-checkbox");
+      bg.checked = false;
+    },
   }
 }
 </script>
