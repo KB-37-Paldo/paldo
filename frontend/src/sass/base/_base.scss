@@ -3,14 +3,17 @@ html {
 }
 
 #app {
+  font-size: 40px;
   word-break: break-all;
   max-width: 375px;
   max-width: 375px;
   margin: 0 auto;
   height: 812px;
   overflow-y: scroll;
-  background-color: $main-color-yellow;
+  background-color: beige;
 }
+
+// 살짝 옆에서 나오는 효과
 //   .wrapper > .view-main-contents {
 
 //     -webkit-animation: transformView 0.4s ease-out both;
@@ -24,3 +27,4 @@ html {
 //       transform: translateX(40px) translate(40px);
 //     }
 //   }
+
