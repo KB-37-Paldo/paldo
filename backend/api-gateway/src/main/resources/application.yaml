@@ -21,14 +21,20 @@ spring:
           uri: lb://PORTFOLIO-SERVICE
           predicates:
             - Path=/portfolio-service/**
+          filters:
+            - RewritePath=/portfolio-service/(?<segment>.*), /$\{segment}
         - id: budget-service
           uri: lb://BUDGET-SERVICE
           predicates:
             - Path=/budget-service/**
+          filters:
+            - RewritePath=/budget-service/(?<segment>.*), /$\{segment}
         - id: subscribe-service
           uri: lb://SUBSCRIBE-SERVICE
           predicates:
             - Path=/subscribe-service/**
+          filters:
+            - RewritePath=/subscribe-service/(?<segment>.*), /$\{segment}
 
 
 management:
