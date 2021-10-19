@@ -1,11 +1,13 @@
 html {
   font-family: hanna;
+  max-width: 375px;
+  height: 812px;
+  margin: 0 auto;
 }
 
 #app {
   font-size: 40px;
   word-break: break-all;
-  max-width: 375px;
   max-width: 375px;
   margin: 0 auto;
   height: 812px;
@@ -27,4 +29,3 @@ html {
 //       transform: translateX(40px) translate(40px);
 //     }
 //   }
-
