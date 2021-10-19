@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="scroll">
     <Nav v-if="isShow" />
     <router-link :to="{name:'PortfolioPage'}">포트폴리오</router-link> |
     <router-link :to="{name:'BudgetPage'}">지출관리</router-link> |
