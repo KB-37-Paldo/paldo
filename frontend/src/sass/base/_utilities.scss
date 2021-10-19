@@ -35,3 +35,13 @@
     padding-bottom: 500px;
   }
 }
+
+.color {
+  &__yellow {
+    color: $main-color-darkyellow;
+  }
+
+  &__gray {
+    color: $main-color-darkgray;
+  }
+}

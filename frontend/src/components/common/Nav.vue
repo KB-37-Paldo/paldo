@@ -12,7 +12,7 @@
         >
           <a class="nav-link"
           @click="goPage('PortfolioPage')">
-            <span><i class="fas fa-search"></i></span>포트폴리오
+            <span><i class="fas fa-wallet"></i></span>포트폴리오
           </a>
         </li>
         <li class="nav-item"
