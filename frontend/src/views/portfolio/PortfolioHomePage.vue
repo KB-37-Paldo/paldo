@@ -17,7 +17,7 @@ import PortfolioNone from '../../components/porfolio/PortfolioNone.vue'
 export default {
   data() {
     return {
-      isPort : false
+      isPort : true
     }
   },
   components: { PortfolioItem,PortfolioNone },
