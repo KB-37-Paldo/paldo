@@ -515,7 +515,8 @@ html {
 }
 
 .portfolio__sidebar {
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   left: 0;
   right: 0;
   bottom: 10px;
