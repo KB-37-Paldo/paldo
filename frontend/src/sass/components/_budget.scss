@@ -14,6 +14,7 @@
   position: relative;
   left: 252px;
   bottom: 60px;
+  display: inline;
 }
 
 // .analysis-button {
@@ -61,4 +62,27 @@
 .category-floating-right {
   display: inline-block;
   float: right;
+}
+
+.edit-icon {
+  padding-left: 7px;
+  cursor: pointer;
+}
+
+.setting-text-area {
+  width: 100px;
+  padding: 0 0 0 0;
+}
+
+.main-setting {
+  padding-top: 30px;
+}
+
+.padding-text-area {
+  padding-top: 13px;
+}
+
+.setting-button {
+  width: 100%;
+  background-color: $main-color-yellow;
 }
