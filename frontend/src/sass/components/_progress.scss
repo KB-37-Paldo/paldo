@@ -3,15 +3,9 @@
   &::-webkit-meter-bar {
     background: #eee;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
-    border-radius: 3px;
+    border-radius: px;
   }
   &::-webkit-meter-optimum-value {
-    background: $main-color-darkyellow /* Green */
+    background: $main-color-darkyellow
   }
-  &::-webkit-meter-bar {background: #e6e6e9;}
-
-  &::-webkit-meter-suboptimum-value{background:brown;}
-
-  &::-webkit-meter-even-less-good-value{background:darkmagenta;}
-
 }

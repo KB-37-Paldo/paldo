@@ -1,4 +1,9 @@
 .title__font {
-  font-size: 90%;
   letter-spacing: 2px;
+  font-size: 90%;
+  
+  &__little {
+    font-size: 90%;
+  }
+
 }
