@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paldo-fe
+  labels:
+    app: paldo-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paldo-fe
+  template:
+    metadata:
+      labels:
+        app: paldo-fe
+    spec:
+      containers:
+      - name: paldo-fe
+        image: xlalfskdl/paldo-fe:dev
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+        - name: PORTFOLIO_SERVICE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: paldo-fe-config
+              key: PORTFOLIO_SERVICE_URL
