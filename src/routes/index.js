@@ -24,6 +24,11 @@ const router = new Router({
       component: () => import("@/views/portfolio/PortfolioCreatePage.vue"),
     },
     {
+      path: "/spending",
+      name: "SpendingPage",
+      component: () => import("@/views/budget/SpendingPage.vue"),
+    },
+    {
       path: "/budget",
       name: "BudgetPage",
       component: () => import("@/views/budget/BudgetPage.vue"),

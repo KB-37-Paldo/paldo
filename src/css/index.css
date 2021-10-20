@@ -463,6 +463,57 @@ html {
   background-color: #fdb913;
 }
 
+.budget__sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  height: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 35px;
+  width: 100%;
+}
+
+.budget__sidebar__div {
+  background-color: lightgray;
+  border-radius: 30px;
+  height: 35px;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.budget__sidebar__item {
+  font-size: 20px;
+  height: 20px;
+  width: 80px;
+  border-radius: 40px;
+  text-align: center;
+  color: #645b4c;
+}
+
+.budget__sidebar__item:hover, .budget__sidebar__item.active {
+  background-color: #645b4c;
+  color: #ffffff;
+}
+
 .portfolio__sidebar {
   position: fixed;
   left: 0;
