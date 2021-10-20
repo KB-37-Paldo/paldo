@@ -4,6 +4,7 @@ node_modules
 
 # css폴더 잠시 ignore
 /src/css
+*.css
 
 # local env files
 .env.local
