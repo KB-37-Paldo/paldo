@@ -1,7 +1,7 @@
 .title__font {
   letter-spacing: 2px;
   font-size: 90%;
-  
+
   &__little {
     font-size: 90%;
   }
@@ -9,4 +9,19 @@
 
 .context__font {
   font-size: 80%;
+}
+.category__font {
+  font-size: 18px;
+}
+
+.sub__font {
+  font-size: 25px;
+}
+
+.mini__font {
+  font-size: 15px;
+}
+
+.micro__font {
+  font-size: 8px;
 }

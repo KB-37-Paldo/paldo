@@ -10,13 +10,15 @@
   bottom: 60px;
 }
 
-// .budget-setting-button-section {
-//   position: relative;
-//   left: 252px;
-//   bottom: 60px;
-// }
+.budget-setting-button-section {
+  position: relative;
+  left: 252px;
+  bottom: 60px;
+}
 
-// .anaysis-button {
+// .analysis-button {
+//   background-color: rgb(253, 185, 19);
+//   color: white;
 // }
 
 // .budget-setting-button {
@@ -25,8 +27,38 @@
 //   color: white;
 // }
 
-.mini-font {
-  font-size: 15px;
+.mini-font-section {
+  margin-top: 5px;
   position: relative;
   left: 218px;
+}
+
+.svg-inline--fa {
+  color: $main-color-yellow;
+}
+
+.category-section {
+  padding-top: 20px;
+}
+
+.category-start-section {
+  padding-bottom: 10px;
+}
+
+.category {
+  padding-bottom: 8px;
+}
+
+.category-icon-section {
+  display: inline-block;
+  width: 23px;
+}
+
+.category-budget {
+  display: inline-block;
+}
+
+.category-floating-right {
+  display: inline-block;
+  float: right;
 }
