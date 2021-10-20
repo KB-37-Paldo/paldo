@@ -26,6 +26,9 @@
 
 .mr {
   margin-right: 5px;
+  &__ten {
+    margin-right: 10%;
+  }
 }
 
 .mb {
@@ -70,6 +73,10 @@
 .right {
   float:right;
   right:10%
+}
+
+.center {
+  text-align: center;
 }
 
 .w {

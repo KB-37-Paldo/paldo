@@ -8,6 +8,10 @@
         현재 자산 포트폴리오
       </span>
       <PortfolioChart/>
+      <span class="block mt__five">
+        추천 자산 포트폴리오
+      </span>
+      <PortfolioChart/>
     </div>
   </div>
 </template>
