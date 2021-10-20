@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: paldo-fe-config
+data:
+  # api url
+  PORTFOLIO_SERVICE_URL: portfolio-service
