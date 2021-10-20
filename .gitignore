@@ -3,7 +3,7 @@ node_modules
 /dist
 
 # css폴더 잠시 ignore
-/src/css
+# /src/css
 
 # local env files
 .env.local
