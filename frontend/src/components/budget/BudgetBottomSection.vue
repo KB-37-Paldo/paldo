@@ -10,17 +10,26 @@
             <v-btn style="background-color: rgb(253,185,19); color: white;" elevation="2">예산 설정</v-btn>
         </div>
 
-         <div style="background-color: red">
-            Chart Section
+        <div class="total-budget-chart-section">
+            <div class="color__yellow">
+                <meter class="meter w-100" min="0" max="1000000" :value="610000"></meter>
+            </div>
         </div>
-        <div>
-            <span style="font-size: 15px; position: relative; left: 218px;">총 예산 1,000,000원</span>
+        <div class="mini-font-section mini__font">
+            <span>총 예산 1,000,000원</span><br>
+            <span>남은 예산 390,000원</span>
         </div>
+        <BudgetCategory/>
     </div>
 </template>
 
 <script>
+import BudgetCategory from '@/components/budget/BudgetCategory.vue'
+
  export default {
+     components:{
+         BudgetCategory
+     }
 //      data() {
 //          return {
 //              chartData : [2],
@@ -75,10 +84,6 @@
 
 
 
-<style scoped>
-.budget-setting-button-section {
-  position: relative;
-  left: 252px;
-  bottom: 60px;
-}
+<style>
+
 </style>
