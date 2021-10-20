@@ -10,6 +10,10 @@
   &__ten {
     margin-top: 10vh;
   }
+
+  &__five {
+    margin-top: 5%;
+  }
 }
 
 .ml {
@@ -27,6 +31,14 @@
 .mb {
   &__five {
     margin-bottom: 5%;
+  }
+
+  &__five__vh {
+    margin-bottom: 5vh;
+  }
+
+  &__ten {
+    margin-bottom: 10vh;
   }
 }
 

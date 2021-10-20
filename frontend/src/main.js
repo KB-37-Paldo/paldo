@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 //fontAwsom
 // far
-// import { faArrowLeft } from "@fortawesome/free-regular-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 // fas
 import { faArrowLeft, faWallet, faDollarSign, faCalendarAlt, faCompass, faArrowAltCircleRight, faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,7 +36,7 @@ Vue.use(Vuetify);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 library.add(faArrowLeft, faWallet, faDollarSign, faCalendarAlt, faCompass, faArrowAltCircleRight, faTimesCircle) //fas lib
-// library.add() //far lib
+library.add(faCheckCircle) //far lib
 
 // Vue.use(BootstrapVue);
 
