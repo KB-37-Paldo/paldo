@@ -104,6 +104,10 @@ html {
   margin-top: 5%;
 }
 
+.mt__minusTen {
+  margin-top: -10px;
+}
+
 .ml {
   margin-left: 10%;
 }
@@ -154,6 +158,10 @@ html {
 
 .color__gray {
   color: #645b4c;
+}
+
+.color__gray__light {
+  color: #E2E2E2;
 }
 
 .bgColor__lightgray {
@@ -498,18 +506,7 @@ html {
   color: gray;
 }
 
-.spending-icon-padding {
-  padding-right: 10px;
-  position: relative;
-  bottom: 20px;
-}
 
-.search-field {
-  padding-left: 5px;
-  position: relative;
-  top: 67px;
-  padding-bottom: 20px;
-}
 
 .budget__sidebar {
   position: -webkit-sticky;
@@ -617,6 +614,30 @@ html {
   background-color: #ffffff;
   padding: 30px 0 30px 10px;
   margin-top: 10px;
+}
+
+.portfolio__share {
+  background-color: #ffffff;
+  padding: 30px 0;
+  margin-top: 10px;
+}
+
+.assetType {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.recommendType {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .meter {

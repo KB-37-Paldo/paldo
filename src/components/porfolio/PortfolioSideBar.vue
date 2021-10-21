@@ -2,10 +2,10 @@
   <div class="mt__ten center pointer portfolio__sidebar">
     <div class="portfolio__sidebar__div">
       <div class="mr__ten portfolio__sidebar__item" @click="goPortHome" :class="[toActive === 'PortfolioPage'? 'active' : '']">조회</div>
-      <div class="mr__ten portfolio__sidebar__item" @click="goProductRecom" :class="[toActive === 'PortfolioPage'? 'active' : '']">추천</div>
+      <div class="mr__ten portfolio__sidebar__item" @click="goProductRecom" :class="[toActive === 'PortfolioRecommendPage'? 'active' : '']">추천</div>
       <div
       class="portfolio__sidebar__item"
-      @click="goPortShare" :class="[toActive === 'PortfolioPage'? 'active' : '']">공유</div>
+      @click="goPortShare" :class="[toActive === 'PortfolioSharePage'? 'active' : '']">공유</div>
     </div>
   </div>
 </template>
@@ -33,15 +33,13 @@ export default {
       })
     },
     goProductRecom() {
-      this.$swal('잠시생성으로바꿈')
       this.$router.push({
-        name:'PortfolioCreatePage'
+        name:'PortfolioRecommendPage'
       })
     },
     goPortShare() {
-      this.$swal('아직안만들었어용')
       this.$router.push({
-        name:'PortfolioPage'
+        name:'PortfolioSharePage'
       })
     }
   }

@@ -1,15 +1,20 @@
 <template>
   <div class="portfolio__div">
-    <div>
+    <div class="assetType">
       <span class="sub__font">
         {{assetName}}
       </span>
-      <span class="mini__font">
-        {{assetTotal}}
+      <span class="mini__font color__gray__light">
+        {{assetTotal}}원
       </span>
     </div>
-    <div v-for="(asset,index) in assetInfo" :key="index">
+    <div v-for="(asset,index) in assetInfo" :key="index" class="assetType mt__five">
+      <span class="sub__font">
       {{asset.type}}
+      </span>
+      <span class="sub__font color__gray">
+      {{asset.amount}}
+      </span>
     </div>
   </div>
 </template>
@@ -40,6 +45,12 @@ export default {
         this.assetName = '부동산'
       } else if (this.assetType == 'realAssets') {
         this.assetName = '실물자산'
+      }
+      this.assetTotal = 0;
+      for (let i = 0; i < this.assetInfo.length; i++) {
+        const amount = this.assetInfo[i].amount;
+        this.assetTotal += amount;
+        
       }
     }
   }

@@ -16,7 +16,7 @@ podTemplate(
     label: label, 
     containers: [
         //container image는 docker search 명령 이용
-        containerTemplate(name: 'maven', image: 'maven:3.3.9-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
+        containerTemplate(name: 'node', image: 'node:lts-alpine as build-stage', ttyEnabled: true, command: 'cat'),
         containerTemplate(name: "docker", image: "docker:latest", ttyEnabled: true, command: "cat"),
         containerTemplate(name: "kubectl", image: "lachlanevenson/k8s-kubectl", command: "cat", ttyEnabled: true),
         containerTemplate(name: "scanner", image: "newtmitch/sonar-scanner", ttyEnabled: true, command: "cat")
@@ -39,7 +39,7 @@ podTemplate(
             // Javascript based on Node.js
             //git branch: 'main', url: 'https://github.com/happykube/hellonode.git'
             // Java based on Spring Boot, branch : msa
-            git branch: 'develop', url: 'https://github.com/KB-37-Paldo/paldo_BE_portfolio.git'
+            git branch: 'develop', url: 'https://github.com/KB-37-Paldo/paldo_FE.git'
         } 
         //-- 환경변수 파일 읽어서 변수값 셋팅 
         String stageName = ""
@@ -64,7 +64,7 @@ podTemplate(
         def selector_val = props["selector_val"]
         def namespace = props["namespace"] 
         try {
-                stageName = "Build maven project"
+            stageName = "Build vue project"
             // Build Source from Repository in gitlab
             stage(stageName) {
                 echo "**** START : " + stageName
@@ -73,11 +73,13 @@ podTemplate(
                 echo "baseDir : ${baseDir}"
                 echo "baseDeployDir : ${baseDeployDir}"
                 sh "ls -al"
-                container('maven') {
-                        sh "mvn -B -f ${baseDir} clean package"
+                container('node') {
+                        sh "cd ./app"
+                        sh "npm run build"
                         echo "*** RESULT ***"
                         sh "pwd"
-                        sh "ls -al ${baseDir}/target"
+                        sh "ls -al ${baseDir}/dist"
+                        sh "cd .."
                 }
             }
             // Code Inspection
