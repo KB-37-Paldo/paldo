@@ -18,7 +18,7 @@
     </div>
     <div class="bgColor__lightgray">
       <div v-for="(product,index) in recommendList" :key="index">
-        <PortfolioFinanceRecommend :productInfo="product"/>
+        <PortfolioFinanceRecommend :productInfo="product" :productType="productTypeList[index]"/>
       </div>
     </div>
     <PortfolioSideBar />
@@ -33,6 +33,7 @@ export default {
   components: { PortfolioChart, PortfolioSideBar, PortfolioFinanceRecommend },
   data() {
     return {
+      productTypeList: ["cards","insurances"],
       recommendList: {
         cards: [{
           product_id: 1,
