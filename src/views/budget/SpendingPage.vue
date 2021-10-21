@@ -4,7 +4,7 @@
       지출관리페이지
     </div>
     <BudgetMonthPicker />
-    <BudgetTopSection />
+    <BudgetTopSection style="max-height: 50px" />
     <SpendingBottomSection />
     <BudgetSideBar />
   </div>

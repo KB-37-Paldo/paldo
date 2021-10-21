@@ -39,6 +39,11 @@ const router = new Router({
       component: () => import("@/views/budget/SpendingPage.vue"),
     },
     {
+      path: "/spending/update",
+      name: "SpendingUpdatePage",
+      component: () => import("@/views/budget/SpendingUpdatePage.vue"),
+    },
+    {
       path: "/budget",
       name: "BudgetPage",
       component: () => import("@/views/budget/BudgetPage.vue"),
