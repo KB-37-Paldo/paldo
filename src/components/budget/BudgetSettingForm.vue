@@ -34,144 +34,22 @@
       <span class="category-floating-right micro__font"
         >전체 예산 1,000,000원</span
       >
-      <div class="main-setting">
+      <div
+        class="main-setting"
+        v-for="(category, index) in categoryList"
+        :key="index"
+      >
         <div class="category__font category">
-          <span class="category-icon-section">
-            <i class="fas fa-utensils"></i>
-          </span>
-          <span>식비</span>
+          <span class="category-icon-section" v-html="category.icon"> </span>
+          <span>{{ category.category }}</span>
           <div class="category-floating-right">
             <v-text-field class="setting-text-area" label="금액"></v-text-field>
           </div>
           <div>
             <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-shopping-bag"></i>
-          </span>
-          <span>쇼핑</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-coffee"></i>
-          </span>
-          <span>카페</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-bus "></i>
-          </span>
-          <span>교통</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-chess-pawn "></i>
-          </span>
-          <span>문화</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-envelope "></i>
-          </span>
-          <span>경조</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-won-sign "></i>
-          </span>
-          <span>금융</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-shopping-basket "></i>
-          </span>
-          <span>생활</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-book "></i>
-          </span>
-          <span>교육</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
-            </div>
-          </div>
-        </div>
-        <div class="category__font category padding-text-area">
-          <span class="category-icon-section">
-            <i class="fas fa-hospital"></i>
-          </span>
-          <span>의료</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font">지난달 500,000만원</span>
+              <span class="micro__font"
+                >지난달 {{ category.lastMonthSpending }}만원</span
+              >
             </div>
           </div>
         </div>
@@ -187,7 +65,64 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      categoryList: [
+        {
+          icon: '<i class="fas fa-utensils"></i>',
+          category: "식비",
+          lastMonthSpending: "500,000",
+        },
+        {
+          icon: '<i class="fas fa-shopping-bag"></i>',
+          category: "쇼핑",
+          lastMonthSpending: "500,000",
+        },
+        {
+          icon: '<i class="fas fa-coffee"></i>',
+          category: "카페",
+          lastMonthSpending: "500,000",
+        },
+        {
+          icon: '<i class="fas fa-bus"></i>',
+          category: "교통",
+          lastMonthSpending: "500,000",
+        },
+        {
+          icon: '<i class="fas fa-chess-pawn"></i>',
+          category: "문화",
+          lastMonthSpending: "400,000",
+        },
+        {
+          icon: '<i class="fas fa-envelope"></i>',
+          category: "경조",
+          lastMonthSpending: "500,000",
+        },
+        {
+          icon: '<i class="fas fa-won-sign"></i>',
+          category: "금융",
+          lastMonthSpending: "500,000",
+        },
+        {
+          icon: '<i class="fas fa-shopping-basket"></i>',
+          category: "생활",
+          lastMonthSpending: "500,000",
+        },
+        {
+          icon: '<i class="fas fa-book"></i>',
+          category: "교육",
+          lastMonthSpending: "500,000",
+        },
+        {
+          icon: '<i class="fas fa-hospital"></i>',
+          category: "의료",
+          lastMonthSpending: "500,000",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style></style>
