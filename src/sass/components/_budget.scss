@@ -87,6 +87,18 @@
   background-color: $main-color-yellow;
 }
 
+.spending-element {
+  height: 50px;
+}
+
+.daily-spending-text {
+  color: gray;
+}
+
+.spending-icon-padding {
+  padding-right: 10px;
+}
+
 // portfolio sidebar scss
 .budget {
   &__sidebar {
