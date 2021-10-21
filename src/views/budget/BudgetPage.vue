@@ -3,10 +3,17 @@
     <div>
       예산관리페이지
     </div>
-    <BudgetMonthPicker />
-    <BudgetTopSection />
-    <BudgetBottomSection />
-    <BudgetSideBar />
+    <!-- 예산설정 했을 때 -->
+    <template v-if="isBudget">
+      <BudgetMonthPicker />
+      <BudgetTopSection />
+      <BudgetBottomSection />
+      <BudgetSideBar />
+    </template>
+    <!-- 예산설정 안했을 때 -->
+    <template v-else>
+      <BudgetNone />
+    </template>
   </div>
 </template>
 
@@ -15,12 +22,19 @@ import BudgetMonthPicker from "@/components/budget/BudgetMonthPicker.vue";
 import BudgetTopSection from "@/components/budget/BudgetTopSection.vue";
 import BudgetBottomSection from "@/components/budget/BudgetBottomSection.vue";
 import BudgetSideBar from "@/components/budget/BudgetSideBar.vue";
+import BudgetNone from "@/components/budget/BudgetNone.vue";
 export default {
+  data() {
+    return {
+      isBudget: true,
+    };
+  },
   components: {
     BudgetMonthPicker,
     BudgetTopSection,
     BudgetBottomSection,
     BudgetSideBar,
+    BudgetNone,
   },
 };
 </script>
