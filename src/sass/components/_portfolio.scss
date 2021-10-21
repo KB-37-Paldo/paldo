@@ -47,6 +47,12 @@
     margin-top: 10px;
   }
 
+  &__share {
+    background-color: $color-white;
+    padding: 30px 0;
+    margin-top: 10px;
+  }
+
 }
 
 .assetType {
@@ -58,3 +64,4 @@
   display: flex;
   justify-content: space-between;
 }
+
