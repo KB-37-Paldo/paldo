@@ -38,28 +38,46 @@ export default {
   stock : [
     {
       type: 'KB증권',
-      amount: 1000
+      amount: 2000
+    },{
+      type: 'KB증권',
+      amount: 2000
     }
   ],
   realAssets: [
     {
       type: 'KB실물자산',
-      amount: 1000
+      amount: 3000
+    },{
+      type: 'KB실물자산',
+      amount: 3000
     }
   ],
   bond : [
     {
       type: 'KB채권',
-      amount: 1000
+      amount: 5000
+    },
+    {
+      type: 'KB채권',
+      amount: 5000
     }
   ],
   fund : [
     {
       type: 'KB펀드',
       amount: 1000
+    },
+    {
+      type: 'KB펀드',
+      amount: 1000
     }
   ],
   realEstate : [
+    {
+      type: 'KB부동산',
+      amount: 1000
+    },
     {
       type: 'KB부동산',
       amount: 1000
