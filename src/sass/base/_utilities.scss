@@ -1,6 +1,13 @@
-.right-sort {
-  text-align: right;
+.sort {
+  &__right {
+    text-align: right;
+  }
+  &__center {
+    text-align: center;
+  }
 }
+
+
 
 .block {
   display: block !important;
