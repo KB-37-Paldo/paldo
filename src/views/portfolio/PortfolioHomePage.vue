@@ -5,8 +5,9 @@
       <PortfolioItem/>
       <PortfolioChallenge/>
       <PortfolioUserAsset/>
-      <div v-for="(assetInfo,index) in userAssetInfoList" :key="index">
-        <PortfolioAssetList :assetInfo="assetInfo"/>
+      <div v-for="(assetType,index) in amountTypeList" :key="index">
+        <PortfolioAssetList :assetInfo="userAssetInfoList[assetType]"
+        :assetType="assetType"/>
       </div>
     </template>
     <!-- 포트폴리오 없을 때 -->
@@ -26,6 +27,7 @@ export default {
   data() {
     return {
       isPort : true,
+      amountTypeList:['cashAssets','stock','bond','fund','realEstate','realAssets'],
       userAssetInfoList:{
         cashAssets : [
     {
@@ -67,6 +69,21 @@ export default {
     }
   },
   components: { PortfolioItem,PortfolioNone, PortfolioChallenge, PortfolioUserAsset, PortfolioAssetList },
+  created() {
+    // this.fetchAssetType()
+  },
+  methods: {
+    fetchAssetType() {
+        // console.log('들어왓니', this.userAssetInfoList)
+
+    //   this.userAssetInfoList=[];
+    //   for (let i = 0; i < this.userAssetInfoList.length; i++) {
+    //     const element = this.userAssetInfoList[i];
+    //     this.amountTypeList.push(element);
+    //     console.log(element)
+    //  }
+    }
+  }
 
 }
 </script>
