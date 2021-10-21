@@ -2,17 +2,17 @@
   <div>
     <div class="mt__ten">
       <span class="block mb__five title__font">
-        포트폴리오가 없습니다.
+        설정 예산이 없습니다.
       </span>
       <span class="title__font">
-        생성하시겠습니까?
+        설정하시겠습니까?
       </span>
     </div>
     <div class="mt__ten mb__five">
       <span class=" mb__five title__font">
-        네, 만들래요!
+        네, 설정할게요!
       </span>
-      <span class="color__yellow right pointer" @click="createPort">
+      <span class="color__yellow right pointer" @click="settingBud">
         <i class="fas fa-arrow-alt-circle-right"></i>
       </span>
     </div>
@@ -30,8 +30,8 @@
 <script>
 export default {
   methods: {
-    createPort() {
-      this.$router.push({ name: "PortfolioCreatePage" });
+    settingBud() {
+      this.$router.push({ name: "BudgetSettingPage" });
     },
   },
 };
