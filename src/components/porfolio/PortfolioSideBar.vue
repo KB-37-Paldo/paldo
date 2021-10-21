@@ -5,7 +5,7 @@
       <div class="mr__ten portfolio__sidebar__item" @click="goProductRecom" :class="[toActive === 'PortfolioRecommendPage'? 'active' : '']">추천</div>
       <div
       class="portfolio__sidebar__item"
-      @click="goPortShare" :class="[toActive === 'PortfolioPage'? 'active' : '']">공유</div>
+      @click="goPortShare" :class="[toActive === 'PortfolioSharePage'? 'active' : '']">공유</div>
     </div>
   </div>
 </template>
@@ -38,9 +38,8 @@ export default {
       })
     },
     goPortShare() {
-      this.$swal('아직안만들었어용')
       this.$router.push({
-        name:'PortfolioPage'
+        name:'PortfolioSharePage'
       })
     }
   }
