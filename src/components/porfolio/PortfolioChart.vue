@@ -20,6 +20,12 @@ export default {
       this.fetchChart()
     } else if (this.portType == "recommend") {
       this.fetchChart()
+    } else if (this.portType == "age") {
+      this.fetchChart()
+    } else if (this.portType == "money") {
+      this.fetchChart()
+    } else if (this.portType == "investType") {
+      this.fetchChart()
     }
   },
   methods : {
