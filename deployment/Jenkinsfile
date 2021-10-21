@@ -39,7 +39,7 @@ podTemplate(
             // Javascript based on Node.js
             //git branch: 'main', url: 'https://github.com/happykube/hellonode.git'
             // Java based on Spring Boot, branch : msa
-            git branch: 'develop', url: 'https://github.com/KB-37-Paldo/paldo_BE_portfolio.git'
+            git branch: 'develop', url: 'https://github.com/KB-37-Paldo/paldo_FE.git'
         } 
         //-- 환경변수 파일 읽어서 변수값 셋팅 
         String stageName = ""
