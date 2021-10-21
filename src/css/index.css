@@ -618,6 +618,12 @@ html {
   margin-top: 10px;
 }
 
+.portfolio__share {
+  background-color: #ffffff;
+  padding: 30px 0;
+  margin-top: 10px;
+}
+
 .assetType {
   display: -webkit-box;
   display: -ms-flexbox;

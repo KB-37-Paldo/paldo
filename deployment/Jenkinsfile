@@ -64,7 +64,7 @@ podTemplate(
         def selector_val = props["selector_val"]
         def namespace = props["namespace"] 
         try {
-                stageName = "Build maven project"
+                stageName = "Build Vue project"
             // Build Source from Repository in gitlab
             stage(stageName) {
                 echo "**** START : " + stageName
@@ -73,11 +73,11 @@ podTemplate(
                 echo "baseDir : ${baseDir}"
                 echo "baseDeployDir : ${baseDeployDir}"
                 sh "ls -al"
-                container('maven') {
-                        sh "mvn -B -f ${baseDir} clean package"
+                container('node') {
+                        sh "npm run build"
                         echo "*** RESULT ***"
                         sh "pwd"
-                        sh "ls -al ${baseDir}/target"
+                        sh "ls -al ${baseDir}/dist"
                 }
             }
             // Code Inspection
