@@ -1,3 +1,4 @@
+//정렬
 .sort {
   &__right {
     text-align: right;
@@ -7,12 +8,11 @@
   }
 }
 
-
-
 .block {
   display: block !important;
 }
 
+//margin
 .mt {
   &__ten {
     margin-top: 10vh;
@@ -52,6 +52,7 @@
   }
 }
 
+// padding
 .pb {
   &__five {
     padding-bottom: 500px;
@@ -73,6 +74,8 @@
   }
 }
 
+
+//color
 .color {
   &__yellow {
     color: $main-color-darkyellow;
@@ -80,6 +83,10 @@
 
   &__gray {
     color: $main-color-darkgray;
+
+    &__light {
+      color:$color-lightgray;;
+    }
   }
 }
 
