@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  props: ['assetInfo','assetType'],
+  props: ['productInfo','productType'],
   data() {
     return {
       assetTotal : 0,
@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     fetchAsset() {
+
       if (this.assetType == 'cashAssets') {
         this.assetName = '현금성자산'
       } else if (this.assetType == 'stock') {
