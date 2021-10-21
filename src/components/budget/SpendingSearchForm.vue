@@ -18,7 +18,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    spendingUpdate() {
+      this.$router.push({ name: "SpendingUpdatePage" });
+    },
+  },
+};
 </script>
 
 <style></style>
