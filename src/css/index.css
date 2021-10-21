@@ -104,6 +104,10 @@ html {
   margin-top: 5%;
 }
 
+.mt__minusTen {
+  margin-top: -10px;
+}
+
 .ml {
   margin-left: 10%;
 }
@@ -615,6 +619,15 @@ html {
 }
 
 .assetType {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.recommendType {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

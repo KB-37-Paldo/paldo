@@ -16,12 +16,12 @@
         추천 금융상품
       </span>
     </div>
-    <div class="bgColor__lightgray">
-      <div v-for="(product,index) in recommendList" :key="index">
-        <PortfolioFinanceRecommend :productInfo="product" :productType="productTypeList[index]"/>
+    <div class="bgColor__lightgray mt__minusTen">
+      <div v-for="(product,index) in productTypeList" :key="index">
+        <PortfolioFinanceRecommend :productInfo="recommendList[product]" :productType="product"/>
       </div>
     </div>
-    <PortfolioSideBar />
+    <PortfolioSideBar/>
   </div>
 </template>
 
