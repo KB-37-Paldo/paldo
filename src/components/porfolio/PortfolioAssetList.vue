@@ -4,7 +4,7 @@
       <span class="sub__font">
         {{assetName}}
       </span>
-      <span>
+      <span class="mini__font">
         {{assetTotal}}
       </span>
     </div>

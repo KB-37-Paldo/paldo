@@ -84,8 +84,12 @@ html {
   background-color: #fcaf17;
 }
 
-.right-sort {
+.sort__right {
   text-align: right;
+}
+
+.sort__center {
+  text-align: center;
 }
 
 .block {
