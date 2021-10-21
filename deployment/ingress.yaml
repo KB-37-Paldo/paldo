@@ -11,8 +11,7 @@ spec:
     - host: paldo.169.56.174.130.nip.io
     - http:
         paths:
-          - path: /
-        # - path: /moneymany
+          - path: /moneymany
             pathType: Prefix
             backend:
               service:

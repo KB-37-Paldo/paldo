@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  props:['portType'],
   data() {
     return {
       portChart:'',
@@ -15,7 +16,11 @@ export default {
     }
   },
   mounted() {
-    this.fetchChart()
+    if (this.portType == "users") {
+      this.fetchChart()
+    } else if (this.portType == "recommend") {
+      this.fetchChart()
+    }
   },
   methods : {
     fetchChart() {

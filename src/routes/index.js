@@ -24,6 +24,11 @@ const router = new Router({
       component: () => import("@/views/portfolio/PortfolioCreatePage.vue"),
     },
     {
+      path: "/portfolio/recommend",
+      name: "PortfolioRecommendPage",
+      component: () => import("@/views/portfolio/PortfolioRecommendPage.vue"),
+    },
+    {
       path: "/spending",
       name: "SpendingPage",
       component: () => import("@/views/budget/SpendingPage.vue"),
