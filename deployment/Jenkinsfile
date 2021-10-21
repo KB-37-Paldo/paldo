@@ -16,7 +16,7 @@ podTemplate(
     label: label, 
     containers: [
         //container image는 docker search 명령 이용
-        containerTemplate(name: 'node', image: 'node:17', ttyEnabled: true, command: 'cat'),
+        containerTemplate(name: 'node', image: 'node:lts-alpine as build-stage', ttyEnabled: true, command: 'cat'),
         containerTemplate(name: "docker", image: "docker:latest", ttyEnabled: true, command: "cat"),
         containerTemplate(name: "kubectl", image: "lachlanevenson/k8s-kubectl", command: "cat", ttyEnabled: true),
         containerTemplate(name: "scanner", image: "newtmitch/sonar-scanner", ttyEnabled: true, command: "cat")
@@ -64,7 +64,7 @@ podTemplate(
         def selector_val = props["selector_val"]
         def namespace = props["namespace"] 
         try {
-                stageName = "Build Vue project"
+            stageName = "Build vue project"
             // Build Source from Repository in gitlab
             stage(stageName) {
                 echo "**** START : " + stageName
@@ -74,10 +74,12 @@ podTemplate(
                 echo "baseDeployDir : ${baseDeployDir}"
                 sh "ls -al"
                 container('node') {
+                        sh "cd ./app"
                         sh "npm run build"
                         echo "*** RESULT ***"
                         sh "pwd"
                         sh "ls -al ${baseDir}/dist"
+                        sh "cd .."
                 }
             }
             // Code Inspection
