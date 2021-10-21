@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="portfolio__div">
     <div class="mt__ten">
       <span class="block mb__five title__font">
         포트폴리오가 없습니다.
