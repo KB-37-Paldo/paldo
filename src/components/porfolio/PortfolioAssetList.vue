@@ -1,15 +1,20 @@
 <template>
   <div class="portfolio__div">
-    <div>
+    <div class="assetType">
       <span class="sub__font">
         {{assetName}}
       </span>
-      <span class="mini__font">
-        {{assetTotal}}
+      <span class="mini__font color__gray__light">
+        {{assetTotal}}원
       </span>
     </div>
     <div v-for="(asset,index) in assetInfo" :key="index">
+      <span class="sub__font">
       {{asset.type}}
+      </span>
+      <span class="sub__font color__gray">
+      {{asset.amount}}
+      </span>
     </div>
   </div>
 </template>

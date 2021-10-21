@@ -156,6 +156,10 @@ html {
   color: #645b4c;
 }
 
+.color__gray__light {
+  color: #E2E2E2;
+}
+
 .bgColor__lightgray {
   background-color: #E2E2E2;
 }
@@ -490,6 +494,18 @@ html {
   background-color: #fdb913;
 }
 
+.spending-element {
+  height: 50px;
+}
+
+.daily-spending-text {
+  color: gray;
+}
+
+.spending-icon-padding {
+  padding-right: 10px;
+}
+
 .budget__sidebar {
   position: -webkit-sticky;
   position: sticky;
@@ -596,6 +612,15 @@ html {
   background-color: #ffffff;
   padding: 30px 0 30px 10px;
   margin-top: 10px;
+}
+
+.assetType {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .meter {
