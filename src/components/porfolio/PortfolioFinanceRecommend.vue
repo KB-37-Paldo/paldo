@@ -1,19 +1,16 @@
 <template>
   <div class="portfolio__div">
-    <div class="assetType">
+    <div class="recommendType">
       <span class="sub__font">
-        {{assetName}}
-      </span>
-      <span class="mini__font color__gray__light">
-        {{assetTotal}}원
+        {{productName}}
       </span>
     </div>
-    <div v-for="(asset,index) in assetInfo" :key="index" class="assetType mt__five">
+    <div v-for="(product,index) in productInfo" :key="index" class="recommendType mt__five">
       <span class="sub__font">
-      {{asset.type}}
+      {{product.product_name}}
       </span>
       <span class="sub__font color__gray">
-      {{asset.amount}}
+      {{product.product_description}}
       </span>
     </div>
   </div>
@@ -24,35 +21,21 @@ export default {
   props: ['productInfo','productType'],
   data() {
     return {
-      assetTotal : 0,
-      assetName:'자산이름'
+      productName:'자산이름'
     }
   },
   created() {
-    this.fetchAsset()
+    this.fetchProduct()
   },
   methods: {
-    fetchAsset() {
-
-      if (this.assetType == 'cashAssets') {
-        this.assetName = '현금성자산'
-      } else if (this.assetType == 'stock') {
-        this.assetName = '주식'
-      } else if (this.assetType == 'bond') {
-        this.assetName = '채권'
-      } else if (this.assetType == 'fund') {
-        this.assetName = '펀드'
-      } else if (this.assetType == 'realEstate') {
-        this.assetName = '부동산'
-      } else if (this.assetType == 'realAssets') {
-        this.assetName = '실물자산'
-      }
-      this.assetTotal = 0;
-      for (let i = 0; i < this.assetInfo.length; i++) {
-        const amount = this.assetInfo[i].amount;
-        this.assetTotal += amount;
-        
-      }
+    fetchProduct() {
+      console.log('들어는가니?', this.productType,this.productInfo)
+      if (this.productType == 'cards') {
+        console.log('너는뭐니')
+        this.productName = '카드상품'
+      } else if (this.productType == 'insurances') {
+        this.productName = '보험상품'
+      } 
     }
   }
 
