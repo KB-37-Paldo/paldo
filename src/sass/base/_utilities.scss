@@ -49,10 +49,20 @@
   &__five {
     padding-bottom: 500px;
   }
+
+  &__fifty {
+    padding-bottom: 50px;
+  }
 }
 .p {
   &__zero {
     padding: 0;
+  }
+}
+
+.pl {
+  &__ten {
+    padding-left: 10px;
   }
 }
 
@@ -63,6 +73,16 @@
 
   &__gray {
     color: $main-color-darkgray;
+  }
+}
+
+.bgColor {
+  &__lightgray {
+    background-color: $color-lightgray;
+  }
+
+  &__white {
+    background-color: $color-white;
   }
 }
 
@@ -82,5 +102,11 @@
 .w {
   &-100 {
     width: 100%;
+  }
+}
+
+.h {
+  &-200 {
+    height: 200%;
   }
 }

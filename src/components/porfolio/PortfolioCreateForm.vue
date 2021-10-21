@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pl__ten">
     <!-- User -->
     <div class="mt__ten">
       <span class="block mb__five title__font">

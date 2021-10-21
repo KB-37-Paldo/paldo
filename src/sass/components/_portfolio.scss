@@ -1,5 +1,5 @@
-// portfolio sidebar scss
 .portfolio {
+  // portfolio sidebar scss
   &__sidebar {
     position: sticky;
     // background-color: $main-color-darkyellow; /*임의색상*/
@@ -39,4 +39,12 @@
       }
     }
   }
+
+  // portfolio div
+  &__div {
+    background-color: $color-white;
+    padding: 30px 0 30px 10px;
+    margin-top: 10px;
+  }
 }
+
