@@ -11,8 +11,15 @@ const router = new Router({
     if (to.path !== from.path) {
       return { x: 0, y: 0 };
     }
+
   },
   routes: [
+    {
+        path: '*',
+        redirect: "/"
+        // name: "notFound",
+        // component: () => import("@/views/NotFoundPage.vue")
+    },
     {
       path: "/",
       name: "PortfolioPage",
