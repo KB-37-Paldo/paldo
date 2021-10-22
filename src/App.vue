@@ -9,6 +9,7 @@
   
 <script>
 import Nav from "@/components/common/Nav.vue";
+import {fetchPortfolio} from "@/api/portfolio.js";
 // const vueconfig = require('../vue.config');
 export default {
   components: { Nav},
@@ -23,7 +24,7 @@ export default {
     console.log('URL VUE제외 테스트',process.env.PORTFOLIO_SERVICE_URL);
     console.log('URL 테스트',process.env.VUE_APP_PORTFOLIO_SERVICE_URL);
     console.log('숫자 테스트',process.env.VUE_APP_BASE_URL);
-    this.URLTEST = process.env.VUE_APP_PORTFOLIO_SERVICE_URL;
+    this.URLTEST = fetchPortfolio()
   },
   computed:{
 
