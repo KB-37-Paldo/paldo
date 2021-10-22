@@ -25,13 +25,13 @@ import PortfolioChallenge from '../../components/porfolio/PortfolioChallenge.vue
 import PortfolioUserAsset from '../../components/porfolio/PortfolioUserAsset.vue'
 import PortfolioAssetList from '../../components/porfolio/PortfolioAssetList.vue'
 import PortfolioSideBar from "../../components/porfolio/PortfolioSideBar.vue";
+import { mapState } from 'vuex';
 
 
 export default {
     components: { PortfolioItem,PortfolioNone, PortfolioChallenge, PortfolioUserAsset, PortfolioAssetList,PortfolioSideBar },
   data() {
     return {
-      isPort : false,
       amountTypeList:['cashAssets','stock','bond','fund','realEstate','realAssets'],
       userAssetInfoList:{
         cashAssets : [
@@ -94,7 +94,13 @@ export default {
 
 
   created() {
+    console.log(this.isPort)
     // this.fetchAssetType()
+  },
+  computed: {
+    ...mapState({
+      isPort : state => state.portfolio.isPort
+    })
   },
   methods: {
     fetchAssetType() {

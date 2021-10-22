@@ -9,15 +9,20 @@
   
 <script>
 import Nav from "@/components/common/Nav.vue";
-
+const vueconfig = require('../vue.config');
 export default {
   components: { Nav},
   name: 'App',
   data() {
     return {
-      isShow: true
+      isShow: true,
+      URLTEST:''
     }
   }, 
+  mounted() {
+    console.log('URL 테스트',vueconfig.PORTFOLIO_SERVICE_URL);
+    this.URLTEST = vueconfig.PORTFOLIO_SERVICE_URL;
+  },
   computed:{
 
   },
