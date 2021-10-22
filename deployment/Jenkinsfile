@@ -77,18 +77,18 @@ podTemplate(
 
 			// Build Source from Repository in gitlab
 			stage(stageName) {
-// 				echo "**** START : " + stageName
-// 				def _dir = pwd();
-// 				echo "path : ${_dir}"
-// 				echo "baseDir : ${baseDir}"
-// 				echo "baseDeployDir : ${baseDeployDir}"
-// 				sh "ls -al"
-// 				container('node') {
-// 						sh "npm run build"
-// 						echo "*** RESULT ***"
-// 						sh "pwd"
-// 						sh "ls -al ${baseDir}/dist"
-// 				}
+				echo "**** START : " + stageName
+				def _dir = pwd();
+				echo "path : ${_dir}"
+				echo "baseDir : ${baseDir}"
+				echo "baseDeployDir : ${baseDeployDir}"
+				sh "ls -al"
+				container('node') {
+						sh "npm run build"
+						echo "*** RESULT ***"
+						sh "pwd"
+						sh "ls -al ${baseDir}/dist"
+				}
 			}
 
 			// Code Inspection
@@ -109,9 +109,7 @@ podTemplate(
 			stage("Build Microservice image") {
 				container("docker") {
 					docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
-						sh "docker build -f ./deployment/Dockerfile -t ${image}:${tag} ."
-						sh "docker push ${image}:${tag}"
-						sh "docker tag ${image}:${tag} ${image}:dev"
+						sh "docker build -f ./deployment/Dockerfile -t ${image}:dev ."
 						sh "docker push ${image}:dev"
 					}
 				}
