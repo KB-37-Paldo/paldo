@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export function setInterceptors() {
   let instance = axios.create({
-    baseURL: process.env.PORTFOLIO_SERVICE_URL,
+    baseURL: process.env.VUE_APP_PORTFOLIO_SERVICE_URL,
   });
   instance.interceptors.request.use(
     (config) => {
