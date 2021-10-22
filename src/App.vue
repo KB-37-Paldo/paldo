@@ -20,6 +20,7 @@ export default {
     }
   }, 
   mounted() {
+    console.log('URL VUE제외 테스트',process.env.PORTFOLIO_SERVICE_URL);
     console.log('URL 테스트',process.env.VUE_APP_PORTFOLIO_SERVICE_URL);
     console.log('숫자 테스트',process.env.VUE_APP_BASE_URL);
     this.URLTEST = process.env.VUE_APP_PORTFOLIO_SERVICE_URL;
