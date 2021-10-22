@@ -77,18 +77,18 @@ podTemplate(
 
 			// Build Source from Repository in gitlab
 			stage(stageName) {
-				echo "**** START : " + stageName
-				def _dir = pwd();
-				echo "path : ${_dir}"
-				echo "baseDir : ${baseDir}"
-				echo "baseDeployDir : ${baseDeployDir}"
-				sh "ls -al"
-				container('node') {
-						sh "npm run build"
-						echo "*** RESULT ***"
-						sh "pwd"
-						sh "ls -al ${baseDir}/dist"
-				}
+// 				echo "**** START : " + stageName
+// 				def _dir = pwd();
+// 				echo "path : ${_dir}"
+// 				echo "baseDir : ${baseDir}"
+// 				echo "baseDeployDir : ${baseDeployDir}"
+// 				sh "ls -al"
+// 				container('node') {
+// 						sh "npm run build"
+// 						echo "*** RESULT ***"
+// 						sh "pwd"
+// 						sh "ls -al ${baseDir}/dist"
+// 				}
 			}
 
 			// Code Inspection
