@@ -317,18 +317,18 @@ html {
 }
 
 .nav-list .active {
-  color: #645b4c;
-  background: #ffffff;
-  border-left-color: #fcaf17;
+  color: #645b4c !important;
+  background: #ffffff !important;
+  border-left-color: #fcaf17 !important;
 }
 
 .nav-list .active i,
 .nav-list .active svg {
-  color: #645b4c;
+  color: #645b4c !important;
 }
 
 .nav-list .active a {
-  color: #645b4c;
+  color: #645b4c !important;
 }
 
 .nav-link {
@@ -337,7 +337,7 @@ html {
   font-size: 2rem;
   font-weight: 300;
   padding: 1rem 2rem;
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: none;
   text-transform: uppercase;
   -webkit-transition: all 0.4s;
@@ -347,7 +347,7 @@ html {
 }
 
 .nav-link:hover {
-  color: #645b4c;
+  color: #645b4c !important;
   background-position: 100%;
   -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
