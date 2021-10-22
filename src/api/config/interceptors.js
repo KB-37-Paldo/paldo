@@ -5,10 +5,11 @@ import axios from 'axios';
 
 export function setInterceptors() {
   let instance = axios.create({
-    baseURL: process.env.VUE_APP_PORTFOLIO_SERVICE_URL,
+    // baseURL: process.env.VUE_APP_PORTFOLIO_SERVICE_URL,
   });
   instance.interceptors.request.use(
     (config) => {
+      console.log('너는뭐니',process.env.VUE_APP_PORTFOLIO_SERVICE_URL);
       return config;
     },
     (error) => Promise.reject(error.response)
