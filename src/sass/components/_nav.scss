@@ -116,15 +116,15 @@
     text-align: center;
 
     & .active {
-      color: $main-color-darkgray;
-      background: $color-white;
-      border-left-color: $main-color-darkyellow;
+      color: $main-color-darkgray !important;
+      background: $color-white !important;
+      border-left-color: $main-color-darkyellow !important;
       i,
       svg {
-        color: $main-color-darkgray;
+        color: $main-color-darkgray !important;
       }
       & a {
-        color: $main-color-darkgray;
+        color: $main-color-darkgray !important;
       }
     }
   }
@@ -138,7 +138,7 @@
     font-size: 2rem;
     font-weight: 300;
     padding: 1rem 2rem;
-    color: $color-white;
+    color: $color-white !important;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.4s;
@@ -151,7 +151,7 @@
     background-size: 220%;
 
     &:hover {
-      color: $main-color-darkgray;
+      color: $main-color-darkgray !important;
       background-position: 100%;
       transform: translateX(1rem);
     }

@@ -9,8 +9,7 @@
 
 <script>
 import Nav from "@/components/common/Nav.vue";
-import { fetchPortfolio } from "@/api/portfolio.js";
-// const vueconfig = require('../vue.config');
+
 export default {
   components: { Nav },
   name: "App",
@@ -22,8 +21,7 @@ export default {
     }
   }, 
   mounted() {
-    this.URLTEST = fetchPortfolio()
-    console.log('나는 끝', this.URLTEST)
+
   },
   computed: {},
   watch: {
