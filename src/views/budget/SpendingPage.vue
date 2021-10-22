@@ -6,7 +6,9 @@
     <BudgetMonthPicker />
     <BudgetTopSection style="max-height: 50px" />
     <SpendingBottomSection />
-    <BudgetSideBar />
+    <template>
+      <BudgetSideBar />
+    </template>
   </div>
 </template>
 

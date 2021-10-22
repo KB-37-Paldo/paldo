@@ -1,7 +1,7 @@
 // nav bar 스타일
 .nav-section {
   float: right;
-  position: relative;
+  position: absolute;
   right: 50px;
 }
 
@@ -119,7 +119,8 @@
       color: $main-color-darkgray;
       background: $color-white;
       border-left-color: $main-color-darkyellow;
-      i,svg {
+      i,
+      svg {
         color: $main-color-darkgray;
       }
       & a {

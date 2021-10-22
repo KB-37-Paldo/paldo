@@ -1,5 +1,4 @@
 html {
-  font-family: hanna;
   max-width: 375px;
   height: 812px;
   margin: 0 auto;
@@ -13,6 +12,10 @@ html {
   height: 812px;
   overflow-y: scroll;
   border: solid;
+}
+.v-application {
+  font-family: hanna;
+  line-height: 1.2;
 }
 
 // 살짝 옆에서 나오는 효과
