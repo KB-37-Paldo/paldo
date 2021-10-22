@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col cols="11" sm="5">
+    <v-col cols="11" sm="3">
       <v-menu
         ref="menu"
         v-model="menu"

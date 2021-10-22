@@ -1,5 +1,5 @@
 <template>
-  <div style="">
+  <div>
     <SpendingSearchForm />
 
     <br />
@@ -90,13 +90,48 @@ export default {
             },
           ],
         },
+        {
+          day: 2,
+          dayTotal: "-9000",
+          spendList: [
+            {
+              icon: '<i class="fas fa-shopping-basket"></i>',
+
+              store: "세븐일레븐 합정역본",
+              amount: "-4,500",
+              bank: "카카오뱅크 입출금통장",
+            },
+            {
+              icon: '<i class="fas fa-shopping-basket"></i>',
+
+              store: "세븐일레븐 합정역본",
+              amount: "-4,500",
+              bank: "카카오뱅크 입출금통장",
+            },
+          ],
+        },
+        {
+          day: 2,
+          dayTotal: "-9000",
+          spendList: [
+            {
+              icon: '<i class="fas fa-shopping-basket"></i>',
+
+              store: "세븐일레븐 합정역본",
+              amount: "-4,500",
+              bank: "카카오뱅크 입출금통장",
+            },
+            {
+              icon: '<i class="fas fa-shopping-basket"></i>',
+
+              store: "세븐일레븐 합정역본",
+              amount: "-4,500",
+              bank: "카카오뱅크 입출금통장",
+            },
+          ],
+        },
       ],
     };
-  },
-  methods: {
-    spendingUpdate() {
-      this.$router.push({ name: "SpendingUpdatePage" });
-    },
   },
 };
 </script>

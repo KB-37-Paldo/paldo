@@ -1,6 +1,5 @@
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 html {
-  font-family: hanna;
   max-width: 375px;
   height: 812px;
   margin: 0 auto;
@@ -14,6 +13,11 @@ html {
   height: 812px;
   overflow-y: scroll;
   border: solid;
+}
+
+.v-application {
+  font-family: hanna;
+  line-height: 1.2;
 }
 
 .title__font {
@@ -199,7 +203,7 @@ html {
 
 .nav-section {
   float: right;
-  position: relative;
+  position: absolute;
   right: 50px;
 }
 
@@ -318,7 +322,8 @@ html {
   border-left-color: #fcaf17;
 }
 
-.nav-list .active i, .nav-list .active svg {
+.nav-list .active i,
+.nav-list .active svg {
   color: #645b4c;
 }
 
@@ -521,6 +526,57 @@ html {
   position: relative;
   top: 67px;
   padding-bottom: 20px;
+}
+
+.add-spending-title {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+
+.add-button-section {
+  display: inline-block;
+  padding-left: 15px;
+}
+
+.add-button-padding {
+  padding-left: 7px;
+  padding-right: 10px;
+}
+
+.element-form {
+  padding-top: 20px;
+}
+
+.selector-section {
+  display: inline-block;
+  width: 70%;
+  height: 30px;
+}
+
+.text-section {
+  display: inline-block;
+  width: 70%;
+  height: 30px;
+}
+
+.date-picker-section {
+  height: 50px;
+  display: inline-block;
+  width: 70%;
+}
+
+.v-input__prepend-outer {
+  display: none;
+}
+
+.v-menu__content {
+  left: 60px !important;
+}
+
+.success-button-section {
+  padding-top: 20px;
+  text-align: center;
 }
 
 .budget__sidebar {
