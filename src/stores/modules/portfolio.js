@@ -7,9 +7,11 @@ const state = {
 };
 
 const mutations = {
-    // setValidation(newValue){
-    //   this.state.v = newValue;
-    // }
+    setPortStatus(state,newValue){
+        // console.log('포폴유무 업데이트 전',state.isPort, newValue)
+        state.isPort = newValue;
+        // console.log('포폴유무 업데이트 후',state.isPort)
+    }
 }
 
 const actions = {

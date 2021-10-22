@@ -14,12 +14,19 @@
         </span>
       </div>
       <div class="mt__ten mb__five">
-        <span class="title__font">나이</span>
-        <span class="title__font right">{{userInfo.userAge}}살</span>
+        <div class="title__font">나이</div>
+        <v-text-field class="title__font" :placeholder="String(userInfo.userAge)"
+        ref="userAge"
+        @keyup="upDateUserAge"></v-text-field>
       </div>
-      <div class="mb__ten">
-        <span class="title__font">월소득</span>
-        <span class="title__font right">{{userInfo.userIncome}}원</span>
+      <div class="mt__fiveVh mb__ten">
+        <div class="title__font">월소득</div>
+          <v-text-field class="sub__font"
+          hide-details="auto"
+          :placeholder="userInfo.userIncome"
+          ref="userIncome"
+          @keyup="upDateUserIncome"
+          ></v-text-field>
       </div>
     </div>
     <!-- 2단계 -->
@@ -29,10 +36,12 @@
           투자유형은 무엇인가요?
         </span>
       </div>
-      <div class="mt__ten context__font mb__five__vh">
+      <div class="mt__ten context__font mb__five__vh"
+      @click="updateInvestType"
+      >
         <div v-for="(type,index) in investType" :key="index" class="mb__five checks">
           <input type="radio" name="chk_invest" :value="type" :id="type"
-          class="button__radio" checked>
+          class="button__radio">
           <label class="button" :for="type">{{type}}</label>
         </div>
       </div>
@@ -97,12 +106,24 @@ export default {
       },
       investType : ['공격투자형', '적극투자형','위험중립형','안정추구형','안정형'],
       today:"yyyy-MM-dd",
-      maxDate:"yyyy-MM-dd"
+      maxDate:"yyyy-MM-dd",
+      userInvestType : ''
     }
+  },
+  
+  created() {
+    this.checkToday()
   },
   methods: {
     nextStep() {
-      this.step += 1;
+      if (this.step == 2 && this.userInvestType == '') {
+        this.$swal({
+          title: '투자유형을 \n 선택해주세요!',
+          icon:'warning'
+        })
+      } else {
+        this.step += 1;
+      }
     },
     checkToday() {
       let todayDate = new Date();   
@@ -117,12 +138,31 @@ export default {
         title:'포트폴리오생성',
         icon:'success'
       })
-      this.$emit('isPortfolio',true);
+      // console.log('포폴생성완료')
+      this.$store.commit('setPortStatus',true);
+      this.$router.push({
+        name:'PortfolioPage'
+      });
+    },
+    upDateUserAge() {
+      const age = this.$refs.userAge.lazyValue;
+      console.log('유저나이?',age)
+      this.userInfo.userAge = age;
+    },
+    upDateUserIncome() {
+      const income = this.$refs.userIncome.lazyValue;
+      console.log('유저수입?',income)
+      this.userInfo.userIncome = income;
+    },
+    updateInvestType() {
+      const investType = document.querySelector('input[name="chk_invest"]:checked');
+      if (investType) {
+        console.log(investType.value,'유저의 투자성향')
+        this.userInvestType = investType;
+      }
     }
   },
-  created() {
-    this.checkToday()
-  }
+
 }
 </script>
 
