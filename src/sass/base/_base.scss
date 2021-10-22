@@ -18,6 +18,9 @@ html {
   line-height: 1.2;
 }
 
+.v-application--wrap {
+  min-height: initial !important;
+}
 // 살짝 옆에서 나오는 효과
 //   .wrapper > .view-main-contents {
 
