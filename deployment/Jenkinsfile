@@ -74,12 +74,10 @@ podTemplate(
                 echo "baseDeployDir : ${baseDeployDir}"
                 sh "ls -al"
                 container('node') {
-                        sh "cd ./app"
                         sh "npm run build"
                         echo "*** RESULT ***"
                         sh "pwd"
                         sh "ls -al ${baseDir}/dist"
-                        sh "cd .."
                 }
             }
             // Code Inspection
