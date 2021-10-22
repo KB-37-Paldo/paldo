@@ -9,14 +9,14 @@ export function setInterceptors() {
   });
   instance.interceptors.request.use(
     (config) => {
-      console.log('너는뭐니',process.env.VUE_APP_PORTFOLIO_SERVICE_URL);
+      console.log('너는뭐니 request',process.env.VUE_APP_PORTFOLIO_SERVICE_URL,config);
       return config;
     },
     (error) => Promise.reject(error.response)
   );
   instance.interceptors.response.use(
     (config) => {
-      // console.log('response Config',config)
+      console.log('response Config',config)
       return config;
     },
     (error) => Promise.reject(error.response)
