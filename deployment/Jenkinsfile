@@ -73,7 +73,7 @@ podTemplate(
 
 		try {
 
-       			stageName = "Build cue project"
+       			stageName = "Build Vue project"
 
 			// Build Source from Repository in gitlab
 			stage(stageName) {
@@ -83,7 +83,7 @@ podTemplate(
 				echo "baseDir : ${baseDir}"
 				echo "baseDeployDir : ${baseDeployDir}"
 				sh "ls -al"
-				container('maven') {
+				container('node') {
 						sh "npm run build"
 						echo "*** RESULT ***"
 						sh "pwd"
