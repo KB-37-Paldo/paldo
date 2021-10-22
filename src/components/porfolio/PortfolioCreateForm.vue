@@ -117,6 +117,7 @@ export default {
         title:'포트폴리오생성',
         icon:'success'
       })
+      this.$emit('isPortfolio',true);
     }
   },
   created() {

@@ -3,12 +3,10 @@
 
 
 const state = {
-    // adminAuth: 0,
-
+    isPort:false
 };
 
 const mutations = {
-   
     // setValidation(newValue){
     //   this.state.v = newValue;
     // }
