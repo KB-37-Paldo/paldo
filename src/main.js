@@ -2,13 +2,11 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "@/routes/index";
 import store from "@/stores/index";
-import Vuetify from "vuetify";
-import "vuetify/dist/vuetify.min.css";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 import VueSweetalert2 from "vue-sweetalert2";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
+import vuetify from '@/plugins/vuetify'
 //fontAwsom
 // far
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
@@ -32,7 +30,6 @@ const options = {
 };
 
 Vue.use(VueSweetalert2, options);
-Vue.use(Vuetify);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 library.add(faArrowLeft, faWallet, faDollarSign, faCalendarAlt, faCompass, faArrowAltCircleRight, faTimesCircle) //fas lib
@@ -41,14 +38,8 @@ library.add(faCheckCircle) //far lib
 // Vue.use(BootstrapVue);
 
 new Vue({
-  vuetify: new Vuetify(),
+  vuetify,
   router,
   store,
   render: (h) => h(App),
 }).$mount("#app");
-
-export default new Vuetify({
-  icons: {
-    iconfont: "mdi",
-  },
-});
