@@ -1,34 +1,32 @@
 <template>
-  <div id="app" class="scroll">
-    <div class='nav-section'>
-    <Nav v-if="isShow" />
+  <v-app id="app" class="scroll">
+    <div class="nav-section">
+      <Nav v-if="isShow" />
     </div>
     <router-view></router-view>
-  </div>
+  </v-app>
 </template>
-  
+
 <script>
 import Nav from "@/components/common/Nav.vue";
-import {fetchPortfolio} from "@/api/portfolio.js";
+import { fetchPortfolio } from "@/api/portfolio.js";
 // const vueconfig = require('../vue.config');
 export default {
-  components: { Nav},
-  name: 'App',
+  components: { Nav },
+  name: "App",
   data() {
     return {
       isShow: true,
-      URLTEST:''
-    }
-  }, 
+      URLTEST: "",
+    };
+  },
   mounted() {
-    console.log('URL VUE제외 테스트',process.env.PORTFOLIO_SERVICE_URL);
-    console.log('URL 테스트',process.env.VUE_APP_PORTFOLIO_SERVICE_URL);
-    console.log('숫자 테스트',process.env.VUE_APP_BASE_URL);
-    this.URLTEST = fetchPortfolio()
+    console.log("URL VUE제외 테스트", process.env.PORTFOLIO_SERVICE_URL);
+    console.log("URL 테스트", process.env.VUE_APP_PORTFOLIO_SERVICE_URL);
+    console.log("숫자 테스트", process.env.VUE_APP_BASE_URL);
+    this.URLTEST = fetchPortfolio();
   },
-  computed:{
-
-  },
+  computed: {},
   watch: {
     $route() {
       // if (this.$route.name !== "AboutPage") {
@@ -36,13 +34,10 @@ export default {
       // } else {
       //   this.isShow = false;
       // }
-    }
+    },
   },
-  methods: {
-
-  }
-}
+  methods: {},
+};
 </script>
 
-<style>
-</style>
+<style></style>
