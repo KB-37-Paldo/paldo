@@ -9,7 +9,7 @@
   
 <script>
 import Nav from "@/components/common/Nav.vue";
-const vueconfig = require('../vue.config');
+// const vueconfig = require('../vue.config');
 export default {
   components: { Nav},
   name: 'App',
@@ -20,8 +20,8 @@ export default {
     }
   }, 
   mounted() {
-    console.log('URL 테스트',vueconfig.PORTFOLIO_SERVICE_URL);
-    this.URLTEST = vueconfig.PORTFOLIO_SERVICE_URL;
+    console.log('URL 테스트',process.env.VUE_APP_PORTFOLIO_SERVICE_URL);
+    this.URLTEST = process.env.VUE_APP_PORTFOLIO_SERVICE_URL;
   },
   computed:{
 
