@@ -54,10 +54,10 @@
         </span>
       </div>
       <div class="mt__ten mb__ten">
-        <form>
-          <p><input type="date"  :value="today"
-          class="input" :min="today" :max="maxDate"></p>
-        </form>
+        <p>
+          <input type="date"  :value="today"
+          class="input" :min="today" :max="maxDate" ref="targetDate">
+        </p>
       </div>
     </div>
     <!-- 4단계 -->
@@ -68,7 +68,7 @@
         </span>
       </div>
       <div class="mt__ten mb__ten">
-        <input class="input" type="number" min="0" placeholder="100000000" required>
+        <input class="input" type="number" min="0" placeholder="100000000" required v-model="userTargetMoney">
       </div>
     </div>
     <!-- 진행 progress 바 -->
@@ -107,7 +107,9 @@ export default {
       investType : ['공격투자형', '적극투자형','위험중립형','안정추구형','안정형'],
       today:"yyyy-MM-dd",
       maxDate:"yyyy-MM-dd",
-      userInvestType : ''
+      userInvestType : '',
+      userTargetDate:'',
+      userTargetMoney:'',
     }
   },
   
@@ -121,6 +123,9 @@ export default {
           title: '투자유형을 \n 선택해주세요!',
           icon:'warning'
         })
+      } else if (this.step == 3) {
+        this.fetchTargetDate();
+        this.step += 1;
       } else {
         this.step += 1;
       }
@@ -134,15 +139,22 @@ export default {
       this.maxDate = `${year+80}-${month}-${date}`
     },
     createPort() {
-      this.$swal({
-        title:'포트폴리오생성',
-        icon:'success'
-      })
-      // console.log('포폴생성완료')
-      this.$store.commit('setPortStatus',true);
-      this.$router.push({
-        name:'PortfolioPage'
-      });
+      if (this.userTargetMoney == '') {
+        this.$swal({
+          title: '목표금액을 \n 입력해주세요!',
+          icon:'warning'
+        })
+      } else {
+        this.$swal({
+          title:'포트폴리오생성',
+          icon:'success'
+        })
+        console.log('목표금액',this.userTargetMoney)
+        this.$store.commit('setPortStatus',true);
+        this.$router.push({
+          name:'PortfolioPage'
+        });
+      }
     },
     upDateUserAge() {
       const age = this.$refs.userAge.lazyValue;
@@ -160,7 +172,10 @@ export default {
         console.log(investType.value,'유저의 투자성향')
         this.userInvestType = investType;
       }
-    }
+    },
+    fetchTargetDate() {
+      this.userTargetDate = this.$refs.targetDate.value
+    } 
   },
 
 }
