@@ -9,6 +9,7 @@
         <PortfolioAssetList :assetInfo="userAssetInfoList[assetType]"
         :assetType="assetType"/>
       </div>
+      <PortfolioSideBar />
     </template>
     <!-- 포트폴리오 없을 때 -->
     <template v-else>
@@ -23,10 +24,14 @@ import PortfolioNone from '../../components/porfolio/PortfolioNone.vue'
 import PortfolioChallenge from '../../components/porfolio/PortfolioChallenge.vue'
 import PortfolioUserAsset from '../../components/porfolio/PortfolioUserAsset.vue'
 import PortfolioAssetList from '../../components/porfolio/PortfolioAssetList.vue'
+import PortfolioSideBar from "../../components/porfolio/PortfolioSideBar.vue";
+
+
 export default {
+    components: { PortfolioItem,PortfolioNone, PortfolioChallenge, PortfolioUserAsset, PortfolioAssetList,PortfolioSideBar },
   data() {
     return {
-      isPort : true,
+      isPort : false,
       amountTypeList:['cashAssets','stock','bond','fund','realEstate','realAssets'],
       userAssetInfoList:{
         cashAssets : [
@@ -86,7 +91,8 @@ export default {
 }
     }
   },
-  components: { PortfolioItem,PortfolioNone, PortfolioChallenge, PortfolioUserAsset, PortfolioAssetList },
+
+
   created() {
     // this.fetchAssetType()
   },
