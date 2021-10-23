@@ -98,20 +98,17 @@
 .spending-icon-padding {
   padding-right: 10px;
   position: relative;
-  bottom: 20px;
 }
 
 .search-field {
-  padding-left: 5px;
   position: relative;
   top: 67px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .add-spending-title {
   display: inline-block;
   width: 100px;
-  text-align: center;
 }
 
 .add-button-section {
@@ -146,6 +143,11 @@
   width: 70%;
 }
 
+.date-picker {
+  width: 100%;
+  font-size: 17px;
+}
+
 .v-input__prepend-outer {
   display: none;
 }
@@ -157,6 +159,39 @@
 .success-button-section {
   padding-top: 20px;
   text-align: center;
+}
+
+.summary-section {
+  padding-top: 15px;
+}
+
+.summary-date {
+  color: gray;
+}
+
+.summary-element {
+  padding-bottom: 10px;
+}
+
+.sub-title {
+  padding-bottom: 20px;
+}
+
+.sum-spending {
+  padding-top: 25px;
+}
+
+.stats-main {
+  padding-top: 40px;
+}
+
+.search-section {
+  position: relative;
+  left: 8px;
+}
+
+.v-text-field__details {
+  display: none;
 }
 
 // portfolio sidebar scss

@@ -3,8 +3,8 @@
     <div>
       지출관리페이지
     </div>
-    <BudgetMonthPicker />
-    <BudgetTopSection style="max-height: 50px" />
+    <MonthPicker />
+    <SpendingTopSection style="max-height: 50px" />
     <SpendingBottomSection />
     <template>
       <BudgetSideBar />
@@ -14,14 +14,14 @@
 
 <script>
 import BudgetSideBar from "@/components/budget/BudgetSideBar.vue";
-import BudgetMonthPicker from "@/components/budget/BudgetMonthPicker.vue";
-import BudgetTopSection from "@/components/budget/BudgetTopSection.vue";
+import MonthPicker from "@/components/budget/MonthPicker.vue";
+import SpendingTopSection from "@/components/budget/SpendingTopSection.vue";
 import SpendingBottomSection from "@/components/budget/SpendingBottomSection.vue";
 export default {
   components: {
     BudgetSideBar,
-    BudgetMonthPicker,
-    BudgetTopSection,
+    MonthPicker,
+    SpendingTopSection,
     SpendingBottomSection,
   },
 };
