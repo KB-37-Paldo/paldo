@@ -11,14 +11,13 @@ const router = new Router({
     if (to.path !== from.path) {
       return { x: 0, y: 0 };
     }
-
   },
   routes: [
     {
-        path: '*',
-        redirect: "/"
-        // name: "notFound",
-        // component: () => import("@/views/NotFoundPage.vue")
+      path: "*",
+      redirect: "/",
+      // name: "notFound",
+      // component: () => import("@/views/NotFoundPage.vue")
     },
     {
       path: "/",
@@ -59,6 +58,11 @@ const router = new Router({
       path: "/budget/setting",
       name: "BudgetSettingPage",
       component: () => import("@/views/budget/BudgetSettingPage.vue"),
+    },
+    {
+      path: "/analysis",
+      name: "AnalysisPage",
+      component: () => import("@/views/budget/AnalysisPage.vue"),
     },
     {
       path: "/subscribe",

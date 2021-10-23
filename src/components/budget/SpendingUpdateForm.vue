@@ -1,18 +1,24 @@
 <template>
-  <div class="form-section sub__font">
+  <form class="form-section sub__font" action="" method="">
     <div class="element-form">
       <div class="add-spending-title">
         분류
       </div>
-      <div class="add-button-section">
-        <input type="radio" id="contactChoice1" name="contact" value="지출" />
-        <label for="contactChoice1" class="add-button-padding">지출</label>
+      <div id="radio" class="add-button-section">
+        <input type="radio" id="spend" name="contact" value="지출" required />
+        <label for="spend" class="add-button-padding">지출</label>
 
-        <input type="radio" id="contactChoice2" name="contact" value="수입" />
-        <label for="contactChoice2" class="add-button-padding">수입</label>
+        <input type="radio" id="income" name="contact" value="수입" required />
+        <label for="income" class="add-button-padding">수입</label>
 
-        <input type="radio" id="contactChoice3" name="contact" value="이체" />
-        <label for="contactChoice3" class="add-button-padding">이체</label>
+        <input
+          type="radio"
+          id="transfer"
+          name="contact"
+          value="이체"
+          required
+        />
+        <label for="transfer" class="add-button-padding">이체</label>
       </div>
     </div>
 
@@ -21,7 +27,13 @@
         카테고리
       </div>
       <div class="selector-section">
-        <v-select :items="items" label="선택" dense outlined></v-select>
+        <v-select
+          :items="items"
+          label="선택"
+          dense
+          outlined
+          aria-required="true"
+        ></v-select>
       </div>
     </div>
 
@@ -30,7 +42,7 @@
         거래처
       </div>
       <div class="text-section">
-        <v-text-field label="입력"></v-text-field>
+        <v-text-field label="입력" aria-required="true"></v-text-field>
       </div>
     </div>
 
@@ -39,7 +51,7 @@
         결제수단
       </div>
       <div class="text-section">
-        <v-text-field label="입력"></v-text-field>
+        <v-text-field label="입력" aria-required="true"></v-text-field>
       </div>
     </div>
 
@@ -76,49 +88,35 @@
         시간
       </div>
       <div class="date-picker-section">
-        <v-menu
-          ref="menu"
-          v-model="timeMenu"
-          :close-on-content-click="false"
-          :nudge-right="40"
-          :return-value.sync="time"
-          transition="scale-transition"
-          offset-y
-          max-width="290px"
-          min-width="290px"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-text-field
-              v-model="time"
-              label="설정"
-              prepend-icon="mdi-clock-time-four-outline"
-              readonly
-              v-bind="attrs"
-              v-on="on"
-            ></v-text-field>
-          </template>
-          <v-time-picker
-            v-if="timeMenu"
-            v-model="time"
-            full-width
-            @click:minute="$refs.menu.save(time)"
-          ></v-time-picker>
-        </v-menu>
+        <input type="time" class="date-picker" required />
       </div>
     </div>
     <div class="success-button-section">
       <v-btn
         class="setting-button"
         style="background-color: rgb(253,185,19); color: white; width: 90%"
+        type="submit"
         elevation="2"
+        @click="addSpending"
         >설 정</v-btn
       >
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
 export default {
+  methods: {
+    addSpending() {
+      this.$swal({
+        title: "내역 추가",
+        icon: "success",
+      });
+      this.$router.push({
+        name: "SpendingPage",
+      });
+    },
+  },
   data: () => ({
     date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
       .toISOString()

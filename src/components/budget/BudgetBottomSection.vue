@@ -1,45 +1,40 @@
 <template>
   <div>
-    <div>
-      <span class="sub__font">한 달 예산</span>
-    </div>
-    <div>
-      <span class="main__money__font">390,000원 남음</span>
-    </div>
-    <div class="budget-setting-button-section">
-      <v-btn
-        style="background-color: rgb(253,185,19); color: white;"
-        elevation="2"
-        @click="settingBud"
-        >예산 설정</v-btn
+    <div class="category-section">
+      <div class="sub__font category-start-section">
+        <span>카테고리별 예산</span>
+      </div>
+      <div
+        class="category__font category"
+        v-for="(category, index) in categoryList"
+        :key="index"
       >
-    </div>
-
-    <div class="total-budget-chart-section">
-      <div class="color__yellow">
-        <meter
-          class="meter w-100"
-          min="0"
-          max="1000000"
-          :value="610000"
-        ></meter>
+        <span class="category-icon-section" v-html="category.icon"></span>
+        <span>{{ category.category }}</span>
+        <div class="color__yellow">
+          <meter
+            class="meter w-100"
+            min="0"
+            :max="category.settingValue"
+            :value="category.currentValue"
+          ></meter>
+        </div>
+        <div class="category-budget">
+          <span class="micro__font">예산 {{ category.budget }}만원</span>
+        </div>
+        <div class="category-floating-right">
+          <span class="micro__font"
+            >남은 예산 {{ category.leftBudget }}만원</span
+          >
+        </div>
       </div>
     </div>
-    <div class="mini-font-section mini__font">
-      <span>총 예산 1,000,000원</span><br />
-      <span>남은 예산 390,000원</span>
-    </div>
-    <BudgetCategory />
   </div>
 </template>
 
 <script>
-import BudgetCategory from "@/components/budget/BudgetCategory.vue";
-
 export default {
-  components: {
-    BudgetCategory,
-  },
+  components: {},
   methods: {
     settingBud() {
       this.$router.push({
@@ -95,6 +90,92 @@ export default {
   //         this.barChart = myBarChart
   //         }
   //     }
+  data() {
+    return {
+      categoryList: [
+        {
+          icon: '<i class="fas fa-utensils"></i>',
+          category: "식비",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-shopping-bag"></i>',
+          category: "쇼핑",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-coffee"></i>',
+          category: "카페",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-bus"></i>',
+          category: "교통",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-chess-pawn"></i>',
+          category: "문화",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-envelope"></i>',
+          category: "경조",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-won-sign"></i>',
+          category: "금융",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-shopping-basket"></i>',
+          category: "생활",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-book"></i>',
+          category: "교육",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+        {
+          icon: '<i class="fas fa-hospital"></i>',
+          category: "의료",
+          settingValue: "1000000",
+          currentValue: "610000",
+          budget: "500,000",
+          leftBudget: "200,000",
+        },
+      ],
+    };
+  },
 };
 </script>
 
