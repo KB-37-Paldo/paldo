@@ -18,18 +18,20 @@
     </div>
 
     <div class="total-budget-chart-section">
-      <div class="color__yellow">
-        <meter
-          class="meter w-100"
-          min="0"
-          max="1000000"
-          :value="610000"
-        ></meter>
+      <div>
+        <div class="color__yellow">
+          <meter
+            class="meter w-100"
+            min="0"
+            max="1000000"
+            :value="610000"
+          ></meter>
+        </div>
       </div>
-    </div>
-    <div class="mini-font-section mini__font">
-      <span>총 예산 1,000,000원</span><br />
-      <span>남은 예산 390,000원</span>
+      <div class="mini-font-section mini__font">
+        <span>총 예산 1,000,000원</span><br />
+        <span>남은 예산 390,000원</span>
+      </div>
     </div>
   </div>
 </template>
