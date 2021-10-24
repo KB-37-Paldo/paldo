@@ -34,38 +34,55 @@
       <span class="category-floating-right micro__font"
         >전체 예산 1,000,000원</span
       >
-      <div
-        class="main-setting"
-        v-for="(category, index) in categoryList"
-        :key="index"
-      >
-        <div class="category__font category">
-          <span class="category-icon-section" v-html="category.icon"> </span>
-          <span>{{ category.category }}</span>
-          <div class="category-floating-right">
-            <v-text-field class="setting-text-area" label="금액"></v-text-field>
-          </div>
-          <div>
-            <div class="category-budget">
-              <span class="micro__font"
-                >지난달 {{ category.lastMonthSpending }}만원</span
-              >
+      <form action="" method="">
+        <div
+          class="main-setting"
+          v-for="(category, index) in categoryList"
+          :key="index"
+        >
+          <div class="category__font category">
+            <span class="category-icon-section" v-html="category.icon"> </span>
+            <span>{{ category.category }}</span>
+            <div class="category-floating-right">
+              <v-text-field
+                class="setting-text-area"
+                label="금액"
+              ></v-text-field>
+            </div>
+            <div>
+              <div class="category-budget">
+                <span class="micro__font"
+                  >지난달 {{ category.lastMonthSpending }}만원</span
+                >
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <v-btn
-        class="setting-button"
-        style="background-color: rgb(253,185,19); color: white"
-        elevation="2"
-        >설 정</v-btn
-      >
+        <v-btn
+          class="setting-button"
+          style="background-color: rgb(253,185,19); color: white"
+          elevation="2"
+          @click="updateBud"
+          >설 정</v-btn
+        >
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  methods: {
+    updateBud() {
+      this.$swal({
+        title: "예산 수정 완료",
+        icon: "success",
+      });
+      this.$router.push({
+        name: "BudgetPage",
+      });
+    },
+  },
   data() {
     return {
       categoryList: [

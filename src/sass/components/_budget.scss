@@ -75,7 +75,7 @@
 }
 
 .main-setting {
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 .padding-text-area {
@@ -135,6 +135,11 @@
   display: inline-block;
   width: 70%;
   height: 30px;
+}
+
+.total-budget-chart-section {
+  position: relative;
+  top: -40px;
 }
 
 .date-picker-section {
