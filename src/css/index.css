@@ -11,7 +11,7 @@ html {
   max-width: 375px;
   margin: 0 auto;
   height: 812px;
-  overflow-y: scroll;
+  overflow-y: auto;
   border: solid;
 }
 
@@ -164,6 +164,10 @@ html {
   padding-bottom: 50px;
 }
 
+.pb__ten {
+  padding-bottom: 10px;
+}
+
 .p__zero {
   padding: 0;
 }
@@ -211,6 +215,32 @@ html {
 
 .h-200 {
   height: 200%;
+}
+
+.about {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fcaf17;
+}
+
+.about__img {
+  width: 100%;
 }
 
 .nav-section {
@@ -384,6 +414,10 @@ html {
   height: 19px;
   background-color: #645b4c;
   color: #645b4c;
+}
+
+.button__about {
+  background-color: #645b4c;
 }
 
 .checks {

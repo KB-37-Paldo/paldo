@@ -26,11 +26,11 @@ export default {
   computed: {},
   watch: {
     $route() {
-      // if (this.$route.name !== "AboutPage") {
-      //   this.isShow = true;
-      // } else {
-      //   this.isShow = false;
-      // }
+      if (this.$route.name !== "AboutPage") {
+        this.isShow = true;
+      } else {
+        this.isShow = false;
+      }
     },
   },
   methods: {},
