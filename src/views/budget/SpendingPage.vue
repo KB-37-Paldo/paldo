@@ -34,11 +34,7 @@
         </v-btn>
       </v-date-picker>
     </v-menu>
-    <SpendingTopSection
-      style="max-height: 50px"
-      @sendParent="sendParent"
-      :spendinglist="spendinglist"
-    />
+    <SpendingTopSection style="max-height: 50px" :spendinglist="spendinglist" />
     <SpendingBottomSection />
     <template>
       <BudgetSideBar />
@@ -58,9 +54,6 @@ export default {
       //   this.spendinglist = res.data
       // })
     },
-    sendParent(e) {
-      console.log("자식한테받앗다", e);
-    },
   },
   components: {
     BudgetSideBar,
@@ -71,7 +64,7 @@ export default {
     date: new Date().toISOString().substr(0, 7),
     menu: false,
     modal: false,
-    //spendinglist: ["carddfsdfsfsdfsdfdsf"],
+    spendinglist: "carddfsdfsfsdfsdfdsf",
   }),
 };
 </script>

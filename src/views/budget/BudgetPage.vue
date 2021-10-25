@@ -54,16 +54,22 @@ import BudgetBottomSection from "@/components/budget/BudgetBottomSection.vue";
 import BudgetSideBar from "@/components/budget/BudgetSideBar.vue";
 import BudgetNone from "@/components/budget/BudgetNone.vue";
 export default {
-  data() {
-    return {
-      isBudget: true,
-    };
-  },
+  data: () => ({
+    isBudget: true,
+    date: new Date().toISOString().substr(0, 7),
+    menu: false,
+    modal: false,
+  }),
   components: {
     BudgetTopSection,
     BudgetBottomSection,
     BudgetSideBar,
     BudgetNone,
+  },
+  methods: {
+    monthChange() {
+      console.log(this.date);
+    },
   },
 };
 </script>
