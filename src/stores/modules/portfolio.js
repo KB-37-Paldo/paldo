@@ -1,7 +1,7 @@
 // import { loginUser, 
 //     updateMyInfo } from '@/api/user.js'
 
-import { fetchUserInfo } from '../../api/portfolio';
+import { fetchPortfolio, fetchUserInfo } from '../../api/portfolio';
 
 
 const state = {
@@ -19,7 +19,24 @@ const state = {
                 href: "http://paldo.169.56.174.130.nip.io/portfolio-service/portfolio/1"
             }
         }
-    }
+    },
+    portfolioInfo : {
+        bondAmount: 0,
+        cashAmount: 0,
+        createAt: "2021-10-25",
+        fundAmount: 0,
+        goldAmount: 0,
+        investType: "string",
+        links: {
+            empty: true
+        },
+        portfolioId: 0,
+        realEstateAmount: 0,
+        stockAmount: 0,
+        targetPeriod: "2021-10-25",
+        targetPrice: 0,
+        userId: state.userInfo.userId
+        }
 
 };
 
@@ -27,10 +44,8 @@ const mutations = {
     setUserInfo(state,newValue) { 
         state.userInfo = newValue;
     },
-    setPortStatus(state,newValue){
-        // console.log('포폴유무 업데이트 전',state.isPort, newValue)
-        state.userInfo.portfolio = newValue;
-        // console.log('포폴유무 업데이트 후',state.isPort)
+    setPortfolioInfo(state,newValue) { 
+        state.portfolioInfo = newValue;
     }
 }
 
@@ -41,6 +56,12 @@ const actions = {
         commit('setUserInfo', response.data)
         return response
     },
+    async fetchPortfolioInfo({commit}) {
+        const response = await fetchPortfolio(state.userInfo.userId);
+
+        commit('setUserInfo', response.data)
+        return response
+    }
 
 
 };

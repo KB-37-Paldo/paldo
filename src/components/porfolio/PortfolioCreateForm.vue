@@ -3,7 +3,7 @@
     <!-- User -->
     <div class="mt__ten">
       <span class="block mb__five title__font">
-        {{userInfo.userName}}님의
+        {{userInfo.name}}님의
       </span>
     </div>
       <!-- 1단계 -->
@@ -15,15 +15,15 @@
       </div>
       <div class="mt__ten mb__five">
         <div class="title__font">나이</div>
-        <v-text-field class="title__font" :placeholder="String(userInfo.userAge)"
+        <v-text-field class="title__font" :placeholder="String(userInfo.age)"
         ref="userAge"
         @keyup="upDateUserAge"></v-text-field>
       </div>
       <div class="mt__fiveVh mb__ten">
-        <div class="title__font">월소득</div>
+        <div class="title__font">연봉</div>
           <v-text-field class="sub__font"
           hide-details="auto"
-          :placeholder="userInfo.userIncome"
+          :placeholder="String(userInfo.salary)"
           ref="userIncome"
           @keyup="upDateUserIncome"
           ></v-text-field>
@@ -95,15 +95,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import {createPortfolio} from '@/api/portfolio'
+
 export default {
   data() {
     return {
       step:1,
-      userInfo : {
-        userName: '전국구',
-        userAge: 28,
-        userIncome: '3,000,000'
-      },
       investType : ['공격투자형', '적극투자형','위험중립형','안정추구형','안정형'],
       today:"yyyy-MM-dd",
       maxDate:"yyyy-MM-dd",
@@ -115,6 +113,11 @@ export default {
   
   created() {
     this.checkToday()
+  },
+  computed: {
+    ...mapState({
+      userInfo : state => state.portfolio.userInfo
+    })
   },
   methods: {
     nextStep() {
@@ -145,32 +148,52 @@ export default {
           icon:'warning'
         })
       } else {
-        this.$swal({
-          title:'포트폴리오생성',
-          icon:'success'
-        })
-        console.log('목표금액',this.userTargetMoney)
-        this.$store.commit('setPortStatus',true);
-        this.$router.push({
-          name:'PortfolioPage'
-        });
+        const portfolioInfo = {
+            investType: this.userInvestType,
+            targetPeriod: this.userTargetDate,
+            targetPrice: this.userTargetMoney,
+            userId: this.userInfo.userId
+          }
+          console.log('포트폴리오데이터',portfolioInfo)
+
+          const portfolio = createPortfolio(portfolioInfo).then((res) => {
+            if (res.status === 201) {
+              this.$swal({
+              title:'포트폴리오생성',
+              icon:'success'
+            })
+            this.$store.dispatch('updateUserInfo');
+            this.$router.push({
+              name:'PortfolioPage'
+            });
+            } else {
+              this.$swal({
+              title:'포트폴리오 생성 실패',
+              icon:'warning'
+            })
+            }
+          })
+          console.log(portfolio)
+
+        
       }
     },
     upDateUserAge() {
       const age = this.$refs.userAge.lazyValue;
       console.log('유저나이?',age)
-      this.userInfo.userAge = age;
+      this.userInfo.age = age;
     },
     upDateUserIncome() {
       const income = this.$refs.userIncome.lazyValue;
       console.log('유저수입?',income)
-      this.userInfo.userIncome = income;
+      this.userInfo.salary = income;
     },
     updateInvestType() {
       const investType = document.querySelector('input[name="chk_invest"]:checked');
       if (investType) {
         console.log(investType.value,'유저의 투자성향')
-        this.userInvestType = investType;
+        this.userInvestType = investType._value;
+        console.log(this.userInvestType)
       }
     },
     fetchTargetDate() {

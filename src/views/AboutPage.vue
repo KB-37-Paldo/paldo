@@ -24,7 +24,7 @@ export default {
   },
   methods: { 
     goLogin() {
-      this.$store.commit('LOGIN')
+      this.$store.dispatch('LOGIN')
       this.$router.push({
         name:'PortfolioPage'
       });
