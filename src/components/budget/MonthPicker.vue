@@ -11,6 +11,7 @@
   >
     <template v-slot:activator="{ on, attrs }">
       <v-text-field
+        class="picker-font"
         v-model="date"
         label=""
         prepend-icon="mdi-calendar"
