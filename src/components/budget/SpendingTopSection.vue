@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  props: ["spendinglist"],
   data() {
     return {
       myData: {
