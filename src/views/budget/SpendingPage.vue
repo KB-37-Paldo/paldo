@@ -1,8 +1,8 @@
 <template>
-  <div class="mt__ten">
-    <div>
+  <div class="mt__ten pl__ten">
+    <!-- <div>
       지출관리페이지
-    </div>
+    </div> -->
     <MonthPicker />
     <SpendingTopSection style="max-height: 50px" />
     <SpendingBottomSection />

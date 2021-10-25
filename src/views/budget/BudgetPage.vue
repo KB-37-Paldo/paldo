@@ -1,8 +1,8 @@
 <template>
-  <div class="mt__ten">
-    <div>
+  <div class="mt__ten pl__ten">
+    <!-- <div>
       예산관리페이지
-    </div>
+    </div> -->
     <!-- 예산설정 했을 때 -->
     <template v-if="isBudget">
       <MonthPicker />
