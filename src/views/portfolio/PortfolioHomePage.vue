@@ -1,9 +1,9 @@
 <template>
   <div class="bgColor__lightgray">
     <!-- 포트폴리오 있을 때 -->
-    <template v-if="isPort" >
-      <PortfolioItem/>
-      <PortfolioChallenge/>
+    <template v-if="userInfo.portfolio" >
+      <PortfolioItem />
+      <PortfolioChallenge />
       <PortfolioUserAsset/>
       <div v-for="(assetType,index) in amountTypeList" :key="index">
         <PortfolioAssetList :assetInfo="userAssetInfoList[assetType]"
@@ -95,14 +95,17 @@ export default {
 
   created() {
     // this.fetchAssetType()
+
   },
   computed: {
     ...mapState({
-      isPort : state => state.portfolio.userInfo.portfolio
+      userInfo : state => state.portfolio.userInfo
     })
   },
   methods: {
+
     fetchAssetType() {
+      
         // console.log('들어왓니', this.userAssetInfoList)
 
     //   this.userAssetInfoList=[];

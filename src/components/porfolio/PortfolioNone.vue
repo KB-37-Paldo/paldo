@@ -2,7 +2,7 @@
   <div class="portfolio__div">
     <div class="mt__ten">
       <span class="block mb__five title__font">
-        전국구님,
+        {{userInfo.name}}님,
       </span>
       <span class="block mb__five title__font">
         포트폴리오가 없습니다.
@@ -31,12 +31,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
+  computed: {
+      ...mapState({
+      userInfo : state => state.portfolio.userInfo
+    })
+  },
   methods: {
     createPort() {
       this.$router.push({ name: "PortfolioCreatePage" });
     },
   },
+
 };
 </script>
 
