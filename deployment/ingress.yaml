@@ -27,3 +27,10 @@ spec:
                 name: portfolio-service
                 port:
                   number: 8001
+          - path: /budget-service
+            pathType: Prefix
+            backend:
+              service:
+                name: budget-service
+                port:
+                  number: 8002
