@@ -3,8 +3,42 @@
     <!-- <div>
       지출관리페이지
     </div> -->
-    <MonthPicker />
-    <SpendingTopSection style="max-height: 50px" />
+    <v-menu
+      ref="menu"
+      v-model="menu"
+      :close-on-content-click="false"
+      :return-value.sync="date"
+      transition="scale-transition"
+      offset-y
+      max-width="290px"
+      min-width="auto"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-text-field
+          class="picker-font"
+          v-model="date"
+          label=""
+          prepend-icon="mdi-calendar"
+          readonly
+          v-bind="attrs"
+          v-on="on"
+        ></v-text-field>
+      </template>
+      <v-date-picker v-model="date" type="month" no-title scrollable>
+        <v-spacer></v-spacer>
+        <v-btn text color="primary" @click="menu = false">
+          Cancel
+        </v-btn>
+        <v-btn text color="primary" @click="monthChange">
+          OK
+        </v-btn>
+      </v-date-picker>
+    </v-menu>
+    <SpendingTopSection
+      style="max-height: 50px"
+      @sendParent="sendParent"
+      :spendinglist="spendinglist"
+    />
     <SpendingBottomSection />
     <template>
       <BudgetSideBar />
@@ -14,16 +48,31 @@
 
 <script>
 import BudgetSideBar from "@/components/budget/BudgetSideBar.vue";
-import MonthPicker from "@/components/budget/MonthPicker.vue";
 import SpendingTopSection from "@/components/budget/SpendingTopSection.vue";
 import SpendingBottomSection from "@/components/budget/SpendingBottomSection.vue";
 export default {
+  methods: {
+    async monthChange() {
+      console.log(this.date);
+      // const res = await apimethods(this.date).then((res) => {
+      //   this.spendinglist = res.data
+      // })
+    },
+    sendParent(e) {
+      console.log("자식한테받앗다", e);
+    },
+  },
   components: {
     BudgetSideBar,
-    MonthPicker,
     SpendingTopSection,
     SpendingBottomSection,
   },
+  data: () => ({
+    date: new Date().toISOString().substr(0, 7),
+    menu: false,
+    modal: false,
+    //spendinglist: ["carddfsdfsfsdfsdfdsf"],
+  }),
 };
 </script>
 

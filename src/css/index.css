@@ -669,6 +669,10 @@ html {
   display: none;
 }
 
+.v-input input {
+  text-align: center;
+}
+
 .budget__sidebar {
   position: -webkit-sticky;
   position: sticky;
