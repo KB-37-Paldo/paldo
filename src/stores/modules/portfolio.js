@@ -35,7 +35,7 @@ const state = {
         stockAmount: 0,
         targetPeriod: "2021-10-25",
         targetPrice: 0,
-        userId: state.userInfo.userId
+        userId: 0
         }
 
 };
