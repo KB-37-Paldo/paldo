@@ -94,12 +94,11 @@ export default {
 
 
   created() {
-    console.log(this.isPort)
     // this.fetchAssetType()
   },
   computed: {
     ...mapState({
-      isPort : state => state.portfolio.isPort
+      isPort : state => state.portfolio.userInfo.portfolio
     })
   },
   methods: {
