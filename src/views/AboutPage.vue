@@ -1,9 +1,35 @@
 <template>
-  <div></div>
+  <div class="about">
+    <div class="pb__ten">
+      종합자산관리
+    </div>
+    <div class="pb__fifty">머니마니 서비스</div>
+    <div @click="goLogin">
+      <v-btn
+      elevation="2"
+      x-large
+      class="button__about"
+    >시작하기</v-btn>
+    </div>
+    <img class="mt__twenty about__img" :src="imgURL" />
+  </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      imgURL:require('../assets/images/KB_Images.png')
+    }
+  },
+  methods: { 
+    goLogin() {
+      this.$store.commit('LOGIN')
+      this.$router.push({
+        name:'PortfolioPage'
+      });
+    }
+  }
 
 }
 </script>

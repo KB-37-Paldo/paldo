@@ -1,0 +1,15 @@
+.about {
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $main-color-darkyellow;
+
+  &__img {
+    width: 100%;
+  }
+}
+
