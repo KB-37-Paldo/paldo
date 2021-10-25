@@ -1,33 +1,29 @@
 <template>
-  <div>
+  <div class="pl__ten">
     <div>
-      <span class="color__gray pointer"
-      @click="goBudHome"
-      >
+      <span class="color__gray pointer" @click="goBudHome">
         <i class="fas fa-arrow-left"></i>
       </span>
     </div>
-    <BudgetSettingForm/>
+    <BudgetSettingForm />
   </div>
 </template>
 
 <script>
-import BudgetSettingForm from '@/components/budget/BudgetSettingForm.vue';
+import BudgetSettingForm from "@/components/budget/BudgetSettingForm.vue";
 
 export default {
   components: {
-      BudgetSettingForm
+    BudgetSettingForm,
   },
   methods: {
     goBudHome() {
       this.$router.push({
-        name:'BudgetPage'
-      })
-    }
-  }
-}
+        name: "BudgetPage",
+      });
+    },
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

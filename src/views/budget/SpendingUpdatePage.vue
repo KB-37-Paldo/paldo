@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pl__ten">
     <div>
       <span class="color__gray pointer" @click="goSpending">
         <i class="fas fa-arrow-left"></i>

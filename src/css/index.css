@@ -494,6 +494,10 @@ html {
   display: inline;
 }
 
+.picker-font {
+  font-size: 27px !important;
+}
+
 .mini-font-section {
   margin-top: 5px;
   position: relative;
