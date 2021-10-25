@@ -5,10 +5,24 @@
         분류
       </div>
       <div id="radio" class="add-button-section">
-        <input type="radio" id="spend" name="contact" value="지출" required />
+        <input
+          type="radio"
+          id="spend"
+          name="contact"
+          value="지출"
+          required
+          v-model="addSpendingInfo.type"
+        />
         <label for="spend" class="add-button-padding">지출</label>
 
-        <input type="radio" id="income" name="contact" value="수입" required />
+        <input
+          type="radio"
+          id="income"
+          name="contact"
+          value="수입"
+          required
+          v-model="addSpendingInfo.type"
+        />
         <label for="income" class="add-button-padding">수입</label>
 
         <input
@@ -17,6 +31,7 @@
           name="contact"
           value="이체"
           required
+          v-model="addSpendingInfo.type"
         />
         <label for="transfer" class="add-button-padding">이체</label>
       </div>
@@ -33,6 +48,7 @@
           dense
           outlined
           aria-required="true"
+          v-model="addSpendingInfo.category"
         ></v-select>
       </div>
     </div>
@@ -42,7 +58,11 @@
         거래처
       </div>
       <div class="text-section">
-        <v-text-field label="입력" aria-required="true"></v-text-field>
+        <v-text-field
+          label="입력"
+          aria-required="true"
+          v-model="addSpendingInfo.store"
+        ></v-text-field>
       </div>
     </div>
 
@@ -51,7 +71,11 @@
         결제수단
       </div>
       <div class="text-section">
-        <v-text-field label="입력" aria-required="true"></v-text-field>
+        <v-text-field
+          label="입력"
+          aria-required="true"
+          v-model="addSpendingInfo.means"
+        ></v-text-field>
       </div>
     </div>
 
@@ -88,14 +112,18 @@
         시간
       </div>
       <div class="date-picker-section">
-        <input type="time" class="date-picker" required />
+        <input
+          type="time"
+          class="date-picker"
+          required
+          v-model="addSpendingInfo.time"
+        />
       </div>
     </div>
     <div class="success-button-section">
       <v-btn
         class="setting-button"
         style="background-color: rgb(253,185,19); color: white; width: 90%"
-        type="submit"
         elevation="2"
         @click="addSpending"
         >설 정</v-btn
@@ -108,13 +136,21 @@
 export default {
   methods: {
     addSpending() {
-      this.$swal({
-        title: "내역 추가",
-        icon: "success",
-      });
-      this.$router.push({
-        name: "SpendingPage",
-      });
+      if (
+        this.addSpendingInfo.type &&
+        this.addSpendingInfo.category &&
+        this.addSpendingInfo.store &&
+        this.addSpendingInfo.means &&
+        this.addSpendingInfo.time
+      ) {
+        this.$swal({
+          title: "내역 추가",
+          icon: "success",
+        });
+        this.$router.push({
+          name: "SpendingPage",
+        });
+      }
     },
   },
   data: () => ({
@@ -139,6 +175,13 @@ export default {
       "교육",
       "의료",
     ],
+    addSpendingInfo: {
+      type: "",
+      category: "",
+      store: "",
+      means: "",
+      time: "",
+    },
   }),
 };
 </script>

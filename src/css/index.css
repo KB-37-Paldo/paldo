@@ -460,6 +460,11 @@ html {
   display: inline;
 }
 
+.v-text-field input {
+  font-size: 27px;
+  text-align: center;
+}
+
 .mini-font-section {
   margin-top: 5px;
   position: relative;
