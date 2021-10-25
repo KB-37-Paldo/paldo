@@ -1,7 +1,7 @@
 <template>
   <div class="portfolio__share">
     <span class="block mt__five sub__font">
-          {{shareTitle}} TOP 포트폴리오
+          {{shareTitle}} 평균 포트폴리오
         </span>
         <PortfolioChart :portType="shareType"/>
   </div>
