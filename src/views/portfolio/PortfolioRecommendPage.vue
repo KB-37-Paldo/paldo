@@ -1,6 +1,6 @@
 <template>
-  <div class="bgColor__lightgray">
-    <div class="portfolio__div">
+  <div class="bgColor__lightgray mt__minusTen">
+    <div class="portfolio__div ">
       <div class="mt__ten title__font">
         <span>
           전국구님을 위한

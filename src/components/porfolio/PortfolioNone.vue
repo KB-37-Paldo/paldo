@@ -2,14 +2,17 @@
   <div class="portfolio__div">
     <div class="mt__ten">
       <span class="block mb__five title__font">
+        전국구님,
+      </span>
+      <span class="block mb__five title__font">
         포트폴리오가 없습니다.
       </span>
       <span class="title__font">
         생성하시겠습니까?
       </span>
     </div>
-    <div class="mt__ten mb__five">
-      <span class=" mb__five title__font">
+    <div class="mt__twenty  mb__five">
+      <span class="mb__five title__font">
         네, 만들래요!
       </span>
       <span class="color__yellow right pointer" @click="createPort">
