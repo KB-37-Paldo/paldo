@@ -53,15 +53,9 @@ export default {
     this.getSpending();
   },
   methods: {
-    // async monthChange() {
-    //   console.log(this.date);
-    //   const res = await apimethods(this.date).then((res) => {
-    //     this.spendinglist = res.data
-    //   })
-    // },
     async getSpending() {
-      const spending = await fetchSpending(1).then((res) => {
-        this.spendingList = res.data._embedded.expenseResponseDtoList;
+      const spending = await fetchSpending(this.spendingData).then((res) => {
+        this.spendingList = res.data;
         console.log(this.spendingList);
       });
       console.log(spending);
@@ -76,6 +70,10 @@ export default {
     date: new Date().toISOString().substr(0, 7),
     menu: false,
     modal: false,
+    spendingData: {
+      userId: 1,
+      requestDate: new Date().toISOString().substr(0, 7),
+    },
     spendingList: [],
   }),
 };

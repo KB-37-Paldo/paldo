@@ -10,10 +10,11 @@
         :key="index"
       >
         <span class="category-icon-section" v-html="category.icon"></span>
-        <span>{{ category.category }}</span>
+        <span id="category">{{ category.category }}</span>
         <span
           class="micro__font category-floating-right"
           style="cursor: pointer"
+          id="category.category"
           @click="goDetail"
           >▶</span
         >
@@ -48,8 +49,10 @@ export default {
       });
     },
     goDetail() {
+      let category = document.getElementById("category").innerText;
       this.$router.push({
         name: "CategoryDetailPage",
+        params: { category },
       });
     },
   },
@@ -147,14 +150,6 @@ export default {
         {
           icon: '<i class="fas fa-envelope"></i>',
           category: "경조",
-          settingValue: "1000000",
-          currentValue: "610000",
-          budget: "500,000",
-          leftBudget: "200,000",
-        },
-        {
-          icon: '<i class="fas fa-won-sign"></i>',
-          category: "금융",
           settingValue: "1000000",
           currentValue: "610000",
           budget: "500,000",

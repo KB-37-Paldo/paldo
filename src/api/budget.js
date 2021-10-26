@@ -2,21 +2,29 @@ import { setInterceptors } from "./config/interceptors";
 const instance = setInterceptors();
 
 // 지출내역 조회
-function fetchSpending() {
-  //return instance.get(`budget-service/expense/${userId}`);
+function fetchSpending(spendingData) {
+  //return instance.get(`budget-service/expense/${spendingData.userId}`);
   return instance.get(
-    `http://paldo.169.56.174.130.nip.io/budget-service/expense/1`
+    `http://paldo.169.56.174.130.nip.io/budget-service/expense/${spendingData.userId}`,
+    {
+      params: {
+        requestDate: spendingData.requestDate,
+      },
+    }
+  );
+}
+
+// 내역 추가
+function createSpending(addSpendingInfo) {
+  return instance.post(
+    `http://paldo.169.56.174.130.nip.io/budget-service/expense/${addSpendingInfo.userId}`,
+    addSpendingInfo
   );
 }
 
 // // 지출 분석
 // function fetchSpendingAnalysis(userId) {
 //   return instance.get(``);
-// }
-
-// // 내역 추가
-// function createSpending(spendingInfo) {
-//   return instance.post(``);
 // }
 
 // // 총 예산, 남은 예산 조회
@@ -42,7 +50,7 @@ function fetchSpending() {
 export {
   fetchSpending,
   //   fetchSpendingAnalysis,
-  //   createSpending,
+  createSpending,
   //   fetchBudget,
   //   fetchAllCategory,
   //   updateBudget,
