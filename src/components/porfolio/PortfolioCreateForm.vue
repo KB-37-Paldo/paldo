@@ -162,9 +162,9 @@ export default {
               title:'포트폴리오생성',
               icon:'success'
             })
-            this.$store.dispatch('updateUserInfo');
+            this.$store.dispatch('fetchRecommendPortfolioInfo');
             this.$router.push({
-              name:'PortfolioPage'
+              name:'PortfolioRecommendPage'
             });
             } else {
               this.$swal({

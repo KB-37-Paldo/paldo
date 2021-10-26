@@ -94,16 +94,18 @@ export default {
 
 
   created() {
-    // this.fetchAssetType()
+    this.$store.dispatch('fetchRecommendPortfolioInfo')
+    this.$store.dispatch('fetchSharePortfolioInfo')
 
   },
   computed: {
     ...mapState({
       userInfo : state => state.portfolio.userInfo
+      
+
     })
   },
   methods: {
-
     fetchAssetType() {
       
         // console.log('들어왓니', this.userAssetInfoList)
