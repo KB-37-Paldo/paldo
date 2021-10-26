@@ -163,6 +163,7 @@ export default {
               icon:'success'
             })
             this.$store.dispatch('fetchRecommendPortfolioInfo');
+            this.$store.dispatch('LOGIN');
             this.$router.push({
               name:'PortfolioRecommendPage'
             });

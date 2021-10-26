@@ -42,7 +42,7 @@ export default {
       let now = new Date();
       let target = this.userAssetList.targetDate.split("-");
       let stDate = now;
-      let endDate = new Date(target[0],target[1],target[2]);
+      let endDate = new Date(target);
       let btMs = endDate.getTime() - stDate.getTime();
       let btDay = btMs / (1000*60*60*24);
       this.remainDate = Math.floor(btDay)

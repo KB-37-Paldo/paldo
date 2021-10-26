@@ -16,6 +16,7 @@
       {{changeMoney(asset.amount)}}
       </span>
     </div>
+    <span @click="goAssetDetail" class="mini__font category-floating-right  pointer color__gray" >더보기</span>
   </div>
 </template>
 
@@ -33,6 +34,16 @@ export default {
     this.fetchAsset()
   },
   methods: {
+    goAssetDetail() {
+      this.$router.push({
+        name:'AssetDetailPage',
+        params:{
+          assetInfo:this.assetList,
+          assetName:this.assetName,
+          assetTotal:this.changeMoney(this.assetTotal)
+        }
+      })
+    },
     changeMoney(amount) {
       return amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     },
