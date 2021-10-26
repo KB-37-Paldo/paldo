@@ -140,3 +140,11 @@
     height: 200%;
   }
 }
+
+// 글자줄이기
+.textOver {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 60%;
+}

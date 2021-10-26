@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import PortfolioChart from './PortfolioChart.vue'
 export default {
   components: { PortfolioChart },
@@ -20,8 +21,10 @@ export default {
     this.$store.dispatch('fetchRecommendPortfolioInfo')
   },
   
-  methods: {
-
+  computed: {
+    ...mapState({
+      portfolioInfo:state=>state.portfolio.userAssetList
+    })
   }
 
 }
