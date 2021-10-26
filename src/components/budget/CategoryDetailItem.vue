@@ -1,39 +1,17 @@
 <template>
   <div>
-    <!-- 지출내역 검색/추가 -->
-    <div class="search-section">
-      <div class="search-field">
-        <v-text-field
-          label="내역을 검색해주세요."
-          style="width: 90%;"
-        ></v-text-field>
-      </div>
-      <div class="spending-menu-section category-floating-right">
-        <span class="spending-icon-padding">
-          <i class="fas fa-search category__font" style="cursor: pointer"></i>
-        </span>
-        <span class="spending-icon-padding" @click="spendingUpdate">
-          <i class="fas fa-plus category__font" style="cursor: pointer"></i>
-        </span>
-      </div>
+    <div class="main__money__font">식비</div>
+    <div class="main__money__font category-floating-right">
+      총 283,892원
     </div>
-
     <br />
+    <hr />
     <!-- 월 지출 내역 -->
     <div
       class="daily-spending-section"
       v-for="(dayList, index) in monthSpendList"
       :key="index"
     >
-      <div class="category-budget">
-        <span class="mini__font daily-spending-text">{{ dayList.day }}일</span>
-      </div>
-      <div class="category-floating-right">
-        <span class="mini__font daily-spending-text"
-          >{{ dayList.dayTotal }}원</span
-        >
-      </div>
-      <hr />
       <div
         class="spending-element"
         v-for="(spend, index) in dayList.spendList"
@@ -49,9 +27,6 @@
         </div>
         <div class="category-floating-right">
           <span class="mini__font">{{ spend.amount }}원</span>
-        </div>
-        <div style="position: relative; bottom: 23px">
-          <span class="micro__font" style="color: gray">{{ spend.bank }}</span>
         </div>
       </div>
     </div>

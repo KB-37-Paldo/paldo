@@ -32,7 +32,7 @@
           <v-btn text color="primary" @click="menu = false">
             Cancel
           </v-btn>
-          <v-btn text color="primary" @click="monthChange">
+          <v-btn text color="primary">
             OK
           </v-btn>
         </v-date-picker>
@@ -54,12 +54,6 @@ import BudgetBottomSection from "@/components/budget/BudgetBottomSection.vue";
 import BudgetSideBar from "@/components/budget/BudgetSideBar.vue";
 import BudgetNone from "@/components/budget/BudgetNone.vue";
 export default {
-  data: () => ({
-    isBudget: true,
-    date: new Date().toISOString().substr(0, 7),
-    menu: false,
-    modal: false,
-  }),
   components: {
     BudgetTopSection,
     BudgetBottomSection,
@@ -67,10 +61,16 @@ export default {
     BudgetNone,
   },
   methods: {
-    monthChange() {
-      console.log(this.date);
-    },
+    // monthChange() {
+    //   console.log(this.date);
+    // },
   },
+  data: () => ({
+    isBudget: true,
+    date: new Date().toISOString().substr(0, 7),
+    menu: false,
+    modal: false,
+  }),
 };
 </script>
 
