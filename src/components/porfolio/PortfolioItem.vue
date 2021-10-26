@@ -7,7 +7,7 @@
       <span class="block mt__five">
         현재 자산 포트폴리오
       </span>
-      <PortfolioChart portType="users"/>
+      <PortfolioChart portType="users" :portfolioInfo="portfolioInfo"/>
     </div>
   </div>
 </template>
@@ -16,6 +16,10 @@
 import PortfolioChart from './PortfolioChart.vue'
 export default {
   components: { PortfolioChart },
+  created() {
+    this.$store.dispatch('fetchRecommendPortfolioInfo')
+  },
+  
   methods: {
 
   }

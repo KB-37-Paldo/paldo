@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  props:['portType'],
+  props:['portType','portfolioInfo'],
   data() {
     return {
       portChart:'',
@@ -30,6 +30,12 @@ export default {
   },
   methods : {
     fetchChart() {
+      this.chartData[0] = this.portfolioInfo.cashAmount;
+      this.chartData[1] = this.portfolioInfo.stockAmount;
+      this.chartData[2] = this.portfolioInfo.goldAmount;
+      this.chartData[3] = this.portfolioInfo.bondAmount;
+      this.chartData[4] = this.portfolioInfo.fundAmount;
+      this.chartData[5] = this.portfolioInfo.realEstateAmount;
       const ctx = this.$refs.portChart.getContext('2d');
       
       // 차트 font
@@ -82,7 +88,6 @@ export default {
         }
         }
       });
-    
       this.portChart = myportChart
       }
     }

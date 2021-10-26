@@ -8,7 +8,9 @@
         <span class="block mt__five">
           추천 자산 포트폴리오
         </span>
-        <PortfolioChart portType="recommend"/>
+        <PortfolioChart
+        :portfolioInfo="portfolioInfo"
+         portType="recommend"/>
       </div>
     </div>
     <div class="title__font portfolio__div">
@@ -18,7 +20,8 @@
     </div>
     <div class="bgColor__lightgray mt__minusTen">
       <div v-for="(product,index) in productTypeList" :key="index">
-        <PortfolioFinanceRecommend :productInfo="recommendList[product]" :productType="product"/>
+        <PortfolioFinanceRecommend :productInfo="recommendList[product]" 
+        :productType="product"/>
       </div>
     </div>
     <PortfolioSideBar/>
@@ -26,6 +29,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import PortfolioChart from '../../components/porfolio/PortfolioChart.vue'
 import PortfolioFinanceRecommend from '../../components/porfolio/PortfolioFinanceRecommend.vue'
 import PortfolioSideBar from '../../components/porfolio/PortfolioSideBar.vue'
@@ -50,6 +54,11 @@ export default {
 
       }
     }
+  },
+  computed: {
+    ...mapState({
+      portfolioInfo: state => state.portfolio.recommendPortfolioInfo
+    })
   },
 
 }
