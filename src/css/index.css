@@ -176,6 +176,10 @@ html {
   padding-left: 10px;
 }
 
+.pr__ten {
+  padding-right: 10px;
+}
+
 .color__yellow {
   color: #fcaf17;
 }
