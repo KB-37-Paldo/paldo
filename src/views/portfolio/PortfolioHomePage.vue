@@ -4,9 +4,9 @@
     <template v-if="userInfo.portfolio" >
       <PortfolioItem />
       <PortfolioChallenge />
-      <PortfolioUserAsset/>
+      <PortfolioUserAsset :userAssetList="userAssetList"/>
       <div v-for="(assetType,index) in amountTypeList" :key="index">
-        <PortfolioAssetList :assetInfo="userAssetInfoList[assetType]"
+        <PortfolioAssetList :assetInfo="userAssetList"
         :assetType="assetType"/>
       </div>
       <PortfolioSideBar />
@@ -32,63 +32,7 @@ export default {
     components: { PortfolioItem,PortfolioNone, PortfolioChallenge, PortfolioUserAsset, PortfolioAssetList,PortfolioSideBar },
   data() {
     return {
-      amountTypeList:['cashAssets','stock','bond','fund','realEstate','realAssets'],
-      userAssetInfoList:{
-        cashAssets : [
-    {
-      type: 'KB현금성자산',
-      amount: 1000
-    }
-  ], 
-  stock : [
-    {
-      type: 'KB증권',
-      amount: 2000
-    },{
-      type: 'KB증권',
-      amount: 2000
-    }
-  ],
-  realAssets: [
-    {
-      type: 'KB실물자산',
-      amount: 3000
-    },{
-      type: 'KB실물자산',
-      amount: 3000
-    }
-  ],
-  bond : [
-    {
-      type: 'KB채권',
-      amount: 5000
-    },
-    {
-      type: 'KB채권',
-      amount: 5000
-    }
-  ],
-  fund : [
-    {
-      type: 'KB펀드',
-      amount: 1000
-    },
-    {
-      type: 'KB펀드',
-      amount: 1000
-    }
-  ],
-  realEstate : [
-    {
-      type: 'KB부동산',
-      amount: 1000
-    },
-    {
-      type: 'KB부동산',
-      amount: 1000
-    }
-  ]
-}
+      amountTypeList:['cash','stock','bond','fund','realEstate','realAssets'],
     }
   },
 
@@ -96,12 +40,13 @@ export default {
   created() {
     this.$store.dispatch('fetchRecommendPortfolioInfo')
     this.$store.dispatch('fetchSharePortfolioInfo')
+    this.$store.dispatch('fetchUserAssetInfo')
 
   },
   computed: {
     ...mapState({
-      userInfo : state => state.portfolio.userInfo
-      
+      userInfo : state => state.portfolio.userInfo,
+      userAssetList: state => state.portfolio.userAssetList
 
     })
   },

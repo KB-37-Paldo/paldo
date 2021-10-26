@@ -47,7 +47,7 @@ export default {
       type: 'pie',
       // type: 'doughnut',
       data: {
-        labels: ["현금성자산", "주식", "금", "채권", "펀드", "부동산"],
+        labels: ["현금성자산", "주식", "실물자산", "채권", "펀드", "부동산"],
         datasets: [{
           label: "자산",
           backgroundColor: [

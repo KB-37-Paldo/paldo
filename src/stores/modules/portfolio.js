@@ -1,7 +1,7 @@
 // import { loginUser, 
 //     updateMyInfo } from '@/api/user.js'
 
-import { fetchPortfolio, fetchUserInfo, shareAgePortfolio, shareAssetPortfolio, shareInvestPortfolio } from '../../api/portfolio';
+import { fetchPortfolio, fetchUserAsset, fetchUserInfo, shareAgePortfolio, shareAssetPortfolio, shareInvestPortfolio } from '../../api/portfolio';
 
 
 const state = {
@@ -84,7 +84,73 @@ const state = {
       fundAmount: 5,
       realEstateAmount: 5
     }
-  ]:JSON.parse(sessionStorage.getItem('investPortfolioList'))
+  ]:JSON.parse(sessionStorage.getItem('investPortfolioList')),
+  userAssetList : sessionStorage.getItem('userAssetList') ? {
+  targetPrice: 100000000,
+  targetDate: "2021-10-30",
+   totAmount: 487000000,
+  cash: {
+      totAmount: 70652100,
+      data: [
+    {
+      holdingsId: 0,
+      amount: 36852100,
+      detailType: "KB종합통장",
+      assetType: "현금성"
+    }
+  ]},
+  stock: {
+      totAmount: 70652100,
+      data:[
+    {
+      holdingsId: 4,
+      amount: 45627153,
+      detailType: "삼성전자",
+      assetType: "주식"
+    }
+  ]},
+  realAssets : {
+      totAmount: 70652100,
+      data:[
+    {
+      holdingsId: 4,
+      amount: 45627153,
+      detailType: "금",
+      assetType: "실물자산"
+    }
+  ]},
+  bond: {
+      totAmount: 70652100,
+      data:[
+    {
+      holdingsId: 4,
+      amount: 45627153,
+      detailType: "채권",
+      assetType: "채권"
+    }
+  ]},
+  fund: {
+      totAmount: 70652100,
+      data:[
+    {
+      holdingsId: 7,
+      amount: 8764514,
+      detailType: "마이다스거북이90증권자투자신탁 1(주식)A",
+      assetType: "펀드"
+    }
+  ]},
+  realEstate: {
+      totAmount: 70652100,
+      data:[
+    {
+      holdingsId: 6,
+      amount: 487000000,
+      detailType: "와르르맨션",
+      assetType: "부동산"
+    }
+  ]}
+}
+ : JSON.parse(sessionStorage.getItem('userAssetList'))
 
 };
 
@@ -106,7 +172,11 @@ const mutations = {
 
         state.investPortfolioList = portData.invest;
         sessionStorage.setItem('investPortfolioList', JSON.stringify(portData.invest))
-    }
+    },
+    setUserAssetInfo(state,newValue) { 
+        state.userAssetList = newValue;
+        sessionStorage.setItem('userAssetList', JSON.stringify(newValue))
+    },
 }
 
 const actions = {
@@ -120,7 +190,7 @@ const actions = {
         const response = await fetchPortfolio(state.userInfo.userId);
 
         commit('setRecommendPortfolioInfo', response.data)
-        console.log('포트폴리오생성완료, 포폴데이터',response.data)
+        
         return response
     },
     async fetchSharePortfolioInfo({commit}) {
@@ -135,9 +205,16 @@ const actions = {
         }
 
         commit('setSharePortfolioInfo', response)
-        console.log('포트폴리오생성완료, 포폴데이터',response)
+        
         return response
-    }
+    },
+    async fetchUserAssetInfo({commit}) {
+        const response = await fetchUserAsset(state.userInfo.userId);
+
+        commit('setUserAssetInfo', response.data)
+        
+        return response
+    },
 
 
 };

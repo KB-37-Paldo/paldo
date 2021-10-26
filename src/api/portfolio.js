@@ -64,7 +64,16 @@ function shareAssetPortfolio(asset) {
 //   return instance.get(`portfolio-service/portfolio/invest-type/${investType}`)
 // }
 function shareInvestPortfolio(investType) {
-  return instance.get(`http://paldo.169.56.174.130.nip.io:80/portfolio-service/portfolio/invest-type/${investType}`)
+  return instance.get(`http://paldo.169.56.174.130.nip.io:80/portfolio-service/invest-type/${investType}`)
+}
+
+
+// 유저 현자산 조회
+// function fetchUserAsset(userId) {
+//   return instance.get(`portfolio-service/portfolio/asset/${userId}`)
+// }
+function fetchUserAsset(userId) {
+  return instance.get(`http://paldo.169.56.174.130.nip.io:80/portfolio-service/asset/${userId}`)
 }
 
 
@@ -76,5 +85,6 @@ export {
   deletePortfolio,
   shareAgePortfolio,
   shareAssetPortfolio,
-  shareInvestPortfolio
+  shareInvestPortfolio,
+  fetchUserAsset
 }

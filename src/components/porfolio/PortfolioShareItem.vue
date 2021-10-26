@@ -1,17 +1,18 @@
 <template>
   <div class="portfolio__share">
     <span class="block mt__five sub__font">
-          {{shareTitle}} 평균 포트폴리오
+          {{shareTitle}} 포트폴리오 공유
     </span>
-    <v-carousel v-model="model">
+    <v-carousel 
+    cycle
+      height="400"
+      hide-delimiter-background
+      show-arrows-on-hover
+    v-model="model">
       <v-carousel-item
         v-for="(portfolioInfo, i) in portfolioList"
         :key="i"
       >
-        <v-sheet
-          height="100%"
-          tile
-        >
           <v-row
             class="fill-height"
             align="center"
@@ -21,7 +22,6 @@
               :portfolioInfo="portfolioInfo"
               />
           </v-row>
-        </v-sheet>
       </v-carousel-item>
     </v-carousel>
         
@@ -40,13 +40,7 @@ export default {
       shareTitle:'',
       portfolioList:[],
       model: 0,
-    colors: [
-      'primary',
-      'secondary',
-      'yellow darken-2',
-      'red',
-      'orange',
-    ],
+    
     }
   },
   mounted() {
