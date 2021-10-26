@@ -8,7 +8,7 @@
         {{changeMoney(assetTotal)}}원
       </span>
     </div>
-    <div v-for="(asset,index) in assetList" :key="index" class="assetType mt__five">
+    <div v-for="(asset,index) in assetList" :key="index" v-show="index < 2" class="assetType mt__five">
       <span class="textOver sub__font">
       {{asset.detailType}}
       </span>
