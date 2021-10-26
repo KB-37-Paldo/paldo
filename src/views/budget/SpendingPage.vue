@@ -29,13 +29,13 @@
         <v-btn text color="primary" @click="menu = false">
           Cancel
         </v-btn>
-        <v-btn text color="primary" @click="monthChange">
+        <v-btn text color="primary">
           OK
         </v-btn>
       </v-date-picker>
     </v-menu>
-    <SpendingTopSection style="max-height: 50px" :spendinglist="spendinglist" />
-    <SpendingBottomSection />
+    <SpendingTopSection style="max-height: 50px" />
+    <SpendingBottomSection :spendingList="spendingList" />
     <template>
       <BudgetSideBar />
     </template>
@@ -46,13 +46,25 @@
 import BudgetSideBar from "@/components/budget/BudgetSideBar.vue";
 import SpendingTopSection from "@/components/budget/SpendingTopSection.vue";
 import SpendingBottomSection from "@/components/budget/SpendingBottomSection.vue";
+import { fetchSpending } from "@/api/budget";
+
 export default {
+  created() {
+    this.getSpending();
+  },
   methods: {
-    async monthChange() {
-      console.log(this.date);
-      // const res = await apimethods(this.date).then((res) => {
-      //   this.spendinglist = res.data
-      // })
+    // async monthChange() {
+    //   console.log(this.date);
+    //   const res = await apimethods(this.date).then((res) => {
+    //     this.spendinglist = res.data
+    //   })
+    // },
+    async getSpending() {
+      const spending = await fetchSpending(1).then((res) => {
+        this.spendingList = res.data._embedded.expenseResponseDtoList;
+        console.log(this.spendingList);
+      });
+      console.log(spending);
     },
   },
   components: {
@@ -64,7 +76,7 @@ export default {
     date: new Date().toISOString().substr(0, 7),
     menu: false,
     modal: false,
-    spendinglist: "carddfsdfsfsdfsdfdsf",
+    spendingList: [],
   }),
 };
 </script>

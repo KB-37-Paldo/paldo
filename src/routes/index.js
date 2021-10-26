@@ -65,6 +65,11 @@ const router = new Router({
       component: () => import("@/views/budget/BudgetSettingPage.vue"),
     },
     {
+      path: "/budget/category",
+      name: "CategoryDetailPage",
+      component: () => import("@/views/budget/CategoryDetailPage.vue"),
+    },
+    {
       path: "/analysis",
       name: "AnalysisPage",
       component: () => import("@/views/budget/AnalysisPage.vue"),

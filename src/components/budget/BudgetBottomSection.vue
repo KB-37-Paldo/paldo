@@ -11,6 +11,12 @@
       >
         <span class="category-icon-section" v-html="category.icon"></span>
         <span>{{ category.category }}</span>
+        <span
+          class="micro__font category-floating-right"
+          style="cursor: pointer"
+          @click="goDetail"
+          >▶</span
+        >
         <div class="color__yellow">
           <meter
             class="meter w-100"
@@ -39,6 +45,11 @@ export default {
     settingBud() {
       this.$router.push({
         name: "BudgetSettingPage",
+      });
+    },
+    goDetail() {
+      this.$router.push({
+        name: "CategoryDetailPage",
       });
     },
   },
