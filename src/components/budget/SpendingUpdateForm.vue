@@ -2,43 +2,6 @@
   <form class="form-section sub__font" action="" method="">
     <div class="element-form">
       <div class="add-spending-title">
-        분류
-      </div>
-      <div id="radio" class="add-button-section">
-        <input
-          type="radio"
-          id="spend"
-          name="contact"
-          value="지출"
-          required
-          v-model="addSpendingInfo.type"
-        />
-        <label for="spend" class="add-button-padding">지출</label>
-
-        <input
-          type="radio"
-          id="income"
-          name="contact"
-          value="수입"
-          required
-          v-model="addSpendingInfo.type"
-        />
-        <label for="income" class="add-button-padding">수입</label>
-
-        <input
-          type="radio"
-          id="transfer"
-          name="contact"
-          value="이체"
-          required
-          v-model="addSpendingInfo.type"
-        />
-        <label for="transfer" class="add-button-padding">이체</label>
-      </div>
-    </div>
-
-    <div class="element-form">
-      <div class="add-spending-title">
         카테고리
       </div>
       <div class="selector-section">
@@ -48,7 +11,7 @@
           dense
           outlined
           aria-required="true"
-          v-model="addSpendingInfo.category"
+          v-model="settingInfo.category"
         ></v-select>
       </div>
     </div>
@@ -61,7 +24,7 @@
         <v-text-field
           label="입력"
           aria-required="true"
-          v-model="addSpendingInfo.store"
+          v-model="settingInfo.source"
         ></v-text-field>
       </div>
     </div>
@@ -74,7 +37,20 @@
         <v-text-field
           label="입력"
           aria-required="true"
-          v-model="addSpendingInfo.means"
+          v-model="settingInfo.paymentMethod"
+        ></v-text-field>
+      </div>
+    </div>
+
+    <div class="element-form">
+      <div class="add-spending-title">
+        금액
+      </div>
+      <div class="text-section">
+        <v-text-field
+          label="입력"
+          aria-required="true"
+          v-model="settingInfo.amount"
         ></v-text-field>
       </div>
     </div>
@@ -116,7 +92,7 @@
           type="time"
           class="date-picker"
           required
-          v-model="addSpendingInfo.time"
+          v-model="settingInfo.time"
         />
       </div>
     </div>
@@ -133,23 +109,45 @@
 </template>
 
 <script>
+import { createSpending } from "@/api/budget";
+
 export default {
   methods: {
     addSpending() {
+      const addSpendingInfo = {
+        userId: 1,
+        category: this.settingInfo.category,
+        source: this.settingInfo.source,
+        paymentMethod: this.settingInfo.paymentMethod,
+        amount: this.settingInfo.amount,
+        outlayDatetime: this.date + " " + this.settingInfo.time,
+      };
+
       if (
-        this.addSpendingInfo.type &&
-        this.addSpendingInfo.category &&
-        this.addSpendingInfo.store &&
-        this.addSpendingInfo.means &&
-        this.addSpendingInfo.time
+        this.settingInfo.category &&
+        this.settingInfo.source &&
+        this.settingInfo.paymentMethod &&
+        this.settingInfo.amount &&
+        this.settingInfo.time &&
+        this.settingInfo.time
       ) {
-        this.$swal({
-          title: "내역 추가",
-          icon: "success",
+        const spending = createSpending(addSpendingInfo).then((res) => {
+          if (res.status === 201) {
+            this.$swal({
+              title: "내역 추가",
+              icon: "success",
+            });
+            this.$router.push({
+              name: "SpendingPage",
+            });
+          } else {
+            this.$swal({
+              title: "내역 추가 실패",
+              icon: "warning",
+            });
+          }
         });
-        this.$router.push({
-          name: "SpendingPage",
-        });
+        console.log(spending);
       }
     },
   },
@@ -175,11 +173,11 @@ export default {
       "교육",
       "의료",
     ],
-    addSpendingInfo: {
-      type: "",
+    settingInfo: {
       category: "",
-      store: "",
-      means: "",
+      source: "",
+      paymentMethod: "",
+      amount: "",
       time: "",
     },
   }),

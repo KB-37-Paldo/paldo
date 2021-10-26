@@ -117,11 +117,6 @@ export default {
           lastMonthSpending: "500,000",
         },
         {
-          icon: '<i class="fas fa-won-sign"></i>',
-          category: "금융",
-          lastMonthSpending: "500,000",
-        },
-        {
           icon: '<i class="fas fa-shopping-basket"></i>',
           category: "생활",
           lastMonthSpending: "500,000",

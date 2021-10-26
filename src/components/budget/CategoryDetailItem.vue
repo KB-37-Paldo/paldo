@@ -35,12 +35,8 @@
 
 <script>
 export default {
-  props: ["spendingList"],
-  methods: {
-    spendingUpdate() {
-      this.$router.push({ name: "SpendingUpdatePage" });
-    },
-  },
+  props: ["category"],
+  methods: {},
   data() {
     return {
       monthSpendList: [
