@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -24,6 +25,11 @@ export default {
   },
   created() {
     sessionStorage.clear()
+  },
+  computed: {
+    ...mapState({
+      userInfo:state=>state.portfolio.userInfo
+    })
   },
   methods: { 
     goLogin() {
@@ -34,10 +40,16 @@ export default {
           this.$store.dispatch('fetchSharePortfolioInfo')
       });
       })
-
-      this.$router.push({
+      if (this.userInfo.portfolio) {
+        this.$router.push({
         name:'PortfolioRecommendPage'
         })
+      } else {
+        this.$router.push({
+        name:'PortfolioPage'
+        })
+      }
+      
       
 
       
