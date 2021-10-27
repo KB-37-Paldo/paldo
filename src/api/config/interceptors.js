@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import store from '@/stores/index.js';
+// import store from '@/stores/modules/portfolio.js';
 // import router from '@/routes/index.js';
 
 
@@ -9,6 +9,7 @@ export function setInterceptors() {
   });
   instance.interceptors.request.use(
     (config) => {
+      // store.commit('startSpinner');
       return config;
     },
     (error) => Promise.reject(error.response)
@@ -16,6 +17,7 @@ export function setInterceptors() {
   instance.interceptors.response.use(
     (config) => {
       // console.log('response Config',config)
+      // store.commit('endSpinner');
       return config;
     },
     (error) => Promise.reject(error.response)

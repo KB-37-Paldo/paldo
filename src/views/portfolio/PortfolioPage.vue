@@ -26,6 +26,7 @@ import PortfolioUserAsset from '../../components/porfolio/PortfolioUserAsset.vue
 import PortfolioAssetList from '../../components/porfolio/PortfolioAssetList.vue'
 import PortfolioSideBar from "../../components/porfolio/PortfolioSideBar.vue";
 import { mapState } from 'vuex';
+// import bus from "@/utils/bus";
 
 
 export default {
@@ -38,6 +39,8 @@ export default {
 
 
   created() {
+    // this.goReload();
+    // bus.$emit("on:progress");
     this.$store.dispatch('fetchRecommendPortfolioInfo')
     this.$store.dispatch('fetchSharePortfolioInfo')
     this.$store.dispatch('fetchUserAssetInfo')
@@ -51,17 +54,13 @@ export default {
     })
   },
   methods: {
-    fetchAssetType() {
-      
-        // console.log('들어왓니', this.userAssetInfoList)
-
-    //   this.userAssetInfoList=[];
-    //   for (let i = 0; i < this.userAssetInfoList.length; i++) {
-    //     const element = this.userAssetInfoList[i];
-    //     this.amountTypeList.push(element);
-    //     console.log(element)
-    //  }
-    }
+    goReload() {
+      if (this.$route.params.reload) {
+        window.scrollTo(0, 0);
+        // bus.$emit("on:progress");
+        window.location.reload();
+      }
+    },
   }
 
 }

@@ -6,8 +6,7 @@
       :key="index"
     >
       <div
-        class="spending-element"
-      >
+        class="spending-element">
         <div class="category-budget">
           <span class="mini__font">{{ asset.detailType }}</span>
         </div>
