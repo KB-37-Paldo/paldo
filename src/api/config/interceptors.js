@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export function setInterceptors() {
   let instance = axios.create({
-    // baseURL: ,
+    baseURL: "http://paldo.169.56.174.130.nip.io/",
   });
   instance.interceptors.request.use(
     (config) => {
