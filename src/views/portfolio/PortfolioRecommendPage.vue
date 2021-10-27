@@ -68,10 +68,7 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('fetchUserAssetInfo')
-    this.$store.dispatch('fetchRecommendPortfolioInfo').then(()=>{
-      this.$store.dispatch('fetchSharePortfolioInfo')
-    })
+    
   },
   computed: {
     ...mapState({
