@@ -50,7 +50,7 @@ function shareInvestPortfolio(investData) {
 
 // 유저 현자산 조회
 function fetchUserAsset(userId) {
-  return instance.get(`portfolio-service/portfolio/asset/${userId}`)
+  return instance.get(`portfolio-service/asset/${userId}`)
 }
 
 export {
