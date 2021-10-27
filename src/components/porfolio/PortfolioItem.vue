@@ -18,7 +18,7 @@ import PortfolioChart from './PortfolioChart.vue'
 export default {
   components: { PortfolioChart },
   created() {
-    this.$store.dispatch('fetchRecommendPortfolioInfo')
+    // this.$store.dispatch('fetchRecommendPortfolioInfo')
   },
   
   computed: {

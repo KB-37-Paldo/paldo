@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-// import store from '@/stores/index';
+// import bus from "@/utils/bus";
+// import store from '@/stores/modules/portfolio.js';
 
 Vue.use(Router);
 
@@ -28,6 +29,14 @@ const router = new Router({
       path: "/portfolio",
       name: "PortfolioPage",
       component: () => import("@/views/portfolio/PortfolioPage.vue"),
+      // async beforeEnter(
+      //   routeTo,
+      //   routeFrom,
+      //   next
+      // ) {
+      //   bus.$emit("on:progress");
+      //   next();
+      // },
     },
     {
       path: "/portfolio/create",
@@ -87,5 +96,19 @@ const router = new Router({
     },
   ],
 });
+
+// router.beforeEach((to, from, next) => {
+//     store.commit('startSpinner');
+//     setTimeout(() => {
+//         next();
+//     }, 1);
+// })
+
+// router.afterEach(() => {
+//   setTimeout(() => {
+//       store.commit('endSpinner');
+//     }, 30000);
+    
+// })
 
 export default router;

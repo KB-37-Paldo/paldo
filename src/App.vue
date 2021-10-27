@@ -1,7 +1,8 @@
 <template>
   <v-app id="app" class="scroll">
+    <spinner :loading="loading"></spinner>
     <div class="nav-section">
-      <Nav v-if="isShow" />
+      <Nav v-if="isShow"/>
     </div>
     <router-view></router-view>
   </v-app>
@@ -9,21 +10,24 @@
 
 <script>
 import Nav from "@/components/common/Nav.vue";
+import Spinner from "@/components/common/Spinner.vue";
+import { mapState } from 'vuex';
+// import bus from "@/utils/bus";
 
 export default {
-  components: { Nav },
+  components: { Nav,Spinner },
   name: "App",
   data() {
     return {
       isShow: true,
-
-      URLTEST:''
+ 
     }
   }, 
-  mounted() {
-
+  computed: {
+    ...mapState({
+      loading: state=>state.portfolio.LoadingStatus
+    })
   },
-  computed: {},
   watch: {
     $route() {
       if (this.$route.name !== "AboutPage") {
@@ -33,7 +37,18 @@ export default {
       }
     },
   },
-  methods: {},
+  methods: {
+    onProgress() {
+      this.loading = true;
+    },
+    offProgress() {
+      this.loading = false;
+    }
+  },
+  async created() {
+    // await bus.$on("on:progress", this.onProgress);
+    // await bus.$on("off:progress", this.offProgress);
+  }
 };
 </script>
 

@@ -28,6 +28,8 @@ export default {
       this.$router.push({
         name:'PortfolioPage'
       });
+
+      
     }
   }
 

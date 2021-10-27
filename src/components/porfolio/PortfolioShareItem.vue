@@ -7,7 +7,7 @@
     cycle
       height="400"
       hide-delimiter-background
-      show-arrows-on-hover
+      show-arrows
     v-model="model">
       <v-carousel-item
         v-for="(portfolioInfo, i) in portfolioList"
@@ -17,6 +17,7 @@
             class="fill-height"
             align="center"
             justify="center"
+            
           >
               <PortfolioChart :portType="shareType"
               :portfolioInfo="portfolioInfo"
