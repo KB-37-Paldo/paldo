@@ -60,6 +60,18 @@ const router = new Router({
       props:true
     },
     {
+      path: "/recommend/product",
+      name: "RecommendProductDetailPage",
+      component: () => import("@/views/portfolio/RecommendProductDetailPage.vue"),
+      props:true
+    },
+    {
+      path: "/recommend/productlist",
+      name: "RecommendPage",
+      component: () => import("@/views/portfolio/RecommendPage.vue"),
+      props:true
+    },
+    {
       path: "/spending",
       name: "SpendingPage",
       component: () => import("@/views/budget/SpendingPage.vue"),

@@ -4,10 +4,10 @@
           {{shareTitle}} 포트폴리오 공유
     </span>
     <v-carousel 
-    cycle
       height="400"
-      hide-delimiter-background
-    v-model="model">
+      hide-delimiters
+    v-model="model"
+    >
     <template v-slot:prev="{ on, attrs }">
         <v-btn
           color="rgba(100, 91, 76,0.5)"
