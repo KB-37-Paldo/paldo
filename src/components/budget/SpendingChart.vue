@@ -11,13 +11,49 @@
 
 <script>
 export default {
-  props: ["spendingType"],
+  props: ["spendingType", "categoryList"],
+  created() {
+    this.totalAmount =
+      this.categoryList.cafe.amount +
+      this.categoryList.congratulations.amount +
+      this.categoryList.culture.amount +
+      this.categoryList.food.amount +
+      this.categoryList.shopping.amount +
+      this.categoryList.traffic.amount +
+      this.categoryList.life.amount +
+      this.categoryList.medical.amount;
+    this.cafeAmount = this.categoryList.cafe.amount;
+    this.congratulationsAmount = this.categoryList.congratulations.amount;
+    this.cultureAmount = this.categoryList.culture.amount;
+    this.foodAmount = this.categoryList.food.amount;
+    this.shoppingAmount = this.categoryList.shopping.amount;
+    this.trafficAmount = this.categoryList.traffic.amount;
+    this.lifeAmount = this.categoryList.life.amount;
+    this.medicalAmount = this.categoryList.medical.amount;
+    this.chartData[0] = (this.cafeAmount / this.totalAmount) * 100;
+    this.chartData[1] = (this.congratulationsAmount / this.totalAmount) * 100;
+    this.chartData[2] = (this.cultureAmount / this.totalAmount) * 100;
+    this.chartData[3] = (this.foodAmount / this.totalAmount) * 100;
+    this.chartData[4] = (this.shoppingAmount / this.totalAmount) * 100;
+    this.chartData[5] = (this.trafficAmount / this.totalAmount) * 100;
+    this.chartData[6] = (this.lifeAmount / this.totalAmount) * 100;
+    this.chartData[7] = (this.medicalAmount / this.totalAmount) * 100;
+  },
   data() {
     return {
+      totalAmount: "",
       spendingChart: "",
       mainColor: "rgb(100, 91, 76)",
-      chartData: [20, 20, 20, 20, 10, 10, 30, 10, 20, 20],
+      chartData: [],
       fontFamily: '"Hanna", fantasy;',
+      cafeAmount: "",
+      congratulationsAmount: "",
+      cultureAmount: "",
+      foodAmount: "",
+      shoppingAmount: "",
+      trafficAmount: "",
+      lifeAmount: "",
+      medicalAmount: "",
     };
   },
   mounted() {
@@ -44,9 +80,7 @@ export default {
             "교통",
             "문화",
             "경조",
-            "금융",
             "생활",
-            "교육",
             "의료",
           ],
           datasets: [

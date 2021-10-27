@@ -6,8 +6,11 @@
       </span>
     </div>
     <div class="mt__ten">
-      <AnalysisTopSection />
-      <AnalysisMainSection />
+      <AnalysisTopSection :month="this.$route.params.month" />
+      <AnalysisMainSection
+        :month="this.$route.params.month"
+        :categoryList="this.$route.params.categoryList"
+      />
     </div>
   </div>
 </template>
@@ -25,6 +28,7 @@ export default {
       this.$router.push({ name: "SpendingPage" });
     },
   },
+  name: "Params",
 };
 </script>
 

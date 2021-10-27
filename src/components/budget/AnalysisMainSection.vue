@@ -25,7 +25,7 @@
 
     <div class="stats-main">
       <div class="sub__font sub-title">통계</div>
-      <SpendingChart spendingType="users" />
+      <SpendingChart spendingType="users" :categoryList="categoryList" />
     </div>
   </div>
 </template>
@@ -33,6 +33,7 @@
 <script>
 import SpendingChart from "@/components/budget/SpendingChart.vue";
 export default {
+  props: ["categoryList"],
   data() {
     return {
       weekList: [

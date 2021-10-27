@@ -34,7 +34,25 @@
         </v-btn>
       </v-date-picker>
     </v-menu>
-    <SpendingTopSection style="max-height: 50px" />
+
+    <div style="margin-bottom: -100px">
+      <div>
+        <span style="font-size: 25px">지출 </span>
+        <span style="font-size: 30px">{{ categoryList.totalOutlay }}원</span>
+      </div>
+      <div>
+        <span style="font-size: 25px">수입 </span>
+        <span style="font-size: 30px">{{ categoryList.totalIncome }}원</span>
+      </div>
+      <div class="anaysis-button-section">
+        <v-btn
+          style="background-color: rgb(253,185,19); color: white; cursor: pointer; z-index: 5;"
+          elevation="2"
+          @click="goAnalysis"
+          >분석</v-btn
+        >
+      </div>
+    </div>
     <SpendingBottomSection :spendingList="spendingList" />
     <template>
       <BudgetSideBar />
@@ -44,9 +62,8 @@
 
 <script>
 import BudgetSideBar from "@/components/budget/BudgetSideBar.vue";
-import SpendingTopSection from "@/components/budget/SpendingTopSection.vue";
 import SpendingBottomSection from "@/components/budget/SpendingBottomSection.vue";
-import { fetchSpending } from "@/api/budget";
+import { fetchSpending, fetchAllCategory } from "@/api/budget";
 
 export default {
   created() {
@@ -65,18 +82,35 @@ export default {
           this.spendingList = res.data;
         });
         console.log(spending);
+        const category = await fetchAllCategory(this.spendingData).then(
+          (res) => {
+            this.categoryList = res.data;
+          }
+        );
+        console.log(category);
       } else {
         this.spendingData.requestDate = this.date;
         const spending = await fetchSpending(this.spendingData).then((res) => {
           this.spendingList = res.data;
         });
         console.log(spending);
+        const category = await fetchAllCategory(this.spendingData).then(
+          (res) => {
+            this.categoryList = res.data;
+          }
+        );
+        console.log(category);
       }
+    },
+    goAnalysis() {
+      this.$router.push({
+        name: "AnalysisPage",
+        params: { month: this.date, categoryList: this.categoryList },
+      });
     },
   },
   components: {
     BudgetSideBar,
-    SpendingTopSection,
     SpendingBottomSection,
   },
   data: () => ({
@@ -89,6 +123,7 @@ export default {
       requestDate: "",
     },
     spendingList: [],
+    categoryList: [],
   }),
 };
 </script>
