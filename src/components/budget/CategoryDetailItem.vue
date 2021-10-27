@@ -1,125 +1,112 @@
 <template>
   <div>
-    <div class="main__money__font">식비</div>
+    <div class="main__money__font">{{ category }}</div>
     <div class="main__money__font category-floating-right">
-      총 283,892원
+      총 {{ totalAmount }}원
     </div>
+
     <br />
     <hr />
     <!-- 월 지출 내역 -->
     <div
       class="daily-spending-section"
-      v-for="(dayList, index) in monthSpendList"
+      v-for="(spend, index) in spendingList"
       :key="index"
     >
       <div
-        class="spending-element"
-        v-for="(spend, index) in dayList.spendList"
-        :key="index"
+        class="category__font category-icon-section"
+        v-if="spend.category === '식비'"
       >
-        <div
-          class="category__font category-icon-section"
-          v-html="spend.icon"
-        ></div>
+        <i class="fas fa-utensils"></i>
+      </div>
+      <div
+        class="category__font category-icon-section"
+        v-if="spend.category === '쇼핑'"
+      >
+        <i class="fas fa-shopping-bag"></i>
+      </div>
+      <div
+        class="category__font category-icon-section"
+        v-if="spend.category === '카페'"
+      >
+        <i class="fas fa-coffee"></i>
+      </div>
+      <div
+        class="category__font category-icon-section"
+        v-if="spend.category === '교통'"
+      >
+        <i class="fas fa-bus"></i>
+      </div>
+      <div
+        class="category__font category-icon-section"
+        v-if="spend.category === '문화'"
+      >
+        <i class="fas fa-chess-pawn"></i>
+      </div>
+      <div
+        class="category__font category-icon-section"
+        v-if="spend.category === '경조'"
+      >
+        <i class="fas fa-envelope"></i>
+      </div>
+      <div
+        class="category__font category-icon-section"
+        v-if="spend.category === '생활'"
+      >
+        <i class="fas fa-shopping-basket"></i>
+      </div>
+      <div
+        class="category__font category-icon-section"
+        v-if="spend.category === '교육'"
+      >
+        <i class="fas fa-book"></i>
+      </div>
+      <div
+        class="category__font category-icon-section"
+        v-if="spend.category === '의료'"
+      >
+        <i class="fas fa-hospital"></i>
+      </div>
 
-        <div class="category-budget">
-          <span class="mini__font">{{ spend.store }}</span>
-        </div>
-        <div class="category-floating-right">
-          <span class="mini__font">{{ spend.amount }}원</span>
-        </div>
+      <div class="category-budget">
+        <span class="mini__font">{{ spend.source }}</span>
+      </div>
+      <div class="category-floating-right">
+        <span class="mini__font">{{ spend.amount }}원</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { fetchCategorySpending } from "@/api/budget";
 export default {
   props: ["category"],
-  methods: {},
+
+  created() {
+    this.getSpending();
+  },
+  methods: {
+    async getSpending() {
+      const spending = await fetchCategorySpending(this.categoryInfo).then(
+        (res) => {
+          this.spendingList = res.data.expenseResponses;
+          this.totalAmount = res.data.totalAmount;
+          console.log(this.spendingList);
+        }
+      );
+      console.log(spending);
+    },
+  },
   data() {
     return {
-      monthSpendList: [
-        {
-          day: 4,
-          dayTotal: "-12,000",
-          spendList: [
-            {
-              icon: '<i class="fas fa-shopping-basket"></i>',
-              store: "세븐일레븐 합정역본",
-              amount: "-4,500",
-              bank: "카카오뱅크 입출금통장",
-            },
-            {
-              icon: '<i class="fas fa-shopping-basket"></i>',
-
-              store: "GS25 보정동점",
-              amount: "-7,500",
-              bank: "카카오뱅크 입출금통장",
-            },
-          ],
-        },
-        {
-          day: 3,
-          dayTotal: "-58,000",
-          spendList: [
-            {
-              icon: '<i class="fas fa-shopping-basket"></i>',
-
-              store: "황소곱창",
-              amount: "-52,000",
-              bank: "카카오뱅크 입출금통장",
-            },
-            {
-              icon: '<i class="fas fa-shopping-basket"></i>',
-
-              store: "가보자 순대국밥",
-              amount: "-6,000",
-              bank: "카카오뱅크 입출금통장",
-            },
-          ],
-        },
-        {
-          day: 2,
-          dayTotal: "-49,500",
-          spendList: [
-            {
-              icon: '<i class="fas fa-shopping-basket"></i>',
-
-              store: "세븐일레븐 합정역본",
-              amount: "-4,500",
-              bank: "카카오뱅크 입출금통장",
-            },
-            {
-              icon: '<i class="fas fa-shopping-basket"></i>',
-
-              store: "미스터피자",
-              amount: "-45,000",
-              bank: "카카오뱅크 입출금통장",
-            },
-          ],
-        },
-        {
-          day: 1,
-          dayTotal: "-9000",
-          spendList: [
-            {
-              icon: '<i class="fas fa-shopping-basket"></i>',
-
-              store: "세븐일레븐 합정역본",
-              amount: "-4,500",
-              bank: "카카오뱅크 입출금통장",
-            },
-            {
-              icon: '<i class="fas fa-shopping-basket"></i>',
-
-              store: "세븐일레븐 합정역본",
-              amount: "-4,500",
-              bank: "카카오뱅크 입출금통장",
-            },
-          ],
-        },
-      ],
+      categoryInfo: {
+        userId: 1,
+        category: this.category,
+        requestDate: new Date().toISOString().substr(0, 7),
+      },
+      spendingList: [],
+      totalAmount: "",
     };
   },
 };
