@@ -35,7 +35,8 @@
           class="nav-item"
           :class="[toActive === 'RecommendPage' ? 'active' : '']"
         >
-          <a class="nav-link">
+          <a class="nav-link"
+          @click="goPage('RecommendPage')">
             <span><i class="fas fa-compass"></i></span>금융상품추천
           </a>
         </li>

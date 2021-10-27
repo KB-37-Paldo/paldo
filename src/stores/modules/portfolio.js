@@ -1,4 +1,4 @@
-import { fetchPortfolio, fetchUserAsset, fetchUserInfo, shareAgePortfolio, shareAssetPortfolio, shareInvestPortfolio } from '../../api/portfolio';
+import { fetchPortfolio, fetchUserAsset, fetchUserInfo, recommendProduct, shareAgePortfolio, shareAssetPortfolio, shareInvestPortfolio } from '../../api/portfolio';
 
 
 const state = {
@@ -263,7 +263,21 @@ const state = {
     ]
   }
 }
- : JSON.parse(sessionStorage.getItem('userAssetList'))
+ : JSON.parse(sessionStorage.getItem('userAssetList')),
+ productList:sessionStorage.getItem('productList') === null ? {
+  cash: [
+    {
+      prodcutId: 0,
+      detailType: "KB내맘대로적금",
+      assetType: "현금성"
+    }
+  ],
+  invest: [{
+      prodcutId: 0,
+      detailType: "KB내맘대로펀드",
+      assetType: "펀드"
+    }]
+} : JSON.parse(sessionStorage.getItem('productList'))
 
 };
 
@@ -298,6 +312,10 @@ const mutations = {
         state.userAssetList = newValue;
         sessionStorage.setItem('userAssetList', JSON.stringify(newValue))
     },
+    setProductInfo(state,newValue) {
+      state.productList = newValue;
+      sessionStorage.setItem('productList', JSON.stringify(newValue))
+    }
 }
 
 const actions = {
@@ -332,6 +350,13 @@ const actions = {
         const response = await fetchUserAsset(state.userInfo.userId);
 
         commit('setUserAssetInfo', response.data)
+        
+        return response
+    },
+    async fetchProductInfo({commit}) {
+        const response = await recommendProduct(state.userInfo.userId);
+
+        commit('setProductInfo', response.data)
         
         return response
     },

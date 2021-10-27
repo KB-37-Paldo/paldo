@@ -53,6 +53,12 @@ function fetchUserAsset(userId) {
   return instance.get(`portfolio-service/asset/${userId}`)
 }
 
+// 유저 금융상품 추천
+function recommendProduct(userId) {
+  return instance.get(`portfolio-service/recommendation/product/${userId}`)
+}
+
+
 export {
   fetchUserInfo,
   fetchPortfolio,
@@ -62,5 +68,6 @@ export {
   shareAgePortfolio,
   shareAssetPortfolio,
   shareInvestPortfolio,
-  fetchUserAsset
+  fetchUserAsset,
+  recommendProduct
 }
