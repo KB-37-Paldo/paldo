@@ -1,6 +1,6 @@
 <template>
   <div class="chart">
-    <canvas width="400" height="400" ref="portChart" id="portChart"></canvas>
+    <canvas width="346" height="346" ref="portChart" id="portChart"></canvas>
   </div>
 </template>
 

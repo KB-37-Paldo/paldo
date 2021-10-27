@@ -7,8 +7,23 @@
     cycle
       height="400"
       hide-delimiter-background
-      show-arrows
     v-model="model">
+    <template v-slot:prev="{ on, attrs }">
+        <v-btn
+          color="rgba(100, 91, 76,0.5)"
+          fab
+          v-bind="attrs"
+          v-on="on"
+        ><i class="fas fa-arrow-left"></i></v-btn>
+      </template>
+      <template v-slot:next="{ on, attrs }">
+        <v-btn
+          color="rgba(100, 91, 76,0.5)"
+          v-bind="attrs"
+          v-on="on"
+          fab
+        ><i class="fas fa-arrow-right"></i></v-btn>
+      </template>
       <v-carousel-item
         v-for="(portfolioInfo, i) in portfolioList"
         :key="i"
@@ -32,7 +47,6 @@
 <script>
 import { mapState } from 'vuex'
 import PortfolioChart from '../../components/porfolio/PortfolioChart.vue'
-
 export default {
   components: { PortfolioChart },
   props:['shareType'],
@@ -56,12 +70,12 @@ export default {
     })
   },
   methods: {
-    fetchShareData() {
+    async fetchShareData() {
       if (this.shareType == "age") {
         this.shareTitle = "같은 연령대"
         this.portfolioList = this.agePortfolioList
       } else if (this.shareType == "money") {
-        this.shareTitle = "유사한 자산"
+        this.shareTitle = "비슷한 연봉"
         this.portfolioList = this.assetPortfolioList
       } else if (this.shareType == "investType") {
         this.shareTitle = `${this.portfolio.investType}`
