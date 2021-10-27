@@ -48,6 +48,8 @@ export default {
   async created() {
     // await bus.$on("on:progress", this.onProgress);
     // await bus.$on("off:progress", this.offProgress);
+    
+    
   }
 };
 </script>

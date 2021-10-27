@@ -41,9 +41,11 @@ export default {
   created() {
     // this.goReload();
     // bus.$emit("on:progress");
-    this.$store.dispatch('fetchRecommendPortfolioInfo')
-    this.$store.dispatch('fetchSharePortfolioInfo')
     this.$store.dispatch('fetchUserAssetInfo')
+    this.$store.dispatch('fetchRecommendPortfolioInfo').then(()=>{
+      this.$store.dispatch('fetchSharePortfolioInfo')
+    })
+    
 
   },
   computed: {

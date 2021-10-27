@@ -61,10 +61,19 @@ function shareAssetPortfolio(asset) {
 
 // 유형별 포트폴리오 조회
 // function shareInvestPortfolio(investType) {
-//   return instance.get(`portfolio-service/portfolio/invest-type/${investType}`)
+//   return instance.get(`portfolio-service/portfolio/invest-type`,{
+  //   params: {
+  //     investType:investType
+  //   }
+  // })
 // }
-function shareInvestPortfolio(investType) {
-  return instance.get(`http://paldo.169.56.174.130.nip.io:80/portfolio-service/invest-type/${investType}`)
+function shareInvestPortfolio(investData) {
+  return instance.get(`http://paldo.169.56.174.130.nip.io:80/portfolio-service/portfolio/invest-type`,
+    {
+      params: {
+        investType: investData
+      },
+  })
 }
 
 
