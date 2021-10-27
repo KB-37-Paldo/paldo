@@ -1,12 +1,12 @@
 <template>
   <div>
-    <SpendingTopSection />
-
     <div>
       <span class="sub__font">한 달 예산</span>
     </div>
     <div>
-      <span class="main__money__font">390,000원 남음</span>
+      <span class="main__money__font"
+        >{{ categoryList.totalAmount }}원 남음</span
+      >
     </div>
     <div class="budget-setting-button-section">
       <v-btn
@@ -23,26 +23,26 @@
           <meter
             class="meter w-100"
             min="0"
-            max="1000000"
-            :value="610000"
+            :max="categoryList.totalAmount"
+            :value="categoryList.totalOutlay"
           ></meter>
         </div>
       </div>
       <div class="mini-font-section mini__font">
-        <span>총 예산 1,000,000원</span><br />
-        <span>남은 예산 390,000원</span>
+        <span>총 예산 {{ categoryList.totalAmount }}원</span><br />
+        <span
+          >남은 예산
+          {{ categoryList.totalAmount - categoryList.totalOutlay }}원</span
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import SpendingTopSection from "@/components/budget/SpendingTopSection.vue";
-
 export default {
-  components: {
-    SpendingTopSection,
-  },
+  props: ["categoryList"],
+
   methods: {
     settingBud() {
       this.$router.push({

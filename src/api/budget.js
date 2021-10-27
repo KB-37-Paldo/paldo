@@ -27,15 +27,17 @@ function createSpending(addSpendingInfo) {
 //   return instance.get(``);
 // }
 
-// // 총 예산, 남은 예산 조회
-// function fetchBudget(userId) {
-//   return instance.get(``);
-// }
-
-// // 모든 카테고리 예산 조회
-// function fetchAllCategory(userId) {
-//   return instance.get(``);
-// }
+// 모든 카테고리 예산 조회
+function fetchAllCategory(allCategoryInfo) {
+  return instance.get(
+    `http://paldo.169.56.174.130.nip.io/budget-service/${allCategoryInfo.userId}/budget`,
+    {
+      params: {
+        requestDate: allCategoryInfo.requestDate,
+      },
+    }
+  );
+}
 
 // 카테고리별 지출내역
 function fetchCategorySpending(categoryInfo) {
@@ -66,6 +68,6 @@ export {
   createSpending,
   fetchCategorySpending,
   //   fetchBudget,
-  //   fetchAllCategory,
+  fetchAllCategory,
   //   updateBudget,
 };

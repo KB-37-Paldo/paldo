@@ -32,13 +32,33 @@
           <v-btn text color="primary" @click="menu = false">
             Cancel
           </v-btn>
-          <v-btn text color="primary">
+          <v-btn text color="primary" @click="monthChange">
             OK
           </v-btn>
         </v-date-picker>
       </v-menu>
-      <BudgetTopSection />
-      <BudgetBottomSection />
+
+      <div>
+        <div>
+          <span style="font-size: 25px">지출 </span>
+          <span style="font-size: 30px">{{ categoryList.totalOutlay }}원</span>
+        </div>
+        <div>
+          <span style="font-size: 25px">수입 </span>
+          <span style="font-size: 30px">{{ categoryList.totalIncome }}원</span>
+        </div>
+        <div class="anaysis-button-section">
+          <v-btn
+            style="background-color: rgb(253,185,19); color: white; cursor: pointer; z-index: 5;"
+            elevation="2"
+            @click="goAnalysis()"
+            >분석</v-btn
+          >
+        </div>
+      </div>
+
+      <BudgetTopSection :categoryList="categoryList" />
+      <BudgetBottomSection :categoryList="categoryList" />
       <BudgetSideBar />
     </template>
     <!-- 예산설정 안했을 때 -->
@@ -53,6 +73,8 @@ import BudgetTopSection from "@/components/budget/BudgetTopSection.vue";
 import BudgetBottomSection from "@/components/budget/BudgetBottomSection.vue";
 import BudgetSideBar from "@/components/budget/BudgetSideBar.vue";
 import BudgetNone from "@/components/budget/BudgetNone.vue";
+import { fetchAllCategory } from "@/api/budget";
+
 export default {
   components: {
     BudgetTopSection,
@@ -60,16 +82,55 @@ export default {
     BudgetSideBar,
     BudgetNone,
   },
+  created() {
+    this.getAllBudget();
+  },
   methods: {
-    // monthChange() {
-    //   // console.log(this.date);
-    // },
+    monthChange() {
+      this.$refs.menu.save(this.date);
+      this.isChange = true;
+      this.getAllBudget();
+    },
+    async getAllBudget() {
+      if (!this.isChange) {
+        this.allCategoryInfo.requestDate = new Date()
+          .toISOString()
+          .substr(0, 7);
+        const category = await fetchAllCategory(this.allCategoryInfo).then(
+          (res) => {
+            this.categoryList = res.data;
+          }
+        );
+        console.log(category);
+      } else {
+        this.allCategoryInfo.requestDate = this.date;
+        const category = await fetchAllCategory(this.allCategoryInfo).then(
+          (res) => {
+            this.categoryList = res.data;
+          }
+        );
+        console.log(category);
+      }
+    },
+    goAnalysis() {
+      this.$router.push({
+        name: "AnalysisPage",
+        params: { month: this.date, categoryList: this.categoryList },
+      });
+    },
   },
   data: () => ({
     isBudget: true,
     date: new Date().toISOString().substr(0, 7),
     menu: false,
     modal: false,
+    isChange: false,
+    allCategoryInfo: {
+      userId: 1,
+      requestDate: "",
+    },
+    categoryList: [],
+    myData: [],
   }),
 };
 </script>
