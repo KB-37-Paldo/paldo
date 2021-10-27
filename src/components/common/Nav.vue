@@ -27,8 +27,8 @@
           class="nav-item"
           :class="[toActive === 'SubscribePage' ? 'active' : '']"
         >
-          <a class="nav-link" @click="goPage('SubscribePage')">
-            <span><i class="fas fa-calendar-alt"></i></span>구독
+          <a class="nav-link" @click="showAlert">
+            <span><i class="fas fa-calendar-alt"></i></span>구독관리
           </a>
         </li>
         <li
@@ -68,6 +68,18 @@ export default {
       const bg = document.querySelector(".nav-checkbox");
       bg.checked = false;
     },
+    showAlert(){
+      this.$swal({
+        title: '죄송합니다',
+        text: '구독관리 페이지는 \n 다음 버전에 업데이트 될 예정입니다.',
+        imageUrl: require('../../assets/images/runa.png'),
+        imageWidth: 150,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+      })
+      const bg = document.querySelector(".nav-checkbox");
+      bg.checked = false;
+    }
   },
 };
 </script>
