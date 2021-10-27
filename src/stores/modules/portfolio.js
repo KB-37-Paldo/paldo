@@ -315,11 +315,11 @@ const actions = {
     },
     async fetchSharePortfolioInfo({commit}) {
         const age = await shareAgePortfolio(state.userInfo.age);
-        const asset = await shareAssetPortfolio(state.userInfo.salary);
-        console.log('너는 무슨형?',state.recommendPortfolioInfo.investType)
+        const asset = await shareAssetPortfolio(state.userAssetList.totAmount);
+        console.log('너는 무슨형1?',state.recommendPortfolioInfo.investType)
 
-        const invest = await shareInvestPortfolio(state.recommendPortfolioInfo.investType);
-        console.log('너는 무슨형?',state.recommendPortfolioInfo.investType)
+        const invest = await shareInvestPortfolio("공격투자형");
+        console.log('너는 무슨형2?',state.recommendPortfolioInfo.investType)
         const response = {
             age:age.data.portfolios,
             asset:asset.data.portfolios,

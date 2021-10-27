@@ -24,10 +24,17 @@ export default {
   },
   methods: { 
     goLogin() {
-      this.$store.dispatch('LOGIN')
-      this.$router.push({
+      this.$store.dispatch('LOGIN').then(()=>{
+        this.$store.dispatch('fetchUserAssetInfo')
+        this.$store.dispatch('fetchRecommendPortfolioInfo').then(()=>{
+          this.$store.dispatch('fetchSharePortfolioInfo')
+          
+        this.$router.push({
         name:'PortfolioPage'
+        })
       });
+      })
+      
 
       
     }

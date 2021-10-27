@@ -19,7 +19,12 @@ import PortfolioShareItem from '../../components/porfolio/PortfolioShareItem.vue
 import PortfolioSideBar from '../../components/porfolio/PortfolioSideBar.vue'
 export default {
   components: { PortfolioSideBar, PortfolioShareItem },
-  
+  created() {
+    this.$store.dispatch('fetchUserAssetInfo')
+    this.$store.dispatch('fetchRecommendPortfolioInfo').then(()=>{
+      this.$store.dispatch('fetchSharePortfolioInfo')
+    })
+  },
 
 }
 </script>
