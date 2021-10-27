@@ -29,7 +29,9 @@
         <span class="mini__font daily-spending-text">{{ dayList.day }}일</span>
       </div>
       <div class="category-floating-right">
-        <span class="mini__font daily-spending-text">원</span>
+        <span class="mini__font daily-spending-text"
+          >{{ dayList.totalAmount }}원</span
+        >
       </div>
       <hr />
       <div

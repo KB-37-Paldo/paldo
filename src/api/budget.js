@@ -32,10 +32,23 @@ function createSpending(addSpendingInfo) {
 //   return instance.get(``);
 // }
 
-// // 카테고리별 예산 조회
+// // 모든 카테고리 예산 조회
 // function fetchAllCategory(userId) {
 //   return instance.get(``);
 // }
+
+// 카테고리별 지출내역
+function fetchCategorySpending(categoryInfo) {
+  return instance.get(
+    `http://paldo.169.56.174.130.nip.io/budget-service/expense/${categoryInfo.userId}/category`,
+    {
+      params: {
+        category: categoryInfo.category,
+        requestDate: categoryInfo.requestDate,
+      },
+    }
+  );
+}
 
 // // 최근 3개월 평균 지출, 지난달 지출 금액 조회
 // function fetchLastSpanding(userId){
@@ -51,6 +64,7 @@ export {
   fetchSpending,
   //   fetchSpendingAnalysis,
   createSpending,
+  fetchCategorySpending,
   //   fetchBudget,
   //   fetchAllCategory,
   //   updateBudget,

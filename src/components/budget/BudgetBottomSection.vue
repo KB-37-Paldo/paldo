@@ -10,12 +10,11 @@
         :key="index"
       >
         <span class="category-icon-section" v-html="category.icon"></span>
-        <span id="category">{{ category.category }}</span>
+        <span>{{ category.category }}</span>
         <span
           class="micro__font category-floating-right"
           style="cursor: pointer"
-          id="category.category"
-          @click="goDetail"
+          @click="goDetail(category.category)"
           >▶</span
         >
         <div class="color__yellow">
@@ -48,8 +47,7 @@ export default {
         name: "BudgetSettingPage",
       });
     },
-    goDetail() {
-      let category = document.getElementById("category").innerText;
+    goDetail(category) {
       this.$router.push({
         name: "CategoryDetailPage",
         params: { category },
@@ -106,6 +104,7 @@ export default {
   //     }
   data() {
     return {
+      category: "",
       categoryList: [
         {
           icon: '<i class="fas fa-utensils"></i>',
