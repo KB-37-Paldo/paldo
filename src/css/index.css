@@ -172,6 +172,10 @@ html {
   padding: 0;
 }
 
+.p__five {
+  padding: 1rem;
+}
+
 .pl__ten {
   padding-left: 10px;
 }
@@ -200,6 +204,10 @@ html {
   background-color: #ffffff;
 }
 
+.bgColor__yellow {
+  background-color: #fcaf17;
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -225,11 +233,27 @@ html {
   height: 200%;
 }
 
+.h__two {
+  height: 150px;
+}
+
 .textOver {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 60%;
+}
+
+.position__r {
+  position: relative;
+}
+
+.position__a {
+  position: absolute;
+}
+
+.z {
+  z-index: 1;
 }
 
 .about {
@@ -836,6 +860,11 @@ html {
   position: absolute;
   width: 100%;
   z-index: 1;
+}
+
+.recommend__div {
+  top: 20%;
+  left: 5%;
 }
 
 .meter {
