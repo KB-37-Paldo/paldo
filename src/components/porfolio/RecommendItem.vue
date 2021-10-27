@@ -8,7 +8,8 @@
       <div
         class="spending-element">
         <div class="category-budget">
-          <span class="mini__font">{{ product.assetType }}</span>
+          <span v-if="product.assetType === '금'" class="mini__font">실물자산</span>
+          <span v-else class="mini__font">{{ product.assetType }}</span>
         </div>
         <div class="category-floating-right">
           <span class="mini__font">{{product.detailType }}</span>
