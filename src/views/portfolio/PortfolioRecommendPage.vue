@@ -8,10 +8,21 @@
         <span class="block mt__five">
           추천 자산 포트폴리오
         </span>
+        
         <PortfolioChart
         :portfolioInfo="portfolioInfo"
          portType="recommend"/>
+        
+        
+        <div class="position__r  h__two mt__five mini__font" v-if="portfolioInfo.description">
+          <div class="recommend__div position__a w-50 z">
+            {{portfolioInfo.description}}
+          </div>
+          
+          <img class="position__a about__img" :src="imgURL"/>
+        </div>
       </div>
+      
     </div>
     <div class="title__font portfolio__div">
       <span>
@@ -37,6 +48,7 @@ export default {
   components: { PortfolioChart, PortfolioSideBar, PortfolioFinanceRecommend },
   data() {
     return {
+      imgURL:require('../../assets/images/bb.png'),
       productTypeList: ["cards","insurances"],
       recommendList: {
         cards: [{

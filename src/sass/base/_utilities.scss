@@ -82,6 +82,10 @@
   &__zero {
     padding: 0;
   }
+
+  &__five {
+    padding: 1rem;
+  }
 }
 
 .pl {
@@ -106,7 +110,7 @@
     color: $main-color-darkgray;
 
     &__light {
-      color:$color-lightgray;;
+      color:$color-lightgray;
     }
   }
 }
@@ -118,6 +122,10 @@
 
   &__white {
     background-color: $color-white;
+  }
+
+  &__yellow {
+    background-color: $main-color-darkyellow;
   }
 }
 
@@ -148,6 +156,10 @@
   &-200 {
     height: 200%;
   }
+
+  &__two {
+    height: 150px;
+  }
 }
 
 // 글자줄이기
@@ -156,4 +168,19 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 60%;
+}
+
+// 포지션
+.position {
+  &__r {
+    position: relative;
+  }
+  &__a {
+    position: absolute;
+  }
+}
+
+//z-index
+.z {
+  z-index: 1;
 }
