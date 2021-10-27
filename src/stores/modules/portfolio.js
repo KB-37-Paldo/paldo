@@ -270,11 +270,11 @@ const state = {
 const mutations = {
   startSpinner(state){
       state.loadingStatus = true;
-      console.log('스피너시작')
+      // console.log('스피너시작')
     },
     endSpinner(state){
         state.loadingStatus = false;
-        console.log('스피너끝')
+        // console.log('스피너끝')
     },
     setUserInfo(state,newValue) { 
         state.userInfo = newValue;

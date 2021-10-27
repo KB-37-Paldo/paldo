@@ -5,7 +5,7 @@ const state = {
 
 const mutations = {
   // deleteGroupInfo(state) {
-  //   console.log('여기들어왔음')
+  //   // console.log('여기들어왔음')
   //   state.groupInfo = ''
   //   state.groupMemberCnt = 0
   //   sessionStorage.clear()

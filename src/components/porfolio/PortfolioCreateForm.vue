@@ -154,9 +154,9 @@ export default {
             targetPrice: this.userTargetMoney,
             userId: this.userInfo.userId
           }
-          console.log('포트폴리오데이터',portfolioInfo)
+          // console.log('포트폴리오데이터',portfolioInfo)
 
-          const portfolio = createPortfolio(portfolioInfo).then((res) => {
+          createPortfolio(portfolioInfo).then((res) => {
             if (res.status === 201) {
               this.$swal({
               title:'포트폴리오생성',
@@ -178,27 +178,26 @@ export default {
             })
             }
           })
-          console.log(portfolio)
 
         
       }
     },
     upDateUserAge() {
       const age = this.$refs.userAge.lazyValue;
-      console.log('유저나이?',age)
+      // console.log('유저나이?',age)
       this.userInfo.age = age;
     },
     upDateUserIncome() {
       const income = this.$refs.userIncome.lazyValue;
-      console.log('유저수입?',income)
+      // console.log('유저수입?',income)
       this.userInfo.salary = income;
     },
     updateInvestType() {
       const investType = document.querySelector('input[name="chk_invest"]:checked');
       if (investType) {
-        console.log(investType.value,'유저의 투자성향')
+        // console.log(investType.value,'유저의 투자성향')
         this.userInvestType = investType._value;
-        console.log(this.userInvestType)
+        // console.log(this.userInvestType)
       }
     },
     fetchTargetDate() {
