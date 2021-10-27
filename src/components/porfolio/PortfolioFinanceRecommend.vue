@@ -29,9 +29,9 @@ export default {
   },
   methods: {
     fetchProduct() {
-      console.log('들어는가니?', this.productType,this.productInfo)
+      // console.log('들어는가니?', this.productType,this.productInfo)
       if (this.productType == 'cards') {
-        console.log('너는뭐니')
+        // console.log('너는뭐니')
         this.productName = '카드상품'
       } else if (this.productType == 'insurances') {
         this.productName = '보험상품'

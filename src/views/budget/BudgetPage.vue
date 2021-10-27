@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     // monthChange() {
-    //   console.log(this.date);
+    //   // console.log(this.date);
     // },
   },
   data: () => ({

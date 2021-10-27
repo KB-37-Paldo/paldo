@@ -16,7 +16,7 @@ export function setInterceptors() {
   );
   instance.interceptors.response.use(
     (config) => {
-      // console.log('response Config',config)
+      // // console.log('response Config',config)
       // store.commit('endSpinner');
       return config;
     },

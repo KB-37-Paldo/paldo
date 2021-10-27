@@ -56,7 +56,7 @@ export default {
     $route(to, from) {
       this.fromActive = from.name;
       this.toActive = to.name;
-      console.log(this.fromActive, this.toActive);
+      // console.log(this.fromActive, this.toActive);
     },
   },
   computed: {},
