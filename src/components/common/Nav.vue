@@ -9,9 +9,9 @@
       <ul class="nav-list">
         <li
           class="nav-item"
-          :class="[toActive === 'PortfolioPage' ? 'active' : '']"
+          :class="[toActive === 'PortfolioRecommendPage' ? 'active' : '']"
         >
-          <a class="nav-link" @click="goPage('PortfolioPage')">
+          <a class="nav-link" @click="goPage('PortfolioRecommendPage')">
             <span><i class="fas fa-wallet"></i></span>포트폴리오
           </a>
         </li>

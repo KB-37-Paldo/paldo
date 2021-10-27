@@ -9,7 +9,7 @@
       <span class="sub__font">
       {{product.assetType}}
       </span>
-      <span class="sub__font color__gray">
+      <span class="sub__font color__gray textOver">
       {{product.detailType}}
       </span>
     </div>
