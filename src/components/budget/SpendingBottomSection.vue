@@ -24,7 +24,7 @@
         </div>
         <div class="category-floating-right">
           <span class="mini__font daily-spending-text"
-            >{{ dayList.totalAmount }}원</span
+            >{{ changeMoney(dayList.totalAmount) }}원</span
           >
         </div>
         <hr />
@@ -92,7 +92,7 @@
             <span class="mini__font">{{ spend.source }}</span>
           </div>
           <div class="category-floating-right">
-            <span class="mini__font">{{ spend.amount }}원</span>
+            <span class="mini__font">{{ changeMoney(spend.amount) }}원</span>
           </div>
           <!-- <div style="position: relative; bottom: 23px">
           <span class="micro__font" style="color: gray">{{
@@ -111,6 +111,9 @@ export default {
   methods: {
     spendingUpdate() {
       this.$router.push({ name: "SpendingUpdatePage" });
+    },
+    changeMoney(amount) {
+      return amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     },
   },
 };

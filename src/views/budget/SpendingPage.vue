@@ -29,7 +29,7 @@
         <v-btn text color="primary" @click="menu = false">
           Cancel
         </v-btn>
-        <v-btn text color="primary">
+        <v-btn text color="primary" @click="monthChange">
           OK
         </v-btn>
       </v-date-picker>
@@ -53,12 +53,25 @@ export default {
     this.getSpending();
   },
   methods: {
+    monthChange() {
+      this.$refs.menu.save(this.date);
+      this.isChange = true;
+      this.getSpending();
+    },
     async getSpending() {
-      const spending = await fetchSpending(this.spendingData).then((res) => {
-        this.spendingList = res.data;
-        console.log(this.spendingList);
-      });
-      console.log(spending);
+      if (!this.isChange) {
+        this.spendingData.requestDate = new Date().toISOString().substr(0, 7);
+        const spending = await fetchSpending(this.spendingData).then((res) => {
+          this.spendingList = res.data;
+        });
+        console.log(spending);
+      } else {
+        this.spendingData.requestDate = this.date;
+        const spending = await fetchSpending(this.spendingData).then((res) => {
+          this.spendingList = res.data;
+        });
+        console.log(spending);
+      }
     },
   },
   components: {
@@ -70,9 +83,10 @@ export default {
     date: new Date().toISOString().substr(0, 7),
     menu: false,
     modal: false,
+    isChange: false,
     spendingData: {
       userId: 1,
-      requestDate: new Date().toISOString().substr(0, 7),
+      requestDate: "",
     },
     spendingList: [],
   }),
