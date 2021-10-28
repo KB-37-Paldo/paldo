@@ -20,10 +20,12 @@
       </span>
     </div>
     <div>
-      <span class="title__font">
+      <span 
+      
+      class="title__font">
         다음에 하겠습니다.
       </span>
-      <span class="color__gray right pointer">
+      <span @click="showAlert" class="color__gray right pointer">
         <i class="fas fa-times-circle"></i>
       </span>
     </div>
@@ -42,6 +44,16 @@ export default {
     createPort() {
       this.$router.push({ name: "PortfolioCreatePage" });
     },
+    showAlert(){
+      this.$swal({
+        title: '부탁드립니다',
+        text: '다음에 시작하지 \n 말아주세요...',
+        imageUrl: require('../../assets/images/runa.png'),
+        imageWidth: 150,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+      })
+    }
   },
 
 };
