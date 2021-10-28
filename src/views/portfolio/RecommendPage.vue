@@ -22,7 +22,6 @@ import { mapState } from 'vuex'
 import PortfolioFinanceRecommend from '../../components/porfolio/PortfolioFinanceRecommend.vue'
 export default {
   components: { PortfolioFinanceRecommend },
-  props: ["recommendList"],
   created() {
     this.$store.dispatch('fetchProductInfo')
   },
