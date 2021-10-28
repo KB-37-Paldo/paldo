@@ -1,6 +1,7 @@
 <template>
   <div class="portfolio__div">
-    <div class="mt__ten title__font">
+    <!-- mt__ten  -->
+    <div class="title__font">
       <span>
         다른 사람들의</span>
         <span class="block">

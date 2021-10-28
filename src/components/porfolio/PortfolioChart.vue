@@ -1,6 +1,6 @@
 <template>
   <div class="chart">
-    <canvas width="346" height="346" ref="portChart" id="portChart"></canvas>
+    <canvas class="m__auto" width="250" height="250" ref="portChart" id="portChart"></canvas>
   </div>
 </template>
 
@@ -68,7 +68,7 @@ export default {
         }]
         },
         options: {
-          responsive: true,
+          responsive: false,
           plugins: {
             legend: {
               position: 'top',

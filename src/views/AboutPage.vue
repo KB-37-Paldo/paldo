@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="pb__ten">
+    <div class="pb__ten pt__ten">
       종합자산관리
     </div>
     <div class="pb__fifty">머니마니 서비스</div>
@@ -11,7 +11,8 @@
       class="button__about"
     >시작하기</v-btn>
     </div>
-    <img class="mt__twenty about__img" :src="imgURL" />
+    <img class="mt__ten about__img" :src="imgURL" />
+    <div class="bgColor__yellow h-100"></div>
   </div>
 </template>
 
@@ -39,7 +40,6 @@ export default {
         this.$store.dispatch('fetchRecommendPortfolioInfo').then(()=>{
           this.$store.dispatch('fetchSharePortfolioInfo')
       });
-      })
       if (this.userInfo.portfolio) {
         this.$router.push({
         name:'PortfolioRecommendPage'
@@ -49,6 +49,8 @@ export default {
         name:'PortfolioPage'
         })
       }
+      })
+      
       
       
 

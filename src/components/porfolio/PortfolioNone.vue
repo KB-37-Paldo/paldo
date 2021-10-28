@@ -1,6 +1,7 @@
 <template>
   <div class="portfolio__div">
-    <div class="mt__ten">
+    <!-- mt__ten -->
+    <div class="">
       <span class="block mb__five title__font">
         {{userInfo.name}}님,
       </span>
