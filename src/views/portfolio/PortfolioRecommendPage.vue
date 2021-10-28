@@ -1,11 +1,12 @@
 <template>
   <div class="bgColor__lightgray mt__minusTen">
     <div class="portfolio__div ">
-      <div class="mt__ten title__font">
+      <div class="title__font">
+        <!-- mt__ten  -->
         <span>
           {{userInfo.name}}님을 위한
         </span>
-        <span class="block mt__five">
+        <span class="block ">
           추천 자산 포트폴리오
         </span>
         
@@ -24,8 +25,10 @@
       </div>
       
     </div>
+
     <RecommendPage/>
     <PortfolioSideBar/>
+
   </div>
 </template>
 

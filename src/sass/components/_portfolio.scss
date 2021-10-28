@@ -2,16 +2,14 @@
   // portfolio sidebar scss
   &__sidebar {
     position: sticky;
-    // background-color: $main-color-darkyellow; /*임의색상*/
     left: 0;
     right: 0;
     bottom: 10px;
-    height: 8rem;
+    height: 38vh;
     display: flex;
     align-content: space-around;
     justify-content: space-around;
-    align-items: center;
-    height: 35px;
+    /* align-items: center; */
     width: 100%;
 
     &__div {
@@ -49,7 +47,7 @@
 
   &__share {
     background-color: $color-white;
-    padding: 30px 0;
+    padding: 20px 0;
     margin-top: 10px;
   }
 

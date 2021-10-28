@@ -4,7 +4,7 @@
       <span class="sub__font">
         {{assetName}}
       </span>
-      <span class="mini__font color__gray__light">
+      <span class="mini__font color__gray">
         {{changeMoney(assetTotal)}}원
       </span>
     </div>

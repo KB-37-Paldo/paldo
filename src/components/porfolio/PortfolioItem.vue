@@ -1,10 +1,11 @@
 <template>
   <div class="portfolio__div">
-    <div class="mt__ten title__font">
+    <div class="title__font">
+      <!-- mt__ten  -->
       <span>
         전국구님의
       </span>
-      <span class="block mt__five">
+      <span class="block">
         현재 자산 포트폴리오
       </span>
       <PortfolioChart portType="users" :portfolioInfo="portfolioInfo"/>

@@ -1,8 +1,10 @@
 <template>
   <div class="pl__ten">
     <!-- User -->
-    <div class="mt__ten">
-      <span class="block mb__five title__font">
+    <!-- mt__ten -->
+    <div class="">
+      <!-- mb__five -->
+      <span class="block  title__font">
         {{userInfo.name}}님의
       </span>
     </div>
@@ -13,7 +15,8 @@
           정보가 정확한가요?
         </span>
       </div>
-      <div class="mt__ten mb__five">
+      <div class="mt__fiveVh">
+        <!-- mb__five mt__ten -->
         <div class="title__font">나이</div>
         <v-text-field class="title__font" :placeholder="String(userInfo.age)"
         ref="userAge"
@@ -36,7 +39,7 @@
           투자유형은 무엇인가요?
         </span>
       </div>
-      <div class="mt__ten context__font mb__five__vh"
+      <div class="mt__five context__font mb__five__vh"
       @click="updateInvestType"
       >
         <div v-for="(type,index) in investType" :key="index" class="mb__five checks">

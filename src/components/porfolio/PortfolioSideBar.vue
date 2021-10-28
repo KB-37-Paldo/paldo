@@ -1,5 +1,6 @@
 <template>
-  <div class="mt__ten center pointer portfolio__sidebar">
+<!-- mt__ten  -->
+  <div class="center pointer portfolio__sidebar">
     <div class="portfolio__sidebar__div">
       <div class="mr__ten portfolio__sidebar__item" @click="goPage('PortfolioPage')" :class="[toActive === 'PortfolioPage'? 'active' : '']">조회</div>
       <div class="mr__ten portfolio__sidebar__item" @click="goPage('PortfolioRecommendPage')" :class="[toActive === 'PortfolioRecommendPage'? 'active' : '']">추천</div>
