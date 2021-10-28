@@ -5,7 +5,9 @@
     </div>
     <div>
       <span class="main__money__font"
-        >{{ changeMoney(categoryList.totalAmount) }}원 남음</span
+        >{{
+          changeMoney(categoryList.totalAmount - categoryList.totalOutlay)
+        }}원 남음</span
       >
     </div>
     <div class="budget-setting-button-section">
@@ -49,6 +51,7 @@ export default {
     settingBud() {
       this.$router.push({
         name: "BudgetSettingPage",
+        params: { categoryList: this.categoryList },
       });
     },
     changeMoney(amount) {

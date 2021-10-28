@@ -5,7 +5,7 @@
         <i class="fas fa-arrow-left"></i>
       </span>
     </div>
-    <BudgetSettingForm />
+    <BudgetSettingForm :categoryList="this.$route.params.categoryList" />
   </div>
 </template>
 
