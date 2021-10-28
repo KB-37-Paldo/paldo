@@ -5,7 +5,7 @@
     </div>
     <div>
       <span class="main__money__font"
-        >{{ categoryList.totalAmount }}원 남음</span
+        >{{ changeMoney(categoryList.totalAmount) }}원 남음</span
       >
     </div>
     <div class="budget-setting-button-section">
@@ -29,10 +29,12 @@
         </div>
       </div>
       <div class="mini-font-section mini__font">
-        <span>총 예산 {{ categoryList.totalAmount }}원</span><br />
+        <span>총 예산 {{ changeMoney(categoryList.totalAmount) }}원</span><br />
         <span
           >남은 예산
-          {{ categoryList.totalAmount - categoryList.totalOutlay }}원</span
+          {{
+            changeMoney(categoryList.totalAmount - categoryList.totalOutlay)
+          }}원</span
         >
       </div>
     </div>
@@ -48,6 +50,9 @@ export default {
       this.$router.push({
         name: "BudgetSettingPage",
       });
+    },
+    changeMoney(amount) {
+      return amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     },
   },
 };

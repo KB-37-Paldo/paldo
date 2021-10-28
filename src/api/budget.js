@@ -52,10 +52,14 @@ function fetchCategorySpending(categoryInfo) {
   );
 }
 
-// // 최근 3개월 평균 지출, 지난달 지출 금액 조회
-// function fetchLastSpanding(userId){
-//     return instance.get(``;)
-// }
+// 주별 지출내역
+function fetchWeekSpending(monthData) {
+  return instance.get(`budget-service/expense/${monthData.userId}/week`, {
+    params: {
+      requestDate: monthData.requestDate,
+    },
+  });
+}
 
 // // 예산설정
 // function updateBudget(categoryInfo) {
@@ -67,6 +71,7 @@ export {
   //   fetchSpendingAnalysis,
   createSpending,
   fetchCategorySpending,
+  fetchWeekSpending,
   //   fetchBudget,
   fetchAllCategory,
   //   updateBudget,

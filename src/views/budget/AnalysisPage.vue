@@ -6,7 +6,10 @@
       </span>
     </div>
     <div class="mt__ten">
-      <AnalysisTopSection :month="this.$route.params.month" />
+      <AnalysisTopSection
+        :month="this.$route.params.month"
+        :categoryList="this.$route.params.categoryList"
+      />
       <AnalysisMainSection
         :month="this.$route.params.month"
         :categoryList="this.$route.params.categoryList"
