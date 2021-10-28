@@ -100,11 +100,14 @@
             ></meter>
           </div>
           <div class="category-budget">
-            <span class="micro__font">예산 {{ category.amount }}원</span>
+            <span class="micro__font"
+              >예산 {{ changeMoney(category.amount) }}원</span
+            >
           </div>
           <div class="category-floating-right">
             <span class="micro__font"
-              >남은 예산 {{ category.amount - category.outlay }}원</span
+              >남은 예산
+              {{ changeMoney(category.amount - category.outlay) }}원</span
             >
           </div>
         </div>
@@ -115,7 +118,7 @@
 
 <script>
 export default {
-  props: ["categoryList"],
+  props: ["month", "categoryList"],
   components: {},
   methods: {
     settingBud() {
@@ -126,8 +129,11 @@ export default {
     goDetail(category) {
       this.$router.push({
         name: "CategoryDetailPage",
-        params: { category },
+        params: { month: this.month, category },
       });
+    },
+    changeMoney(amount) {
+      return amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     },
   },
 };

@@ -5,7 +5,10 @@
         <i class="fas fa-arrow-left"></i>
       </span>
     </div>
-    <CategoryDetailItem :category="this.$route.params.category" />
+    <CategoryDetailItem
+      :month="this.$route.params.month"
+      :category="this.$route.params.category"
+    />
   </div>
 </template>
 
@@ -20,6 +23,7 @@ export default {
       });
     },
   },
+
   name: "Params",
 };
 </script>

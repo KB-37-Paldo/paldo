@@ -7,19 +7,16 @@
         v-for="(week, index) in weekList"
         :key="index"
       >
-        <span
-          >{{ week.week }}
-          <span class="summary-date"
-            >({{ week.startDate }} - {{ week.endDate }})</span
-          >
-        </span>
+        <span>{{ week.week }}주차 </span>
         <span class="category-floating-right">
-          {{ week.spending }}
+          {{ changeMoney(week.totalAmount) }}원
         </span>
       </div>
       <div class="sum-spending category__font">
         <span class="summary-date">총 지출</span>
-        <span class="category-floating-right">615,000원 </span>
+        <span class="category-floating-right"
+          >{{ changeMoney(categoryList.totalOutlay) }}원
+        </span>
       </div>
     </div>
 
@@ -32,39 +29,34 @@
 
 <script>
 import SpendingChart from "@/components/budget/SpendingChart.vue";
+import { fetchWeekSpending } from "@/api/budget";
 export default {
-  props: ["categoryList"],
-  data() {
-    return {
-      weekList: [
-        {
-          week: "11월 1주",
-          startDate: "10.31",
-          endDate: "10.31",
-          spending: "12,000원",
-        },
-        {
-          week: "10월 4주",
-          startDate: "10.24",
-          endDate: "10.30",
-          spending: "1,000원",
-        },
-        {
-          week: "10월 3주",
-          startDate: "10.17",
-          endDate: "10.23",
-          spending: "12,400원",
-        },
-        {
-          week: "10월 2주",
-          startDate: "10.10",
-          endDate: "10.16",
-          spending: "8,000원",
-        },
-      ],
-    };
+  props: ["month", "categoryList"],
+  created() {
+    this.monthData.requestDate = this.month;
+    this.getWeekSpending();
+  },
+  methods: {
+    async getWeekSpending() {
+      const spending = await fetchWeekSpending(this.monthData).then((res) => {
+        this.weekList = res.data;
+      });
+      console.log(spending);
+    },
+    changeMoney(amount) {
+      return amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    },
   },
   components: { SpendingChart },
+  data() {
+    return {
+      monthData: {
+        userId: 1,
+        requestDate: "",
+      },
+      weekList: [],
+    };
+  },
 };
 </script>
 

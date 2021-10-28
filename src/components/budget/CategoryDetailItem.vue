@@ -2,7 +2,7 @@
   <div>
     <div class="main__money__font">{{ category }}</div>
     <div class="main__money__font category-floating-right">
-      총 {{ totalAmount }}원
+      총 {{ changeMoney(totalAmount) }}원
     </div>
 
     <br />
@@ -72,7 +72,7 @@
         <span class="mini__font">{{ spend.source }}</span>
       </div>
       <div class="category-floating-right">
-        <span class="mini__font">{{ spend.amount }}원</span>
+        <span class="mini__font">{{ changeMoney(spend.amount) }}원</span>
       </div>
     </div>
   </div>
@@ -81,9 +81,10 @@
 <script>
 import { fetchCategorySpending } from "@/api/budget";
 export default {
-  props: ["category"],
+  props: ["category", "month"],
 
   created() {
+    this.categoryInfo.requestDate = this.month;
     this.getSpending();
   },
   methods: {
@@ -92,10 +93,12 @@ export default {
         (res) => {
           this.spendingList = res.data.expenseResponses;
           this.totalAmount = res.data.totalAmount;
-          console.log(this.spendingList);
         }
       );
       console.log(spending);
+    },
+    changeMoney(amount) {
+      return amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     },
   },
   data() {
@@ -103,7 +106,7 @@ export default {
       categoryInfo: {
         userId: 1,
         category: this.category,
-        requestDate: new Date().toISOString().substr(0, 7),
+        requestDate: "",
       },
       spendingList: [],
       totalAmount: "",

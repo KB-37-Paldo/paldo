@@ -41,11 +41,15 @@
       <div>
         <div>
           <span style="font-size: 25px">지출 </span>
-          <span style="font-size: 30px">{{ categoryList.totalOutlay }}원</span>
+          <span style="font-size: 30px"
+            >{{ changeMoney(categoryList.totalOutlay) }}원</span
+          >
         </div>
         <div>
           <span style="font-size: 25px">수입 </span>
-          <span style="font-size: 30px">{{ categoryList.totalIncome }}원</span>
+          <span style="font-size: 30px"
+            >{{ changeMoney(categoryList.totalIncome) }}원</span
+          >
         </div>
         <div class="anaysis-button-section">
           <v-btn
@@ -58,7 +62,7 @@
       </div>
 
       <BudgetTopSection :categoryList="categoryList" />
-      <BudgetBottomSection :categoryList="categoryList" />
+      <BudgetBottomSection :month="this.date" :categoryList="categoryList" />
       <BudgetSideBar />
     </template>
     <!-- 예산설정 안했을 때 -->
@@ -117,6 +121,9 @@ export default {
         name: "AnalysisPage",
         params: { month: this.date, categoryList: this.categoryList },
       });
+    },
+    changeMoney(amount) {
+      return amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     },
   },
   data: () => ({
