@@ -118,3 +118,74 @@ $ git branch -d 개발완료한 브랜치 이름
 
 ![image-20211018153331591](README.assets/image-20211018153331591.png)
 
+
+## 3. 화면 구성
+
+### 1. 초기화면
+![1](README.assets/capture/1.png)
+
+### 2. 포트폴리오 없는 경우 선택화면
+![2](README.assets/capture/2.png)
+
+### 3-1-a. 다음에 하겠습니다.
+![3-1-b](README.assets/capture/3-1-b.png)
+
+### 3-1-b. 네, 만들래요! (나이/연봉 입력)
+![3-1-a](README.assets/capture/3-1-a.png)
+
+### 3-2. 투자 유형 선택 화면
+![3-2](README.assets/capture/3-2.png)
+
+### 3-3. 목표 기간 설정 화면
+![3-3](README.assets/capture/3-3.png)
+
+### 3-4. 목표 금액 설정 화면
+![3-4](README.assets/capture/3-4.png)
+
+### 4-1. 추천 포트폴리오 조회 화면
+![4-1](README.assets/capture/4-1.png)
+
+### 4-2-a. 포트폴리오에 맞는 추천 금융상품 조회 화면
+![4-2-a](README.assets/capture/4-2-a.png)
+
+### 4-2-b. 항목별 추천 금융상품 리스트 조회 화면
+![4-2-b](README.assets/capture/4-2-b.png)
+
+### 5-1. 현재 자산 조회 화면
+![5-1](README.assets/capture/5-1.png)
+
+### 5-2. 자산 세부 정보 조회 화면(1)
+![5-2](README.assets/capture/5-2.png)
+
+### 5-3. 자산 세부 정보 조회 화면(2)
+![5-3](README.assets/capture/5-3.png)
+
+### 6-1. 같은 연령대의 포트폴리오 조회 화면
+![6-1](README.assets/capture/6-1.png)
+
+### 6-2. 비슷한 연봉대의 포트폴리오 조회 화면
+![6-2](README.assets/capture/6-2.png)
+
+### 6-3. 비슷한 투자성향의 포트폴리오 조회 화면
+![6-3](README.assets/capture/6-3.png)
+
+### 7. 메뉴 이동 화면
+![7](README.assets/capture/7.png)
+
+### 8-1. 지출/수입 내역 조회 화면
+![8-1](README.assets/capture/8-1.png)
+
+### 8-2. 지출 수입 내역 분석 화면
+![8-2](README.assets/capture/8-2.png)
+
+### 9-1. 지출 내역에 따른 한 달 추천 예산 조회 화면
+![9-1](README.assets/capture/9-1.png)
+
+### 9-2. 예산 수정 화면
+![9-2](README.assets/capture/9-2.png)
+
+### 9-3. 예산 항목별 지출/수입 내역 조회 화면
+![9-3](README.assets/capture/9-3.png)
+
+### 10. 구독 관리 페이지 진입 화면
+![10](README.assets/capture/10.png)
