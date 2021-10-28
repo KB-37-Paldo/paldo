@@ -5,7 +5,8 @@
         <i class="fas fa-arrow-left"></i>
       </span>
     </div>
-    <div class="mt__ten">
+    <div >
+      <!-- class="mt__ten" -->
       <AnalysisTopSection
         :month="this.$route.params.month"
         :categoryList="this.$route.params.categoryList"

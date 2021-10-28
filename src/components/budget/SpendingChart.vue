@@ -123,7 +123,7 @@ export default {
                     tooltipItem.index
                   ] || 0;
                 if (label) {
-                  label += ": " + labelData + "%";
+                  label += ": " + labelData.toFixed(1) + "%";
                 }
                 // label += Math.round(tooltipItem.yLabel * 100) / 100;
                 return label;
