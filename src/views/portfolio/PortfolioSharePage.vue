@@ -2,7 +2,9 @@
   <div class="portfolio__div">
     <div class="mt__ten title__font">
       <span>
-        포트폴리오 셰어링
+        다른 사람들의</span>
+        <span class="block">
+        포트폴리오 보기
       </span>
       <div class="bgColor__lightgray mt__minusTen">
         <PortfolioShareItem shareType="age"/>
