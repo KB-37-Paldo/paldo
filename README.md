@@ -175,8 +175,11 @@ $ git branch -d 개발완료한 브랜치 이름
 ### 8-1. 지출/수입 내역 조회 화면
 ![8-1](README.assets/capture/8-1.png)
 
-### 8-2. 지출 수입 내역 분석 화면
+### 8-2. 지출/수입 내역 분석 화면
 ![8-2](README.assets/capture/8-2.png)
+
+### 8-3. 지출/수입 내역 추가 화면
+![8-3](README.assets/capture/8-3.png)
 
 ### 9-1. 지출 내역에 따른 한 달 추천 예산 조회 화면
 ![9-1](README.assets/capture/9-1.png)
