@@ -21,7 +21,9 @@
           </div>
           
           <img class="position__a about__img" :src="imgURL"/>
+          
         </div>
+        <span @click="goPortCreate" class="mini__font category-floating-right  pointer color__gray" >추천포트폴리오생성하기</span>
       </div>
       
     </div>
@@ -52,6 +54,13 @@ export default {
       userInfo :state => state.portfolio.userInfo
     })
   },
+  methods: {
+    goPortCreate() {
+      this.$router.push({
+        name: "PortfolioCreatePage"
+      });
+    }
+  }
 
 }
 </script>
