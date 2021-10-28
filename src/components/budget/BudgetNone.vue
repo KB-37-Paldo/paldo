@@ -12,7 +12,7 @@
       <span class=" mb__five title__font">
         네, 설정할게요!
       </span>
-      <span class="color__yellow right pointer" @click="settingBud">
+      <span class="color__yellow right pointer" @click="goCreate">
         <i class="fas fa-arrow-alt-circle-right"></i>
       </span>
     </div>
@@ -20,7 +20,7 @@
       <span class="title__font">
         다음에 하겠습니다.
       </span>
-      <span class="color__gray right pointer">
+      <span class="color__gray right pointer" @click="goSpending">
         <i class="fas fa-times-circle"></i>
       </span>
     </div>
@@ -30,11 +30,14 @@
 <script>
 export default {
   methods: {
-    settingBud() {
-      this.$router.push({ name: "BudgetSettingPage" });
+    goCreate() {
+      this.$router.replace({ name: "BudgetCreatePage" });
+    },
+    goSpending() {
+      this.$router.push({ name: "SpendingPage" });
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style></style>

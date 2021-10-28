@@ -22,11 +22,6 @@ function createSpending(addSpendingInfo) {
   );
 }
 
-// // 지출 분석
-// function fetchSpendingAnalysis(userId) {
-//   return instance.get(``);
-// }
-
 // 모든 카테고리 예산 조회
 function fetchAllCategory(allCategoryInfo) {
   return instance.get(
@@ -61,18 +56,32 @@ function fetchWeekSpending(monthData) {
   });
 }
 
-// // 예산설정
-// function updateBudget(categoryInfo) {
-//   return instance.put(``);
-// }
+// 예산생성 조회
+function fetchCreateData(userId) {
+  return instance.get(`budget-service/recommend/budget/${userId}`);
+}
+
+// 예산생성
+function createBudget(createInfo) {
+  console.log(createInfo);
+  return instance.get(`budget-service/${createInfo.userId}/budget`, createInfo);
+}
+
+// 예산설정
+function updateBudget(updateInfo) {
+  return instance.put(
+    `/budget-service/${updateInfo.userId}/budget`,
+    updateInfo
+  );
+}
 
 export {
   fetchSpending,
-  //   fetchSpendingAnalysis,
   createSpending,
   fetchCategorySpending,
   fetchWeekSpending,
-  //   fetchBudget,
+  createBudget,
   fetchAllCategory,
-  //   updateBudget,
+  fetchCreateData,
+  updateBudget,
 };
