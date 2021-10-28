@@ -57,19 +57,20 @@ const router = new Router({
       path: "/portfolio/asset",
       name: "AssetDetailPage",
       component: () => import("@/views/portfolio/AssetDetailPage.vue"),
-      props:true
+      props: true,
     },
     {
       path: "/recommend/product",
       name: "RecommendProductDetailPage",
-      component: () => import("@/views/portfolio/RecommendProductDetailPage.vue"),
-      props:true
+      component: () =>
+        import("@/views/portfolio/RecommendProductDetailPage.vue"),
+      props: true,
     },
     {
       path: "/recommend/productlist",
       name: "RecommendPage",
       component: () => import("@/views/portfolio/RecommendPage.vue"),
-      props:true
+      props: true,
     },
     {
       path: "/spending",
@@ -85,6 +86,11 @@ const router = new Router({
       path: "/budget",
       name: "BudgetPage",
       component: () => import("@/views/budget/BudgetPage.vue"),
+    },
+    {
+      path: "/budget/create",
+      name: "BudgetCreatePage",
+      component: () => import("@/views/budget/BudgetCreatePage.vue"),
     },
     {
       path: "/budget/setting",
@@ -120,7 +126,7 @@ const router = new Router({
 //   setTimeout(() => {
 //       store.commit('endSpinner');
 //     }, 30000);
-    
+
 // })
 
 export default router;
