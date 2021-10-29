@@ -730,7 +730,7 @@ html {
   position: sticky;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -779,7 +779,7 @@ html {
   position: sticky;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
