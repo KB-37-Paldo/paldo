@@ -1,5 +1,5 @@
 <template>
-  <div class="mt__ten">
+  <div class="pl__ten">
     <div class="sub__font">이번 달 추천 예산</div>
     <div class="main__money__font">
       <span>{{ changeMoney(categoryList.totalAmount) }}원</span>
@@ -81,6 +81,7 @@
             <div class="category-floating-right">
               <v-text-field
                 class="setting-text-area"
+                disabled="true"
                 :label="changeMoney(category.amount)"
               ></v-text-field>
             </div>
