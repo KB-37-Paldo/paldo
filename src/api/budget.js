@@ -64,7 +64,10 @@ function fetchCreateData(userId) {
 // 예산생성
 function createBudget(createInfo) {
   console.log(createInfo);
-  return instance.get(`budget-service/${createInfo.userId}/budget`, createInfo);
+  return instance.post(
+    `budget-service/${createInfo.userId}/budget`,
+    createInfo
+  );
 }
 
 // 예산설정

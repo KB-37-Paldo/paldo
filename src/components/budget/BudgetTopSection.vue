@@ -18,6 +18,11 @@
         >예산 설정</v-btn
       >
     </div>
+    <span
+      @click="goBudCreate"
+      class="mini__font category-floating-right  pointer color__gray"
+      >예산생성</span
+    >
 
     <div class="total-budget-chart-section">
       <div>
@@ -56,6 +61,11 @@ export default {
     },
     changeMoney(amount) {
       return amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    },
+    goBudCreate() {
+      this.$router.push({
+        name: "BudgetCreatePage",
+      });
     },
   },
 };
