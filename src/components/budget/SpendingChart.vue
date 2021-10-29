@@ -30,14 +30,21 @@ export default {
     this.trafficAmount = this.categoryList.traffic.amount;
     this.lifeAmount = this.categoryList.life.amount;
     this.medicalAmount = this.categoryList.medical.amount;
-    this.chartData[0] = (this.cafeAmount / this.totalAmount) * 100;
-    this.chartData[1] = (this.congratulationsAmount / this.totalAmount) * 100;
-    this.chartData[2] = (this.cultureAmount / this.totalAmount) * 100;
-    this.chartData[3] = (this.foodAmount / this.totalAmount) * 100;
-    this.chartData[4] = (this.shoppingAmount / this.totalAmount) * 100;
-    this.chartData[5] = (this.trafficAmount / this.totalAmount) * 100;
+    this.chartData[2] = (this.cafeAmount / this.totalAmount) * 100;
+    this.chartData[5] = (this.congratulationsAmount / this.totalAmount) * 100;
+    this.chartData[4] = (this.cultureAmount / this.totalAmount) * 100;
+    this.chartData[0] = (this.foodAmount / this.totalAmount) * 100;
+    this.chartData[1] = (this.shoppingAmount / this.totalAmount) * 100;
+    this.chartData[3] = (this.trafficAmount / this.totalAmount) * 100;
     this.chartData[6] = (this.lifeAmount / this.totalAmount) * 100;
     this.chartData[7] = (this.medicalAmount / this.totalAmount) * 100;
+    console.log(
+      this.totalAmount,
+      this.trafficAmount,
+      this.categoryList,
+      this.chartData,
+      "차트"
+    );
   },
   data() {
     return {
